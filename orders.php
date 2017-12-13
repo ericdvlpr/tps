@@ -1,6 +1,8 @@
 <?php include 'includes/header.php';?>  
     <div class="container-fluid"> 
                 <div class="row">
+
+						<?php //include 'includes/sidemenu.php';?> 
               			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	          				<h1 class="page-header">Employees</h1>
 							<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
@@ -11,11 +13,12 @@
 							            <table id="employee_data" class="table table-bordered table-striped">  
 								                <thead>
                                     <tr>  
-                                       <th width="14%">Employee ID</th>  
-                                       <th width="14%">Employee Name</th>    
+                                       <th width="14%">Order ID</th>  
+                                       <th width="14%">Customer Name</th>    
+                                       <th width="14%">Product Name</th>    
                                        <th width="14%">Address</th>  
-                                       <th width="14%">Gender</th>  
-                                       <th width="14%">Birthday</th>  
+                                       <th width="14%">Contact Number</th>  
+                                       <th width="14%">Quantity</th>  
                                        <th width="14%">Command</th>  
                                   </tr>
                                 </thead>
@@ -23,21 +26,21 @@
 								                <tbody >
                                        <?php 
 
-                                             $query ="SELECT * FROM employees";  
-                                             $result = mysqli_query($object->connect, $query);
-                                              while($row = mysqli_fetch_object($result))  
-                                                  {  
-                                                       echo '  
-                                                       <tr>  
-                                                            <td>'.$row->employee_id.'</td>  
-                                                            <td>'.$row->employee_name.'</td>  
-                                                            <td>'.$row->address.'</td>  
-                                                            <td>'.$row->gender.'</td>  
-                                                            <td>'.$row->birthday.'</td>  
-                                                            <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteEmployee">Delete</button></td>  
-                                                       </tr>  
-                                                       ';  
-                                                  }  
+                                             // $query ="SELECT * FROM employees";  
+                                             // $result = mysqli_query($object->connect, $query);
+                                             //  while($row = mysqli_fetch_object($result))  
+                                             //      {  
+                                             //           echo '  
+                                             //           <tr>  
+                                             //                <td>'.$row->employee_id.'</td>  
+                                             //                <td>'.$row->employee_name.'</td>  
+                                             //                <td>'.$row->address.'</td>  
+                                             //                <td>'.$row->gender.'</td>  
+                                             //                <td>'.$row->birthday.'</td>  
+                                             //                <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteEmployee">Delete</button></td>  
+                                             //           </tr>  
+                                             //           ';  
+                                             //      }  
                                         ?>        
                                 </tbody>
 								        </table>        

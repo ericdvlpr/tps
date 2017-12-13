@@ -1,30 +1,21 @@
  $(document).ready(function(){  
-           load_resident_data();  
-           load_questions_data();
-           function load_resident_data(){  
-                var action = "Employee";  
+           load_employee_data(); 
+           $('#employee_data').DataTable();
+           function load_employee_data(){  
+                var action = "Employee"; 
+                
                 $.ajax({  
                      url:"core/action.php",  
                      method:"POST",  
                      data:{action:action},  
                      success:function(data)  
                      {  
-                          $('#resident_table').html(data);  
+                           
+                          $('#employee_table').html(data);  
                      }  
                 });  
            }
-           function load_questions_data(){  
-                var action = "Questions";  
-                $.ajax({  
-                     url:"core/action.php",  
-                     method:"POST",  
-                     data:{action:action},  
-                     success:function(data)  
-                     {  
-                          $('#question_table').html(data);  
-                     }  
-                });  
-           }  
+ 
            $('#employeeform').on('submit', function(event){  
                 event.preventDefault();  
                 // var action=$('#action').val();
@@ -43,24 +34,7 @@
                     }  
                });  
            });
-           $('#questionForm').on('submit', function(event){  
-                event.preventDefault();  
-                // var action=$('#action').val();
-               $.ajax({  
-                    url:"core/action.php",  
-                    method:"POST",  
-                    data:new FormData(this),  
-                    contentType:false,  
-                    processData:false,  
-                    success:function(data)  
-                    {  
-                         $('#myModalExam').modal('toggle');
-                         alert(data);  
-                         $('#questionForm')[0].reset();  
-                         load_questions_data();  
-                    }  
-               });  
-           });
+
           $(document).on('click','.updateEmployee', function(){
                   var res_id = $(this).attr("id");
                   $('#button_action').val("Save changes");
@@ -105,5 +79,5 @@
                     }else {
                          return false;
                         }
-                  });         
+              });         
 });  

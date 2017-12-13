@@ -7,7 +7,7 @@ if(isset($_POST["action"])) {
              echo $object->get_data_in_table("SELECT * FROM users ORDER BY id DESC");  
         }
         if($_POST["action"] == "Employee") {  
-             echo $object->get_resident_data("SELECT * FROM employees");  
+             echo $object->get_employee_data("SELECT * FROM employees");  
         } 
         if($_POST["action"] == "Questions") {  
              echo $object->get_question_data("SELECT * FROM exam_questions");  
