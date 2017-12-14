@@ -1,15 +1,16 @@
  <?php include 'includes/header.php';?>  
     <div class="container-fluid"> 
                 <div class="row">
-
-						<?php //include 'includes/sidemenu.php';?> 
+<br />
+                <br />
+                <br />
               			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           				<div class="panel panel-default">
 						  <div class="panel-heading">
 						    <h3 class="panel-title">Delivery</h3>
 						  </div>
 						  <div class="panel-body">
-						    	<table id="delivery_data"  class="table table-striped table-bordered">
+						    	<table id="delivery_data"class="table table-striped table-bordered">
 						    		<thead>
 						    			<tr>
 						    				<td>Delivery #</td>
@@ -22,7 +23,24 @@
 						    			</tr>
 						    		</thead>
 						    		<tbody>
-						    			
+						    				<?php 
+
+                                             // $query ="SELECT * FROM deliveries";  
+                                             // $result = mysqli_query($object->connect, $query);
+                                             //  while($row = mysqli_fetch_object($result))  
+                                             //      {  
+                                             //           echo '  
+                                             //           <tr>  
+                                             //                <td>'.$row->id.'</td>  
+                                             //                <td>'.$row->employee_name.'</td>  
+                                             //                <td>'.$row->address.'</td>  
+                                             //                <td>'.$row->gender.'</td>  
+                                             //                <td>'.$row->birthday.'</td>  
+                                             //                <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteEmployee">Delete</button></td>  
+                                             //           </tr>  
+                                             //           ';  
+                                             //      }  
+                                        ?>       
 						    		</tbody>
 						    	</table>
 						  </div>

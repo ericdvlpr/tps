@@ -15,6 +15,8 @@
                 <li><a href="customer.php">Customer</a></li>
                 <li><a href="employee.php">Employee</a></li>
                 <li><a href="delivery.php">Delivery</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="orders.php">Orders</a></li>
                 <li><a href="task.php">Task</a></li>
                 <li><a href="reports.php">Reports</a></li>
                 <li><a href="users.php">Users</a></li>

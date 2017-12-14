@@ -22,7 +22,25 @@
 						    			</tr>
 						    		</thead>
 						    		<tbody >
-						    			
+						    			<?php 
+
+                                             // $query ="SELECT * FROM task WHERE employee_id = '$employee_id'";  
+                                             // $result = mysqli_query($object->connect, $query);
+                                             //  while($row = mysqli_fetch_object($result))  
+                                             //      {  
+                                             //           echo '  
+                                             //           <tr>  
+                                             //                <td>'.$row->id.'</td>  
+                                             //                <td>'.$row->subject.'</td>  
+                                             //                <td>'.$row->description.'</td>  
+                                             //                <td>'.$row->assigned.'</td>  
+                                             //                <td>'.$row->due.'</td>  
+						    			//    <td>'.$row->employee_id.'</td> 
+                                             //  <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteEmployee">Delete</button></td>  
+                                             //           </tr>  
+                                             //           ';  
+                                             //      }  
+                                        ?>       
 						    		</tbody>
 						    	</table>
 						  </div>

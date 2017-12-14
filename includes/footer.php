@@ -1,6 +1,7 @@
       </body> 
       <script src="js/jquery.min.js"></script>  
            <script src="js/bootstrap.min.js"></script>                      
+           <script src="js/bootstrap-select.min.js"></script>                      
             <!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
            <script src="js/jquery.dataTables.min.js"></script>
 		<script src="js/general.js"></script>

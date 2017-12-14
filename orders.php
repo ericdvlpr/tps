@@ -14,10 +14,10 @@
 								                <thead>
                                     <tr>  
                                        <th width="14%">Order ID</th>  
-                                       <th width="14%">Customer Name</th>    
-                                       <th width="14%">Product Name</th>    
+                                       <th width="14%">Product Name</th> 
+                                       <th width="14%">Customer Name</th>
                                        <th width="14%">Address</th>  
-                                       <th width="14%">Contact Number</th>  
+                                       <th width="14%">Contact Number</th>
                                        <th width="14%">Quantity</th>  
                                        <th width="14%">Command</th>  
                                   </tr>
@@ -26,17 +26,18 @@
 								                <tbody >
                                        <?php 
 
-                                             // $query ="SELECT * FROM employees";  
+                                             // $query ="SELECT * FROM orders";  
                                              // $result = mysqli_query($object->connect, $query);
                                              //  while($row = mysqli_fetch_object($result))  
                                              //      {  
                                              //           echo '  
                                              //           <tr>  
-                                             //                <td>'.$row->employee_id.'</td>  
-                                             //                <td>'.$row->employee_name.'</td>  
+                                             //                <td>'.$row->id.'</td>  
+                                             //                <td>'.$row->product_id.'</td>  
+                                             //                <td>'.$row->customer_id.'</td>  
                                              //                <td>'.$row->address.'</td>  
-                                             //                <td>'.$row->gender.'</td>  
-                                             //                <td>'.$row->birthday.'</td>  
+                                             //                <td>'.$row->contact_number.'</td>
+                                             //<td>'.$row->quantity.'</td>  
                                              //                <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteEmployee">Delete</button></td>  
                                              //           </tr>  
                                              //           ';  
@@ -53,60 +54,32 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Order</h4>
       </div>
       <div class="modal-body">
        			<form class="form-horizontal" id="employeeform" method="Post" class="collapse">
       <div class="modal-body">
         
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-3 control-label text-left">Employee ID</label>
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Order ID</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control"  name="employeeID" id="employeeID" placeholder="Employee ID" readonly="true" value="<?php echo $num = substr(str_shuffle("0123456789"), -4);?>">
+            <input type="text" class="form-control"  name="orderID" id="orderID"  readonly="true" value="<?php echo $num = substr(str_shuffle("0123456789"), -4);?>">
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Last Name</label>
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Product ID</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control"  name="lname" id="lname" placeholder="Last Name" required="true">
+              <select class="selectpicker" data-live-search="true">
+                <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+                <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+              </select>
           </div>
         </div>
-         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">First Name</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control"  name="fname" id="fname"  placeholder="First Name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Middle Name</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control"  name="mdname" id="mdname"  placeholder="Middle Name">
-          </div>
-        </div>
-         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Complete Address</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control"  name="address" id="address"  placeholder="Complete Address">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Gender</label>
-          <div class="col-sm-9">
-            <select name="gender" id="gender" class="form-control" required="true">
-              <option value="">Please Select</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Birthday</label>
-          <div class="col-sm-9">
-            <input type="date" class="form-control" name="bday" id="bday"  placeholder="Birthday">
-          </div>
-        </div>
-        <input type="hidden" name="action" id="action" value="addEmployee" />
-        <input type="hidden" name="employee_id" id="employee_id" />
+        
+
+        <input type="hidden" name="action" id="action" value="addOrder" />
+        <input type="hidden" name="order_id" id="order_id" />
         
       </div>
       <div class="modal-footer">
