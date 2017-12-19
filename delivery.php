@@ -6,14 +6,22 @@
                 <br />
               			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           				<div class="panel panel-default">
+
 						  <div class="panel-heading">
-						    <h3 class="panel-title">Delivery</h3>
+						 <div align="right">
+						    	<button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#myModal">
+							  Make Delivery
+							</button>
+						    <h3 class="panel-title" align="left">Delivery</h3>
+						    
+						</div>	
 						  </div>
 						  <div class="panel-body">
-						    	<table id="delivery_data"class="table table-striped table-bordered">
+						    	<table id="delivery_data" class="table table-striped table-bordered">
 						    		<thead>
 						    			<tr>
 						    				<td>Delivery #</td>
+						    				<td>Order #</td>
 						    				<td>Customer Name</td>
 						    				<td>Location</td>
 						    				<td>Delivery By:</td>
@@ -25,21 +33,30 @@
 						    		<tbody>
 						    				<?php 
 
-                                             // $query ="SELECT * FROM deliveries";  
-                                             // $result = mysqli_query($object->connect, $query);
-                                             //  while($row = mysqli_fetch_object($result))  
-                                             //      {  
-                                             //           echo '  
-                                             //           <tr>  
-                                             //                <td>'.$row->id.'</td>  
-                                             //                <td>'.$row->employee_name.'</td>  
-                                             //                <td>'.$row->address.'</td>  
-                                             //                <td>'.$row->gender.'</td>  
-                                             //                <td>'.$row->birthday.'</td>  
-                                             //                <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteEmployee">Delete</button></td>  
-                                             //           </tr>  
-                                             //           ';  
-                                             //      }  
+                                             $query ="SELECT * FROM deliveries JOIN employees e USING (employee_id)";  
+                                             $result = mysqli_query($object->connect, $query);
+                                              while($row = mysqli_fetch_object($result))  
+                                                  {  
+
+                                                  	if($row->status == 0) {
+                                                  		$status = 'Pending';
+                                                  	}else{
+                                                  		$status = 'Delivered';
+                                                  	}
+
+                                                       echo '  
+                                                       <tr>  
+                                                            <td>'.$row->delivery_id.'</td>  
+                                                            <td>'.$row->order_id.'</td>  
+                                                            <td>'.$row->customer_name.'</td>  
+                                                            <td>'.$row->address.'</td>  
+                                                            <td>'.$row->employee_id.'</td>  
+                                                            <td>'.$row->date_delivered.'</td>  
+                                                            <td>'.$status.'</td>  
+                                                            <td><button type="button" name="update" id="'.$row->delivery_id.'" class="btn btn-success btn-xs updateDelivery">Update</button></td>  
+                                                       </tr>  
+                                                       ';  
+                                                  }  
                                         ?>       
 						    		</tbody>
 						    	</table>
@@ -52,61 +69,52 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
+        <button type="button" class="close" id="makeDelivery" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Make Delivery</h4>
       </div>
       <div class="modal-body">
-       			<form class="form-horizontal" id="employeeform" method="Post" class="collapse">
+       			<form class="form-horizontal" id="deliveryform" method="Post" class="collapse">
       <div class="modal-body">
         
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-3 control-label text-left">Employee ID</label>
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Delivery ID</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control"  name="employeeID" id="employeeID" placeholder="Employee ID" readonly="true" value="<?php echo $num = substr(str_shuffle("0123456789"), -4);?>">
+            <input type="text" class="form-control"  name="deliveryID" id="deliveryID" placeholder="Delivery ID" readonly="true" value="<?php echo $num = substr(str_shuffle("0123456789"), -4);?>">
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Last Name</label>
+          <label for="inputPassword3" class="col-sm-3 control-label text-left">Order ID</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control"  name="lname" id="lname" placeholder="Last Name" required="true">
-          </div>
-        </div>
-         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">First Name</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control"  name="fname" id="fname"  placeholder="First Name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Middle Name</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control"  name="mdname" id="mdname"  placeholder="Middle Name">
-          </div>
-        </div>
-         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Complete Address</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control"  name="address" id="address"  placeholder="Complete Address">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Gender</label>
-          <div class="col-sm-9">
-            <select name="gender" id="gender" class="form-control" required="true">
+          		 <select class="selectpicker" name="orderID" id="orderID" data-live-search="true">
               <option value="">Please Select</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-            </select>
+                  <?php
+                      $query ="SELECT * FROM orders";  
+                       $result = mysqli_query($object->connect, $query);
+                        while($row = mysqli_fetch_object($result))  
+                            {  
+                              echo '<option value="'.$row->order_id.'">'.$row->order_id.'</option>   
+                                
+                                 ';  
+                            }  
+                  ?>
+              </select>
+          </div>
+        </div>
+  		<div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Customer Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control"  name="customerName" id="customerName" placeholder="Customer Name">
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-3 control-label text-left">Birthday</label>
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Customer Location</label>
           <div class="col-sm-9">
-            <input type="date" class="form-control" name="bday" id="bday"  placeholder="Birthday">
+            <input type="text" class="form-control"  name="customerLocation" id="customerLocation" placeholder="Customer Location">
           </div>
         </div>
-        <input type="hidden" name="action" id="action" value="addEmployee" />
-        <input type="hidden" name="employee_id" id="employee_id" />
+
+        <input type="hidden" name="action" id="action" value="adddDelivery" />
+        <input type="hidden" name="delivery_id" id="delivery_id" />
         
       </div>
       <div class="modal-footer">

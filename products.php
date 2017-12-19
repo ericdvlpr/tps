@@ -5,44 +5,52 @@
 						<?php //include 'includes/sidemenu.php';?> 
               			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	          				<h1 class="page-header">Products</h1>
-							<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-							  Add Product
-							</button>	
+						
 			          			<div class="row placeholders">
-				          	
-							            <table id="employee_data" class="table table-bordered table-striped">  
-								                <thead>
-                                    <tr>  
-                                       <th width="14%">Product ID</th>  
-                                       <th width="14%">Product Name</th> 
-                                       <th width="14%">Description</th>
+				          	<div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Customers</h3>
+                      
+                  </div>
+                        <div class="panel-body">
+                          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                Add Product
+              </button> 
+      							            <table id="product_data" class="table table-bordered table-striped">  
+      								                <thead>
+                                          <tr>  
+                                             <th width="14%">Product ID</th>  
+                                             <th width="14%">Product Name</th> 
+                                             <th width="14%">Description</th>
 
-                                       <th width="14%">Quantity</th>  
-                                       <th width="14%">Command</th>  
-                                  </tr>
-                                </thead>
-                                
-								                <tbody >
-                                       <?php 
+                                             <th width="14%">Quantity</th>  
+                                             <th width="14%">Command</th>  
+                                        </tr>
+                                      </thead>
+                                      
+      								                <tbody >
+                                             <?php 
 
-                                             $query ="SELECT * FROM items";  
-                                             $result = mysqli_query($object->connect, $query);
-                                              while($row = mysqli_fetch_object($result))  
-                                                  {  
-                                                       echo '  
-                                                       <tr>  
-                                                            
-                                                            <td>'.$row->item_id.'</td>  
-                                                            <td>'.$row->item_name.'</td>  
-                                                            <td>'.$row->description.'</td>  
-                                                            <td>'.$row->quantity.'</td> 
-                                                            <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateProduct">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteProduct">Delete</button></td>  
-                                                       </tr>  
-                                                       ';  
-                                                  }  
-                                        ?>        
-                                </tbody>
-								        </table>        
+                                                   $query ="SELECT * FROM products";  
+                                                   $result = mysqli_query($object->connect, $query);
+                                                    while($row = mysqli_fetch_object($result))  
+                                                        {  
+                                                             echo '  
+                                                             <tr>  
+                                                                  
+                                                                  <td>'.$row->product_id.'</td>  
+                                                                  <td>'.$row->product_name.'</td>  
+                                                                  <td>'.$row->description.'</td>  
+                                                                  <td>'.$row->quantity.'</td> 
+                                                                  <td><button type="button" name="update" id="'.$row->product_id.'" class="btn btn-success btn-xs updateProduct">Update</button></td>  
+                                                             </tr>  
+                                                             ';  
+                                                        }  
+                                              ?>        
+                                      </tbody>
+      								          </table> 
+                              </div>
+                        </div>       
 			          		</div>
            </div>
      </div>  

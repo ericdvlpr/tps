@@ -1,51 +1,57 @@
 <?php include 'includes/header.php';?>  
     <div class="container-fluid"> 
                 <div class="row">
-
-						<?php //include 'includes/sidemenu.php';?> 
-              			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	          				<h1 class="page-header">Employees</h1>
-							<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-							  Add Employee
-							</button>	
-			          			<div class="row placeholders">
-				          	
-							            <table id="employee_data" class="table table-bordered table-striped">  
-								                <thead>
-                                    <tr>  
-                                       <th width="14%">Order ID</th>  
-                                       <th width="14%">Product Name</th> 
-                                       <th width="14%">Customer Name</th>
-                                       <th width="14%">Address</th>  
-                                       <th width="14%">Contact Number</th>
-                                       <th width="14%">Quantity</th>  
-                                       <th width="14%">Command</th>  
-                                  </tr>
-                                </thead>
-                                
-								                <tbody >
-                                       <?php 
-
-                                             // $query ="SELECT * FROM orders";  
-                                             // $result = mysqli_query($object->connect, $query);
-                                             //  while($row = mysqli_fetch_object($result))  
-                                             //      {  
-                                             //           echo '  
-                                             //           <tr>  
-                                             //                <td>'.$row->id.'</td>  
-                                             //                <td>'.$row->product_id.'</td>  
-                                             //                <td>'.$row->customer_id.'</td>  
-                                             //                <td>'.$row->address.'</td>  
-                                             //                <td>'.$row->contact_number.'</td>
-                                             //<td>'.$row->quantity.'</td>  
-                                             //                <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button><button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs deleteEmployee">Delete</button></td>  
-                                             //           </tr>  
-                                             //           ';  
-                                             //      }  
-                                        ?>        
-                                </tbody>
-								        </table>        
-			          		</div>
+                    <br/>
+                    <br/>
+              <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    	          	<h1 class="page-header">Orders</h1>
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Orders</h3>
+                          
+                      </div>
+                      <div class="panel-body">
+    			          			<div class="row placeholders">
+    				          	<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                    Add Order
+                  </button> 
+    							            <table id="employee_data" class="table table-bordered table-striped">  
+    								                <thead>
+                                        <tr>  
+                                           <th width="14%">Order ID</th>  
+                                           <th width="14%">Product Name</th> 
+                                           <th width="14%">Customer Name</th>
+                                           <th width="14%">Address</th>  
+                                           <th width="14%">Contact Number</th>
+                                           <th width="14%">Quantity</th>  
+                                           <th width="14%">Command</th>  
+                                      </tr>
+                                    </thead>
+                                    
+    								                <tbody >
+                                           <?php 
+                                                 $query ="SELECT * FROM orders o JOIN products i USING (product_id) JOIN customer c USING (customer_id) ";  
+                                                 $result = mysqli_query($object->connect, $query);
+                                                  while($row = mysqli_fetch_object($result))  
+                                                      {  
+                                                           echo '  
+                                                           <tr>  
+                                                                <td>'.$row->order_id.'</td>  
+                                                                <td>'.$row->product_name.'</td>  
+                                                                <td>'.$row->name.'</td>  
+                                                                <td>'.$row->address.'</td>  
+                                                                <td>'.$row->contact_number.'</td>
+                                                                 <td>'.$row->order_quantity.'</td>  
+                                                                <td><button type="button" name="update" id="'.$row->order_id.'" class="btn btn-success btn-xs updateOrder">Update</button></td>  
+                                                           </tr>  
+                                                           ';  
+                                                      }  
+                                            ?>        
+                                    </tbody>
+    								        </table>        
+    			          		</div>
+                    </div>
+                  </div>
            </div>
      </div>  
 </div>
@@ -57,7 +63,7 @@
         <h4 class="modal-title" id="myModalLabel">Add Order</h4>
       </div>
       <div class="modal-body">
-       			<form class="form-horizontal" id="employeeform" method="Post" class="collapse">
+       			<form class="form-horizontal" id="orderform" method="Post" class="collapse">
       <div class="modal-body">
         
         <div class="form-group">
@@ -69,15 +75,57 @@
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label text-left">Product ID</label>
           <div class="col-sm-9">
-              <select class="selectpicker" data-live-search="true">
-                <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-                <option data-tokens="mustard">Burger, Shake and a Smile</option>
-                <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+              <select class="selectpicker" name="product" id="product" data-live-search="true">
+              <option value="">Please Select</option>
+                  <?php
+                      $query ="SELECT * FROM products";  
+                       $result = mysqli_query($object->connect, $query);
+                        while($row = mysqli_fetch_object($result))  
+                            {  
+                              echo '<option value="'.$row->product_id.'">'.$row->product_name.'</option>   
+                                
+                                 ';  
+                            }  
+                  ?>
               </select>
           </div>
         </div>
-        
-
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Customer</label>
+          <div class="col-sm-9">
+              <select class="selectpicker" name="customer" id="customer" data-live-search="true">
+                  <option value="">Please Select</option>
+                  <?php
+                      $query ="SELECT * FROM customer";  
+                       $result = mysqli_query($object->connect, $query);
+                        while($row = mysqli_fetch_object($result))  
+                            {  
+                              echo '<option value="'.$row->customer_id.'">'.$row->name.'</option>   
+                                
+                                 ';  
+                            }  
+                  ?>
+              </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Address</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control"  name="address" id="address" required="true" placeholder="Address">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Contact Number</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control"  name="number" id="number" placeholder="Contact Number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label text-left">Quantity</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control"  name="quantity" id="quantity" required="true" placeholder="Quantity">
+          </div>
+        </div>
         <input type="hidden" name="action" id="action" value="addOrder" />
         <input type="hidden" name="order_id" id="order_id" />
         

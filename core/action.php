@@ -27,9 +27,20 @@ if(isset($_POST["action"])) {
             $productName = mysqli_escape_string($object->connect,$_POST['product_name']);
             $description = mysqli_escape_string($object->connect,$_POST['description']);
             $productQty = mysqli_escape_string($object->connect,$_POST['product_qty']);   
-          $query="INSERT INTO items(item_id,item_name,description,quantity) VALUES ('".$productID."','".$productName."','".$description."','".$productQty."')";
+          $query="INSERT INTO products(product_id,product_name,description,quantity) VALUES ('".$productID."','".$productName."','".$description."','".$productQty."')";
           $object->execute_query($query);
           echo 'Product Data Inserted';
+        }
+        if($_POST["action"] == "addOrder") {  
+            $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);
+            $productID = mysqli_escape_string($object->connect,$_POST['product']);
+            $customerID = mysqli_escape_string($object->connect,$_POST['customer']);
+            $address = mysqli_escape_string($object->connect,$_POST['address']);  
+            $number = mysqli_escape_string($object->connect,$_POST['number']);  
+            $quantity = mysqli_escape_string($object->connect,$_POST['quantity']);   
+          $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_number,quantity) VALUES ('".$orderID."','".$customerID."','".$productID."','".$address."','".$number."','".$quantity."')";
+          $object->execute_query($query);
+          echo 'Order Data Inserted';
         }
         if($_POST["action"] == "addCustomer") {  
             $customerID = mysqli_escape_string($object->connect,$_POST['customerID']);
@@ -39,6 +50,28 @@ if(isset($_POST["action"])) {
           $query="INSERT INTO customer(customer_id,name,address,contact_number) VALUES ('".$customerID."','".$customerName."','".$address."','".$number."')";
           $object->execute_query($query);
           echo 'Customer Data Inserted';
+        }
+        if($_POST["action"] == "addTask") {  
+            $taskID = mysqli_escape_string($object->connect,$_POST['taskID']);
+            $subject = mysqli_escape_string($object->connect,$_POST['subject']);
+            $description = mysqli_escape_string($object->connect,$_POST['description']);
+            $date_assigned = mysqli_escape_string($object->connect,$_POST['date_assigned']);   
+            $due_date = mysqli_escape_string($object->connect,$_POST['due_date']);   
+            $employees = mysqli_escape_string($object->connect,$_POST['employees']);   
+          $query="INSERT INTO task(task_id,subject,description,assigned,due,employee_id,status) VALUES ('".$taskID."','".$subject."','".$description."','".$date_assigned."','".$due_date."','". $employees."','0')";
+          $object->execute_query($query);
+          echo 'Task Data Inserted';
+        }
+        if($_POST["action"] == "addDelivery") {  
+            $deliveryID = mysqli_escape_string($object->connect,$_POST['deliveryID']);  
+            $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);  
+            $customerName = mysqli_escape_string($object->connect,$_POST['customerName']);  
+            $customerLocation = mysqli_escape_string($object->connect,$_POST['customerLocation']);  
+           
+            // $employee_id = $_SESSION['id'];
+          $query="INSERT INTO deliveries(delivery_id,order_id,customer_name,address,employee_id,status) VALUES ('".$deliveryID."','".$orderID."','".$customerName."','".$customerLocation."','1','0')";
+          $object->execute_query($query);
+          echo 'Delivery Data Inserted';
         }
         if($_POST["action"]=="Fetch Employee Data") {
             $output =array();
@@ -74,14 +107,61 @@ if(isset($_POST["action"])) {
           }
           if($_POST["action"]=="Fetch Product Data") {
             $output =array();
-            $query = "SELECT * FROM items WHERE id ='".$_POST['item_id']."'";
+            $query = "SELECT * FROM products WHERE id ='".$_POST['product_id']."'";
             $result = $object->execute_query($query);
             while($row = mysqli_fetch_array($result)) {
               $output["id"] = $row["id"];
-              $output["item_id"] = $row["item_id"];
-              $output["item_name"] = $row["item_name"];
+              $output["product_id"] = $row["product_id"];
+              $output["product_name"] = $row["product_name"];
               $output["description"] = $row["description"];
               $output["quantity"] = $row["quantity"];
+            }
+            echo json_encode($output);
+          }
+          if($_POST["action"]=="Fetch Order Data") {
+            $output =array();
+            $query = "SELECT * FROM orders o JOIN customer c USING (customer_id) JOIN products p USING (product_id) WHERE order_id ='".$_POST['order_id']."'";
+            $result = $object->execute_query($query);
+            while($row = mysqli_fetch_array($result)) {
+              $output["id"] = $row["id"];
+              $output["order_id"] = $row["order_id"];
+              $output["customer_id"] = $row["customer_id"];
+              $output["customer_name"] = $row["name"];
+              $output["product_id"] = $row["product_id"];
+              $output["product_name"] = $row["product_name"];
+              $output["address"] = $row["address"];
+              $output["contact_number"] = $row["contact_number"];
+              $output["quantity"] = $row["order_quantity"];
+            }
+            echo json_encode($output);
+          }
+          if($_POST["action"]=="Fetch Task Data") {
+            $output =array();
+            $query = "SELECT * FROM task WHERE task_id ='".$_POST['task_id']."'";
+            $result = $object->execute_query($query);
+            while($row = mysqli_fetch_array($result)) {
+              $output["id"] = $row["id"];
+              $output["taskID"] = $row["task_id"];
+              $output["subject"] = $row["subject"];
+              $output["description"] = $row["description"];
+              $output["assigned"] = $row["assigned"];
+              $output["due"] = $row["due"];
+              $output["employee_id"] = $row["employee_id"];
+            }
+            echo json_encode($output);
+          }
+          if($_POST["action"]=="Fetch Delivery Data") {
+            $output =array();
+            $query = "SELECT * FROM deliveries WHERE delivery_id ='".$_POST['delivery_id']."'";
+            $result = $object->execute_query($query);
+            while($row = mysqli_fetch_array($result)) {
+              $output["id"] = $row["id"];
+              $output["delivery_id"] = $row["delivery_id"];
+              $output["order_id"] = $row["order_id"];
+              $output["customer_name"] = $row["customer_name"];
+              $output["address"] = $row["address"];
+              $output["due"] = $row["due"];
+              $output["employee_id"] = $row["employee_id"];
             }
             echo json_encode($output);
           }
@@ -109,6 +189,28 @@ if(isset($_POST["action"])) {
             $description = mysqli_escape_string($object->connect,$_POST['description']);
             $productQty = mysqli_escape_string($object->connect,$_POST['product_qty']);   
               $query = "UPDATE items SET  item_name='$productName', description='$description', quantity='$productQty' WHERE id = '".$_POST['product_id']."' ";
+              $object->execute_query($query);
+              echo 'Data Updated';/**/
+          }
+          if($_POST['action']=="Edit Order") {
+             $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);
+             $product = mysqli_escape_string($object->connect,$_POST['product']);
+             $customer = mysqli_escape_string($object->connect,$_POST['customer']);
+             $address = mysqli_escape_string($object->connect,$_POST['address']); 
+             $number = mysqli_escape_string($object->connect,$_POST['number']);  
+             $quantity = mysqli_escape_string($object->connect,$_POST['quantity']);   
+               $query = "UPDATE orders SET  product_id='$product', customer_id='$customer', address='$address',contact_number='$number',order_quantity='$quantity' WHERE id = '".$_POST['order_id']."' ";
+              $object->execute_query($query);
+              echo 'Data Updated';/**/
+          }
+          if($_POST['action']=="Edit Task") {
+             $taskID = mysqli_escape_string($object->connect,$_POST['taskID']);
+            $subject = mysqli_escape_string($object->connect,$_POST['subject']);
+            $description = mysqli_escape_string($object->connect,$_POST['description']);
+            $date_assigned = mysqli_escape_string($object->connect,$_POST['date_assigned']);   
+            $due_date = mysqli_escape_string($object->connect,$_POST['due_date']);   
+            $employees = mysqli_escape_string($object->connect,$_POST['employees']);    
+               $query = "UPDATE task SET  subject='$subject', description='$description',assigned='$date_assigned',due='$due_date',employee_id='$employees' WHERE id = '".$_POST['task_id']."' ";
               $object->execute_query($query);
               echo 'Data Updated';/**/
           }

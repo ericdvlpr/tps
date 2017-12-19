@@ -14,8 +14,7 @@
                                        <th width="14%">Employee ID</th>  
                                        <th width="14%">Employee Name</th>    
                                        <th width="14%">Address</th>  
-                                       <th width="14%">Gender</th>  
-                                       <th width="14%">Birthday</th>  
+                                       <th width="14%">Gender</th>                                         <th width="14%">Birthday</th>  
                                        <th width="14%">Command</th>  
                                   </tr>
                                 </thead>
