@@ -243,6 +243,32 @@
                     }
                   });
           });
+          $(document).on('click','.updateDelivery', function(){
+                  var delivery_id = $(this).attr("id");
+                  $('#button_action').val("Save changes");
+
+                  var action = "Fetch Delivery Data";
+                  $.ajax({
+                    url:"core/action.php",
+                    method:"POST",
+                    data:{delivery_id:delivery_id,action:action},
+                    dataType:"json",
+                    success:function(data){
+                      
+                      $("#myModal").modal('show');
+                      $("#order_id").val(data.id);
+                      $("#orderID").val(data.order_id);
+                      //$("#product").val(data.product_id);
+                      $("#product").selectpicker('val',data.product_id);
+                     // $("#customer").val(data.customer_id);
+                      $("#customer").selectpicker('val',data.customer_id);
+                      $("#address").val(data.address);
+                      $("#number").val(data.contact_number);
+                      $("#quantity").val(data.quantity);
+                      $('#action').val("Edit Order");
+                    }
+                  });
+          });
           $(document).on('click','.deleteEmployee', function(){
               var res_id = $(this).attr("id");
 
