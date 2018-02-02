@@ -4,16 +4,17 @@
                 <br />
                 <br />
                 <br />
-              			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		          				<div class="panel panel-default">
+              <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		          		<div class="panel panel-default">
 								  <div class="panel-heading">
+                    <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+                    Add Customer
+                  </button>
 								    <h3 class="panel-title">Customers</h3>
-								    	
+								    <br />
 								  </div>
 								  <div class="panel-body">
-								  <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-									  Add Customer
-									</button>
+								  
 								    	<table id="customer_data" class="table table-bordered table-striped">
 								    		<thead>
 								    			<tr>
@@ -47,8 +48,8 @@
 								    	</table>
 								  </div>
 							</div>
-           				</div>
-     			</div>  
+           </div>
+     	</div>  
 	</div>
 	 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">

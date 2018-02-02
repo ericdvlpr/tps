@@ -7,14 +7,16 @@
     	          	<h1 class="page-header">Orders</h1>
                   <div class="panel panel-default">
                       <div class="panel-heading">
+                        
+                        <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+                          Add Order
+                        </button> 
                         <h3 class="panel-title">Orders</h3>
-                          
+                          <br />
                       </div>
                       <div class="panel-body">
     			          			<div class="row placeholders">
-    				          	<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-                    Add Order
-                  </button> 
+    				          	
     							            <table id="employee_data" class="table table-bordered table-striped">  
     								                <thead>
                                         <tr>  
@@ -30,7 +32,7 @@
                                     
     								                <tbody >
                                            <?php 
-                                                 $query ="SELECT * FROM orders o JOIN products i USING (product_id) JOIN customer c USING (customer_id) ";  
+                                                 $query ="SELECT * FROM orders o JOIN products i USING (product_id) JOIN customer c USING (customer_id) WHERE status = 0 ";  
                                                  $result = mysqli_query($object->connect, $query);
                                                   while($row = mysqli_fetch_object($result))  
                                                       {  

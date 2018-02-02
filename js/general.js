@@ -1,10 +1,51 @@
  $(document).ready(function(){  
-
+            $('input[type=text]').attr("autocomplete","off");
             $('#employee_data').DataTable();
             $('#customer_data').DataTable();
             $('#product_data').DataTable();   
-            $('#task_data').DataTable();   
-
+            $('#task_data').DataTable(); 
+            $("#f_date").css("display","none");  
+            $("#t_date").css("display","none");  
+           
+            $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+               
+           });
+           $('#type').on('change',function(){
+              var type = $(this).val();
+              if(type=='delivery'){
+                $("#dateLabel1").html('From Date');
+                $("#dateLabel2").html('To Date');
+                $("#f_date").css("display","");  
+                $("#t_date").css("display","");  
+                 
+              }else if(type=='task'){
+                $("#dateLabel1").html('Assigned Date');
+                $("#dateLabel2").html('Due Date');
+                $("#f_date").css("display","");  
+                $("#t_date").css("display","");  
+                 
+              } 
+           });
+           $('#reportForm').on('submit',function(event){  
+            event.preventDefault();  
+ 
+                     $.ajax({  
+                          url:"core/action.php",  
+                          method:"POST",  
+                          data:new FormData(this),  
+                          contentType:false,  
+                          processData:false,  
+                          success:function(data)  
+                          {  
+                               $('#reports_table').html(data);  
+                          }  
+                     });  
+           });    
            $('#employeeform').on('submit', function(event){  
                 event.preventDefault();  
                 // var action=$('#action').val();
@@ -91,6 +132,24 @@
                          $('#myModal').modal('toggle');
                          alert(data);  
                          $('#deliveryform')[0].reset();  
+                         window.location.reload(); 
+                    }  
+               });  
+           });
+            $('#userform').on('submit', function(event){  
+                event.preventDefault();  
+                // var action=$('#action').val();
+               $.ajax({  
+                    url:"core/action.php",  
+                    method:"POST",  
+                    data:new FormData(this),  
+                    contentType:false,  
+                    processData:false,  
+                    success:function(data)  
+                    {  
+                         $('#myModal').modal('toggle');
+                         alert(data);  
+                         $('#userform')[0].reset();  
                          window.location.reload(); 
                     }  
                });  
@@ -213,7 +272,7 @@
                       $("#product_name").val(data.product_name);
                       $("#description").val(data.description);
                       $("#product_qty").val(data.quantity);
-                      $('#action').val("Edit Item");
+                      $('#action').val("Edit Product");
                     }
                   });
           });
@@ -246,7 +305,6 @@
           $(document).on('click','.updateDelivery', function(){
                   var delivery_id = $(this).attr("id");
                   $('#button_action').val("Save changes");
-
                   var action = "Fetch Delivery Data";
                   $.ajax({
                     url:"core/action.php",
@@ -257,15 +315,35 @@
                       
                       $("#myModal").modal('show');
                       $("#order_id").val(data.id);
-                      $("#orderID").val(data.order_id);
+                      $("#orderID").selectpicker('val',data.order_id);
                       //$("#product").val(data.product_id);
-                      $("#product").selectpicker('val',data.product_id);
+                      $("#delivery_id").val(data.delivery_id);
                      // $("#customer").val(data.customer_id);
-                      $("#customer").selectpicker('val',data.customer_id);
-                      $("#address").val(data.address);
+                      $("#customerName").val(data.customer_name);
+                      $("#customerLocation").val(data.address);
                       $("#number").val(data.contact_number);
                       $("#quantity").val(data.quantity);
-                      $('#action').val("Edit Order");
+                      $('#action').val("Edit Delivery");
+                    }
+                  });
+          });
+          $(document).on('click','.updateUser', function(){
+                  var id = $(this).attr("id");
+                  $('#button_action').val("Save changes");
+
+                  var action = "Fetch Users Data";
+                  $.ajax({
+                    url:"core/action.php",
+                    method:"POST",
+                    data:{id:id,action:action},
+                    dataType:"json",
+                    success:function(data){
+                      $("#assignto").css("display",none);
+                      $("#myModal").modal('show');
+                      $("#users_id").val(data.id);
+                      $("#username").val(data.username);
+                      $("#access").val(data.access);
+                      $('#action').val("Edit User");
                     }
                   });
           });

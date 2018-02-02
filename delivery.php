@@ -8,13 +8,11 @@
           				<div class="panel panel-default">
 
 						  <div class="panel-heading">
-						 <div align="right">
-						    	<button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#myModal">
+						    	<button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
 							  Make Delivery
 							</button>
 						    <h3 class="panel-title" align="left">Delivery</h3>
-						    
-						</div>	
+                <br />
 						  </div>
 						  <div class="panel-body">
 						    	<table id="delivery_data" class="table table-striped table-bordered">
@@ -25,7 +23,8 @@
 						    				<td>Customer Name</td>
 						    				<td>Location</td>
 						    				<td>Delivery By:</td>
-						    				<td>Date of Delivery:</td>
+                        <td>Date of Delivery:</td>
+						    				<td>Date of Deliveried:</td>
 						    				<td>Status</td>
 						    				<td>Command</td>
 						    			</tr>
@@ -40,9 +39,11 @@
 
                                                   	if($row->status == 0) {
                                                   		$status = 'Pending';
+                                                  	}elseif($row->status == 1){
+                                                  		$status = 'Out for Delivery';
                                                   	}else{
-                                                  		$status = 'Delivered';
-                                                  	}
+                                                      $status = 'Deliveried';
+                                                    }
 
                                                        echo '  
                                                        <tr>  
@@ -50,8 +51,9 @@
                                                             <td>'.$row->order_id.'</td>  
                                                             <td>'.$row->customer_name.'</td>  
                                                             <td>'.$row->address.'</td>  
-                                                            <td>'.$row->employee_id.'</td>  
+                                                            <td>'.$row->employee_name.'</td>  
                                                             <td>'.$row->date_delivered.'</td>  
+                                                            <td>'.$row->dateofdelivery.'</td>  
                                                             <td>'.$status.'</td>  
                                                             <td><button type="button" name="update" id="'.$row->delivery_id.'" class="btn btn-success btn-xs updateDelivery">Update</button></td>  
                                                        </tr>  
@@ -85,7 +87,7 @@
         <div class="form-group">
           <label for="inputPassword3" class="col-sm-3 control-label text-left">Order ID</label>
           <div class="col-sm-9">
-          		 <select class="selectpicker" name="orderID" id="orderID" data-live-search="true">
+          		 <select class="selectpicker" readonly="true" name="orderID" id="orderID" data-live-search="true">
               <option value="">Please Select</option>
                   <?php
                       $query ="SELECT * FROM orders";  
@@ -103,17 +105,29 @@
   		<div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label text-left">Customer Name</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control"  name="customerName" id="customerName" placeholder="Customer Name">
+            <input type="text" class="form-control" readonly="true"  name="customerName" id="customerName" placeholder="Customer Name">
           </div>
         </div>
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label text-left">Customer Location</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control"  name="customerLocation" id="customerLocation" placeholder="Customer Location">
+            <input type="text" class="form-control" readonly="true" name="customerLocation" id="customerLocation" placeholder="Customer Location">
           </div>
         </div>
-
-        <input type="hidden" name="action" id="action" value="adddDelivery" />
+        <?php if($_SESSION["access"]==3){?>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-3 control-label text-left">Status</label>
+          <div class="col-sm-9">
+               <select class="selectpicker" readonly="true" name="status" id="status" data-live-search="true">
+              <option value="">Please Select</option>
+              <option value="1">Out For Delivery</option>
+              <option value="2">Deliveried</option>
+                 
+              </select>
+          </div>
+        </div>
+          <?php } ?>
+        <input type="hidden" name="action" id="action" value="addDelivery" />
         <input type="hidden" name="delivery_id" id="delivery_id" />
         
       </div>

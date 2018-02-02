@@ -1,25 +1,34 @@
 <?php include 'includes/header.php';?>  
     <div class="container-fluid"> 
                 <div class="row">
-              			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	          				<h1 class="page-header">Employees</h1>
-							<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-							  Add Employee
-							</button>	
-			          			<div class="row placeholders">
-				          	
-							            <table id="employee_data" class="table table-bordered table-striped">  
-								                <thead>
+                  <br />
+                  <br />
+                  <br />
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	          	<div class="panel panel-default">
+                  <div class="panel-heading">
+                    <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+                      Add Employee
+                    </button> 
+                    <h3 class="panel-title">Employees</h3>
+                    <br />
+                  </div>
+                    <div class="panel-body">
+                           <div class="row placeholders">
+                    
+                          <table id="employee_data" class="table table-bordered table-striped">  
+                                <thead>
                                     <tr>  
                                        <th width="14%">Employee ID</th>  
                                        <th width="14%">Employee Name</th>    
                                        <th width="14%">Address</th>  
-                                       <th width="14%">Gender</th>                                         <th width="14%">Birthday</th>  
+                                       <th width="14%">Gender</th>
+                                       <th width="14%">Birthday</th>  
                                        <th width="14%">Command</th>  
                                   </tr>
                                 </thead>
                                   
-								                <tbody  >
+                                <tbody  >
                                        <?php 
 
                                              $query ="SELECT * FROM employees";  
@@ -44,8 +53,10 @@
                                                   }  
                                         ?>        
                                 </tbody>
-								        </table>        
-			          		</div>
+                        </table>        
+                    </div>             
+                  </div>
+              </div>		
            </div>
      </div>  
 </div>
@@ -93,7 +104,7 @@
                         <input type="date" class="form-control" name="bday" id="bday"  placeholder="Birthday">
                       </div>
                     </div>
-                    <input type="text" name="action" id="action" value="addEmployee" />
+                    <input type="hidden" name="action" id="action" value="addEmployee" />
                     <input type="hidden" name="employee_id" id="employee_id" />
                     
                   </div>

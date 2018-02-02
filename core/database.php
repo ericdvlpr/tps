@@ -1,4 +1,5 @@
 <?php  
+session_start();
  class Database  
  {  
       //crud class  
@@ -18,7 +19,28 @@
       public function execute_query($query)  
       {  
            return mysqli_query($this->connect, $query);  
-      }  
+      } 
+      public function can_login($table_name,$where_condition){
+          $condition = '';
+          $array=array();
+          foreach ($where_condition as $key => $value) {
+             $condition .= $key . " = '".$value."' AND ";
+          }
+           $condition = substr($condition, 0, -5);
+             $query = "SELECT * FROM ".$table_name." WHERE ". $condition;
+           $result = mysqli_query($this->connect, $query);  
+                while ($record = mysqli_fetch_array($result)) {
+                   $array[] = $record;
+              }
+              return $array;
+          if(mysqli_num_rows($result) ){
+            return true;
+            
+          }else{
+            $this->error .= "<p>Wrong data</p>";
+          }
+
+        } 
       public function get_employee_data($query) {  
            $output = '';  
            $result = $this->execute_query($query);  
