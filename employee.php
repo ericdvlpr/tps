@@ -1,64 +1,58 @@
-<?php include 'includes/header.php';?>  
-    <div class="container-fluid"> 
-                <div class="row">
-                  <br />
-                  <br />
-                  <br />
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	          	<div class="panel panel-default">
-                  <div class="panel-heading">
-                    <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
-                      Add Employee
-                    </button> 
-                    <h3 class="panel-title">Employees</h3>
-                    <br />
-                  </div>
-                    <div class="panel-body">
-                           <div class="row placeholders">
-                    
-                          <table id="employee_data" class="table table-bordered table-striped">  
-                                <thead>
-                                    <tr>  
-                                       <th width="14%">Employee ID</th>  
-                                       <th width="14%">Employee Name</th>    
-                                       <th width="14%">Address</th>  
-                                       <th width="14%">Gender</th>
-                                       <th width="14%">Birthday</th>  
-                                       <th width="14%">Command</th>  
-                                  </tr>
-                                </thead>
-                                  
-                                <tbody  >
-                                       <?php 
+<?php include 'includes/header.php';?>
+<section class="content">
+  <div class="row">
+  <div class="col-xs-12">
+  	<div class="box">
+        <div class="box-header with-border">
+          <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+            Add Employee
+          </button>
+          <h3 class="box-title">Employees</h3>
+          <br />
+        </div>
+          <div class="box-body">
+                <table id="employee_data" class="table table-bordered table-striped">
+                      <thead>
+                          <tr>
+                             <th width="14%">Employee ID</th>
+                             <th width="14%">Employee Name</th>
+                             <th width="14%">Address</th>
+                             <th width="14%">Gender</th>
+                             <th width="14%">Birthday</th>
+                             <th width="14%">Command</th>
+                        </tr>
+                      </thead>
 
-                                             $query ="SELECT * FROM employees";  
-                                             $result = mysqli_query($object->connect, $query);
-                                              while($row = mysqli_fetch_object($result))  
-                                                  {  
-                                                     if($row->gender== 'M'){
-                                                          $gender = 'Male';
-                                                        }else{
-                                                          $gender = 'Female';
-                                                        }
-                                                       echo '  
-                                                       <tr>  
-                                                            <td>'.$row->employee_id.'</td>  
-                                                            <td>'.$row->employee_name.'</td>  
-                                                            <td>'.$row->address.'</td>  
-                                                            <td>'.$gender.'</td>  
-                                                            <td>'.$row->birthday.'</td>  
-                                                            <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button></td>  
-                                                       </tr>  
-                                                       ';  
-                                                  }  
-                                        ?>        
-                                </tbody>
-                        </table>        
-                    </div>             
-                  </div>
-              </div>		
-           </div>
-     </div>  
+                      <tbody  >
+                             <?php
+
+                                   $query ="SELECT * FROM employees";
+                                   $result = mysqli_query($object->connect, $query);
+                                    while($row = mysqli_fetch_object($result))
+                                        {
+                                           if($row->gender== 'M'){
+                                                $gender = 'Male';
+                                              }else{
+                                                $gender = 'Female';
+                                              }
+                                             echo '
+                                             <tr>
+                                                  <td>'.$row->employee_id.'</td>
+                                                  <td>'.$row->employee_name.'</td>
+                                                  <td>'.$row->address.'</td>
+                                                  <td>'.$gender.'</td>
+                                                  <td>'.$row->birthday.'</td>
+                                                  <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateEmployee">Update</button></td>
+                                             </tr>
+                                             ';
+                                        }
+                              ?>
+                      </tbody>
+              </table>
+        </div>
+    </div>
+ </section>
+ </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -106,7 +100,7 @@
                     </div>
                     <input type="hidden" name="action" id="action" value="addEmployee" />
                     <input type="hidden" name="employee_id" id="employee_id" />
-                    
+
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -116,7 +110,7 @@
       </div>
     </div>
   </div>
-</div>  
-<?php 
+</div>
+<?php
 include 'includes/footer.php';
 ?>

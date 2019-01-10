@@ -1,56 +1,48 @@
-<?php include 'includes/header.php';?>  
-    <div class="container-fluid"> 
-                <div class="row">
-                <br />
-                <br />
-                <br />
-              <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		          		<div class="panel panel-default">
-								  <div class="panel-heading">
-                    <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
-                    Add Customer
-                  </button>
-								    <h3 class="panel-title">Customers</h3>
-								    <br />
-								  </div>
-								  <div class="panel-body">
-								  
-								    	<table id="customer_data" class="table table-bordered table-striped">
-								    		<thead>
-								    			<tr>
-								    				<td>Customer #</td>
-								    				<td>Customer Name</td>
-								    				<td>Location</td>
-								    				<td>Contact Number</td>
-								    				<td>Command</td>
-								    			</tr>
-								    		</thead>
-								    		<tbody>
-								    			<?php 
+<?php include 'includes/header.php';?>
+    <section class="content">
+    		<div class="box">
+			  <div class="box-header with-border">
+          <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+          Add Customer
+        </button>
+			    <h3 class="box-title">Customers</h3>
+			    <br />
+			  </div>
+			  <div class="box-body">
 
-                                             $query ="SELECT * FROM customer";  
-                                             $result = mysqli_query($object->connect, $query);
-                                              while($row = mysqli_fetch_object($result))  
-                                                  {  
-                                                       echo '  
-                                                       <tr>  
-                                                            <td>'.$row->customer_id.'</td>  
-                                                            <td>'.$row->name.'</td>  
-                                                            <td>'.$row->address.'</td>  
-                                                            <td>'.$row->contact_number.'</td>  
-                                            
-                                                            <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateCustomer">Update</button></td>  
-                                                       </tr>  
-                                                       ';  
-                                                  }  
-                                        ?>       
-								    		</tbody>
-								    	</table>
-								  </div>
-							</div>
-           </div>
-     	</div>  
-	</div>
+			    	<table id="customer_data" class="table table-bordered table-striped">
+			    		<thead>
+			    			<tr>
+			    				<td>Customer #</td>
+			    				<td>Customer Name</td>
+			    				<td>Location</td>
+			    				<td>Contact Number</td>
+			    				<td>Command</td>
+			    			</tr>
+			    		</thead>
+			    		<tbody>
+			    			<?php
+                     $query ="SELECT * FROM customer";
+                     $result = mysqli_query($object->connect, $query);
+                      while($row = mysqli_fetch_object($result))
+                          {
+                               echo '
+                               <tr>
+                                    <td>'.$row->customer_id.'</td>
+                                    <td>'.$row->name.'</td>
+                                    <td>'.$row->address.'</td>
+                                    <td>'.$row->contact_number.'</td>
+
+                                    <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateCustomer">Update</button></td>
+                               </tr>
+                               ';
+                          }
+                      ?>
+			    		</tbody>
+			    	</table>
+			  </div>
+		</div>
+ </section>
 	 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
@@ -86,7 +78,7 @@
                     </div>
                     <input type="hidden" name="action" id="action" value="addCustomer" />
                     <input type="hidden" name="customer_id" id="customer_id" />
-                    
+
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -95,7 +87,7 @@
           </form>
 		    </div>
 	</div>
-</div> 
-<?php 
+</div>
+<?php
 include 'includes/footer.php';
 ?>

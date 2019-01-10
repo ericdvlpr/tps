@@ -1,85 +1,107 @@
-<?php  
- //action.php  
- include 'database.php';  
- $object = new Database();  
-if(isset($_POST["action"])) {  
-        if($_POST["action"] == "Load") {  
-             echo $object->get_data_in_table("SELECT * FROM users ORDER BY id DESC");  
+<?php
+ //action.php
+ include 'database.php';
+ $object = new Database();
+ if(isset($_POST['login'])){
+ 	$field = array(
+ 		'username' => $_POST['username'],
+ 		'password' => md5($_POST['password'])
+ 		);
+ 			if($object->can_login("users", $field)){
+ 				$post_data = $object->can_login("users", $field);
+ 				foreach($post_data as $post){
+
+ 				$_SESSION["username"] = $post["username"];
+ 				$_SESSION["id"] = $post['id'];;
+ 				$_SESSION["access"] = $post['access'];;
+ 				$_SESSION["assign"] = $post['assign'];;
+ 				header("location:../index.php");
+ 				}
+ 			}else{
+        $message = 'INVALID USERNAME AND PASSWORD';
+        header("location:../login.php?msg=".$message."");
+
+ 			}
+
+ }
+if(isset($_POST["action"])) {
+        if($_POST["action"] == "Load") {
+             echo $object->get_data_in_table("SELECT * FROM users ORDER BY id DESC");
         }
-        if($_POST["action"] == "Employee") {  
-             echo $object->get_employee_data("SELECT * FROM employees");  
-        } 
-        if($_POST["action"] == "Customer") {  
-             echo $object->get_employee_data("SELECT * FROM employees");  
-        }  
-        if($_POST["action"] == "addEmployee") {  
+        if($_POST["action"] == "Employee") {
+             echo $object->get_employee_data("SELECT * FROM employees");
+        }
+        if($_POST["action"] == "Customer") {
+             echo $object->get_employee_data("SELECT * FROM employees");
+        }
+        if($_POST["action"] == "addEmployee") {
            $employeeID = mysqli_escape_string($object->connect,$_POST['employeeID']);
            $employeeName = mysqli_escape_string($object->connect,$_POST['employee_name']);
            $address = mysqli_escape_string($object->connect,$_POST['address']);
            $gender = mysqli_escape_string($object->connect,$_POST['gender']);
-            $bday = mysqli_escape_string($object->connect,$_POST['bday']);    
+            $bday = mysqli_escape_string($object->connect,$_POST['bday']);
            $query="INSERT INTO employees(employee_id,employee_name,address,gender,birthday) VALUES ('".$employeeID."','".$employeeName."','".$address."','".$gender."','".$bday."')";
           $object->execute_query($query);
           echo 'Employee Data Inserted';
         }
-        if($_POST["action"] == "addProduct") {  
+        if($_POST["action"] == "addProduct") {
             $productID = mysqli_escape_string($object->connect,$_POST['productID']);
             $productName = mysqli_escape_string($object->connect,$_POST['product_name']);
             $description = mysqli_escape_string($object->connect,$_POST['description']);
-            $productQty = mysqli_escape_string($object->connect,$_POST['product_qty']);   
+            $productQty = mysqli_escape_string($object->connect,$_POST['product_qty']);
           $query="INSERT INTO products(product_id,product_name,description,quantity) VALUES ('".$productID."','".$productName."','".$description."','".$productQty."')";
           $object->execute_query($query);
           echo 'Product Data Inserted';
         }
-        if($_POST["action"] == "addOrder") {  
+        if($_POST["action"] == "addOrder") {
             $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);
             $productID = mysqli_escape_string($object->connect,$_POST['product']);
             $customerID = mysqli_escape_string($object->connect,$_POST['customer']);
-            $address = mysqli_escape_string($object->connect,$_POST['address']);  
-            $number = mysqli_escape_string($object->connect,$_POST['number']);  
-            $quantity = mysqli_escape_string($object->connect,$_POST['quantity']);   
+            $address = mysqli_escape_string($object->connect,$_POST['address']);
+            $number = mysqli_escape_string($object->connect,$_POST['number']);
+            $quantity = mysqli_escape_string($object->connect,$_POST['quantity']);
 $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_number,order_quantity) VALUES ('".$orderID."','".$customerID."','".$productID."','".$address."','".$number."','".$quantity."')";
            $query1 = "UPDATE products SET quantity=quantity-'$quantity' WHERE product_id='".$productID."' ";
           $object->execute_query($query1);
           $object->execute_query($query);
           echo 'Order Data Inserted';
         }
-        if($_POST["action"] == "addCustomer") {  
+        if($_POST["action"] == "addCustomer") {
             $customerID = mysqli_escape_string($object->connect,$_POST['customerID']);
             $customerName = mysqli_escape_string($object->connect,$_POST['customer_name']);
             $address = mysqli_escape_string($object->connect,$_POST['address']);
-            $number = mysqli_escape_string($object->connect,$_POST['number']);   
-          $query="INSERT INTO customer(customer_id,name,address,contact_number) VALUES ('".$customerID."','".$customerName."','".$address."','".$number."')";
-          $object->execute_query($query);
-          echo 'Customer Data Inserted';
+            $number = mysqli_escape_string($object->connect,$_POST['number']);
+            $query="INSERT INTO customer(customer_id,name,address,contact_number) VALUES ('".$customerID."','".$customerName."','".$address."','".$number."')";
+            $object->execute_query($query);
+            echo 'Customer Data Inserted';
         }
-        if($_POST["action"] == "addTask") {  
+        if($_POST["action"] == "addTask") {
             $taskID = mysqli_escape_string($object->connect,$_POST['taskID']);
             $subject = mysqli_escape_string($object->connect,$_POST['subject']);
             $description = mysqli_escape_string($object->connect,$_POST['description']);
-            $date_assigned = mysqli_escape_string($object->connect,$_POST['date_assigned']);   
-            $due_date = mysqli_escape_string($object->connect,$_POST['due_date']);   
-            $employees = mysqli_escape_string($object->connect,$_POST['employees']);   
+            $date_assigned = mysqli_escape_string($object->connect,$_POST['date_assigned']);
+            $due_date = mysqli_escape_string($object->connect,$_POST['due_date']);
+            $employees = mysqli_escape_string($object->connect,$_POST['employees']);
           $query="INSERT INTO task(task_id,subject,description,assigned,due,employee_id,status) VALUES ('".$taskID."','".$subject."','".$description."','".$date_assigned."','".$due_date."','". $employees."','0')";
           $object->execute_query($query);
           echo 'Task Data Inserted';
         }
-        if($_POST["action"] == "addDelivery") {  
-            $deliveryID = mysqli_escape_string($object->connect,$_POST['deliveryID']);  
-            $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);  
-            $customerName = mysqli_escape_string($object->connect,$_POST['customerName']);  
-            $customerLocation = mysqli_escape_string($object->connect,$_POST['customerLocation']);  
-           
+        if($_POST["action"] == "addDelivery") {
+            $deliveryID = mysqli_escape_string($object->connect,$_POST['deliveryID']);
+            $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);
+            $customerName = mysqli_escape_string($object->connect,$_POST['customerName']);
+            $customerLocation = mysqli_escape_string($object->connect,$_POST['customerLocation']);
+
             // $employee_id = $_SESSION['id'];
           $query="INSERT INTO deliveries(delivery_id,order_id,customer_name,address,employee_id,status) VALUES ('".$deliveryID."','".$orderID."','".$customerName."','".$customerLocation."','1','0')";
           $object->execute_query($query);
           echo 'Delivery Data Inserted';
         }
-        if($_POST["action"] == "addUsers") {  
-            $username = mysqli_escape_string($object->connect,$_POST['username']);  
-            $password = mysqli_escape_string($object->connect,md5($_POST['password']));  
-            $access = mysqli_escape_string($object->connect,$_POST['access']);  
-            $assign = mysqli_escape_string($object->connect,$_POST['assign']);  
+        if($_POST["action"] == "addUsers") {
+            $username = mysqli_escape_string($object->connect,$_POST['username']);
+            $password = mysqli_escape_string($object->connect,md5($_POST['password']));
+            $access = mysqli_escape_string($object->connect,$_POST['access']);
+            $assign = mysqli_escape_string($object->connect,$_POST['assign']);
             // $employee_id = $_SESSION['id'];
           $query0 ="UPDATE employees SET user_acct = '1' WHERE employee_id='$assign'";
           $query="INSERT INTO users(username,password,access,assign) VALUES ('".$username."','".$password."','".$access."','".$assign."')";
@@ -187,7 +209,7 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
               $output["username"] = $row["username"];
               $output["password"] = $row["password"];
               $output["access"] = $row["access"];
-             
+
             }
             echo json_encode($output);
           }
@@ -220,7 +242,7 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
                $customer_name = mysqli_escape_string($object->connect,$_POST['customer_name']);
                $address = mysqli_escape_string($object->connect,$_POST['address']);
                $number = mysqli_escape_string($object->connect,$_POST['number']);
-               
+
               $query = "UPDATE customer SET  name='$customer_name', address='$address', contact_number='$number' WHERE id = '".$_POST['customer_id']."' ";
               $object->execute_query($query);
               echo 'Data Updated';/**/
@@ -229,7 +251,7 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
           //      $productID = mysqli_escape_string($object->connect,$_POST['productID']);
           //   $productName = mysqli_escape_string($object->connect,$_POST['product_name']);
           //   $description = mysqli_escape_string($object->connect,$_POST['description']);
-          //   $productQty = mysqli_escape_string($object->connect,$_POST['product_qty']);   
+          //   $productQty = mysqli_escape_string($object->connect,$_POST['product_qty']);
           //     $query = "UPDATE items SET  item_name='$productName', description='$description', quantity='$productQty' WHERE id = '".$_POST['product_id']."' ";
           //     $object->execute_query($query);
           //     echo 'Data Updated';/**/
@@ -238,9 +260,9 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
              $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);
              $product = mysqli_escape_string($object->connect,$_POST['product']);
              $customer = mysqli_escape_string($object->connect,$_POST['customer']);
-             $address = mysqli_escape_string($object->connect,$_POST['address']); 
-             $number = mysqli_escape_string($object->connect,$_POST['number']);  
-             $quantity = mysqli_escape_string($object->connect,$_POST['quantity']);   
+             $address = mysqli_escape_string($object->connect,$_POST['address']);
+             $number = mysqli_escape_string($object->connect,$_POST['number']);
+             $quantity = mysqli_escape_string($object->connect,$_POST['quantity']);
                $query = "UPDATE orders SET  product_id='$product', customer_id='$customer', address='$address',contact_number='$number',order_quantity='$quantity' WHERE id = '".$_POST['order_id']."' ";
                $query1 = "UPDATE products SET quantity=quantity-'$quantity' WHERE product_id='".$product."' ";
           $object->execute_query($query1);
@@ -252,9 +274,9 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
              $deliveryID = mysqli_escape_string($object->connect,$_POST['deliveryID']);
              $orderID = mysqli_escape_string($object->connect,$_POST['orderID']);
              $customerName = mysqli_escape_string($object->connect,$_POST['customerName']);
-             $customerLocation = mysqli_escape_string($object->connect,$_POST['customerLocation']);  
-              $status = mysqli_escape_string($object->connect,$_POST['status']);  
-              $date = date('Y-m-j');  
+             $customerLocation = mysqli_escape_string($object->connect,$_POST['customerLocation']);
+              $status = mysqli_escape_string($object->connect,$_POST['status']);
+              $date = date('Y-m-j');
                $query = "UPDATE deliveries SET status = '$status', dateofdelivery = '$date' WHERE delivery_id = '".$_POST['delivery_id']."' ";
                $query = "UPDATE order SET status = 1 WHERE order_id = '$orderID' ";
               $object->execute_query($query);
@@ -264,177 +286,182 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
              $taskID = mysqli_escape_string($object->connect,$_POST['taskID']);
             $subject = mysqli_escape_string($object->connect,$_POST['subject']);
             $description = mysqli_escape_string($object->connect,$_POST['description']);
-            $date_assigned = mysqli_escape_string($object->connect,$_POST['date_assigned']);   
-            $due_date = mysqli_escape_string($object->connect,$_POST['due_date']);   
-            $employees = mysqli_escape_string($object->connect,$_POST['employees']); 
+            $date_assigned = mysqli_escape_string($object->connect,$_POST['date_assigned']);
+            $due_date = mysqli_escape_string($object->connect,$_POST['due_date']);
+            $employees = mysqli_escape_string($object->connect,$_POST['employees']);
             if(isset($_POST['status'])){
-              $status = mysqli_escape_string($object->connect,$_POST['status']); 
+              $status = mysqli_escape_string($object->connect,$_POST['status']);
                $query = "UPDATE task SET  subject='$subject', description='$description',assigned='$date_assigned',due='$due_date',status='$status' WHERE id = '".$_POST['task_id']."' ";
             }else{
                $query = "UPDATE task SET  subject='$subject', description='$description',assigned='$date_assigned',due='$due_date',employee_id='$employees',status='$status' WHERE id = '".$_POST['task_id']."' ";
-            }  
-               
-              
+            }
+
+
               $object->execute_query($query);
               echo 'Data Updated';/**/
           }
           if($_POST['action']=="Delete") {
-  
+
             $query = "DELETE FROM employees WHERE id = '".$_POST['employee_id']."' ";
              $object->execute_query($query);
              echo "Data Deleted";
           }
-          if($_POST['action']=='Report') {  
-            // if($_POST['type']=='product') {   
+          if($_POST['action']=='Report') {
+            // if($_POST['type']=='product') {
             //       $output='';
-            //       $query = " SELECT * FROM products";  
-            //       $result = mysqli_query($object->connect, $query);  
-            //       $output .= '  
-            //            <table class="table table-bordered">  
-            //                 <tr>  
-            //                      <th width="5%">Product ID</th>  
-            //                      <th width="30%">Product Name</th>  
-            //                      <th width="43%">Description</th>  
-            //                      <th width="10%">Quantity</th>  
-            //                 </tr>  
-            //       ';  
-            //       if(mysqli_num_rows($result) > 0)  
-            //       {  
-            //            while($row = mysqli_fetch_array($result))  
-            //            {  
-            //                 $output .= '  
-            //                      <tr>  
-            //                           <td>'. $row["product_id"] .'</td>  
-            //                           <td>'. $row["product_name"] .'</td>  
-            //                           <td>'. $row["description"] .'</td>  
-            //                           <td>'.$row["quantity"] .'</td>  
-            //                      </tr>  
-            //                 ';  
-            //            }  
-            //       }  
-            //       else  
-            //       {  
-            //            $output .= '  
-            //                 <tr>  
-            //                      <td colspan="5">No Order Found</td>  
-            //                 </tr>  
-            //            ';  
-            //       }  
-            //       $output .= '</table>';  
-            //       echo $output;  
-              
-            // }else 
-            if($_POST['type']=='delivery') {   
-                  $output='';
-                  $query = " SELECT * FROM deliveries JOIN employees USING (employee_id) date_delivered BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'";  
-                  $result = mysqli_query($object->connect, $query);  
+            //       $query = " SELECT * FROM products";
+            //       $result = mysqli_query($object->connect, $query);
+            //       $output .= '
+            //            <table class="table table-bordered">
+            //                 <tr>
+            //                      <th width="5%">Product ID</th>
+            //                      <th width="30%">Product Name</th>
+            //                      <th width="43%">Description</th>
+            //                      <th width="10%">Quantity</th>
+            //                 </tr>
+            //       ';
+            //       if(mysqli_num_rows($result) > 0)
+            //       {
+            //            while($row = mysqli_fetch_array($result))
+            //            {
+            //                 $output .= '
+            //                      <tr>
+            //                           <td>'. $row["product_id"] .'</td>
+            //                           <td>'. $row["product_name"] .'</td>
+            //                           <td>'. $row["description"] .'</td>
+            //                           <td>'.$row["quantity"] .'</td>
+            //                      </tr>
+            //                 ';
+            //            }
+            //       }
+            //       else
+            //       {
+            //            $output .= '
+            //                 <tr>
+            //                      <td colspan="5">No Order Found</td>
+            //                 </tr>
+            //            ';
+            //       }
+            //       $output .= '</table>';
+            //       echo $output;
+
+            // }else
+            if($_POST['type']=='delivery') {
+                $dates = explode('-',$_POST["daterange"]);
+                $startDate = $dates[0];
+                $endDate = $dates[1];
+                 $output='';
+                echo $query = " SELECT * FROM deliveries JOIN employees USING (employee_id) WHERE date_delivered BETWEEN '".$startDate."' AND '".$endDate."'";
+                  $result = mysqli_query($object->connect, $query);
                   $output .= '
                         <div class="btn-group">
                         <button class="btn btn-default" id="print" onclick="printContent(\'div1\')"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> PRINT</button>
                       </div>
-                  <div id="div1">  
-                       <table class="table table-bordered">  
-                            <tr>  
-                                 <th width="15%">Delivery ID</th>  
-                                 <th width="15%">Order ID</th>  
-                                 <th width="20%">Customer Name</th>  
-                                 <th width="20%">Address</th>  
-                                 <th width="10%">Employee</th>  
-                                 <th width="10%">Date of Delivery</th>  
-                                 <th width="10%">Status</th>  
-                            </tr>';  
-                  if(@mysqli_num_rows($result) > 0)  
-                  {  
-                       while($row = mysqli_fetch_array($result))  
-                       {  
+                  <div id="div1">
+                       <table class="table table-bordered">
+                            <tr>
+                                 <th width="15%">Delivery ID</th>
+                                 <th width="15%">Order ID</th>
+                                 <th width="20%">Customer Name</th>
+                                 <th width="20%">Address</th>
+                                 <th width="10%">Employee</th>
+                                 <th width="10%">Date of Delivery</th>
+                                 <th width="10%">Status</th>
+                            </tr>';
+                  if(@mysqli_num_rows($result) > 0)
+                  {
+                       while($row = mysqli_fetch_array($result))
+                       {
                         if($row["status"]==0){
                           $status = 'Out for Delivery';
                         }else{
                            $status = 'Delivered';
                         }
-                            $output .= '  
-                                 <tr>  
-                                      <td>'. $row["delivery_id"].'</td>  
-                                      <td>'. $row["order_id"].'</td>  
-                                      <td>'. $row["customer_name"].'</td>  
-                                      <td>'.$row["address"].'</td>  
-                                      <td>'.$row["employee_name"].'</td>  
-                                      <td>'.$row["date_delivered"].'</td>  
-                                      <td>'.$status.'</td>  
-                                 </tr>  
-                            ';  
-                       }  
-                  }  
-                  else  
-                  {  
-                       $output .= '  
-                            <tr>  
-                                 <td colspan="7">No Delivery Report Found</td>  
-                            </tr>  
-                       ';  
-                  }  
+                            $output .= '
+                                 <tr>
+                                      <td>'. $row["delivery_id"].'</td>
+                                      <td>'. $row["order_id"].'</td>
+                                      <td>'. $row["customer_name"].'</td>
+                                      <td>'.$row["address"].'</td>
+                                      <td>'.$row["employee_name"].'</td>
+                                      <td>'.$row["date_delivered"].'</td>
+                                      <td>'.$status.'</td>
+                                 </tr>
+                            ';
+                       }
+                  }
+                  else
+                  {
+                       $output .= '
+                            <tr>
+                                 <td colspan="7">No Delivery Report Found</td>
+                            </tr>
+                       ';
+                  }
                   $output .= '</table>
                               </div>
-                      ';  
-                  echo $output;  
-              
-            }elseif($_POST['type']=='task') {   
+                      ';
+                  echo $output;
+
+            }elseif($_POST['type']=='task') {
+              $dates = explode('-',$_POST["daterange"]);
+              $startDate = $dates[0];
+              $endDate = $dates[1];
                   $output='';
-                  $query = " SELECT * FROM task JOIN employees USING (employee_id) assigned BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."' OR due BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."' ";  
-                  $result = mysqli_query($object->connect, $query);  
+                  $query = " SELECT * FROM task JOIN employees USING (employee_id) WHERE assigned BETWEEN '".$startDate."' AND '".$endDate."' OR due BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."' ";
+                  $result = mysqli_query($object->connect, $query);
                   $output .= '
                   <div class="btn-group">
                         <button class="btn btn-default" id="print" onclick="printContent(\'div1\')"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> PRINT</button>
                       </div>
-                  
+
                   <div id="div1">
-  
-                       <table class="table table-bordered">  
-                            <tr>  
-                                 <th width="15%">Task ID</th>  
-                                 <th width="15%">Task Subject</th>  
-                                 <th width="20%">Description</th>  
-                                 <th width="20%">Date Assigned</th>  
-                                 <th width="20%">Date Due</th>  
-                                 <th width="10%">Employee</th>   
-                                 <th width="10%">Status</th>  
-                            </tr>';  
-                  if(@mysqli_num_rows($result) > 0)  
-                  {  
-                       while($row = mysqli_fetch_array($result))  
-                       {  
+
+                       <table class="table table-bordered">
+                            <tr>
+                                 <th width="15%">Task ID</th>
+                                 <th width="15%">Task Subject</th>
+                                 <th width="20%">Description</th>
+                                 <th width="20%">Date Assigned</th>
+                                 <th width="20%">Date Due</th>
+                                 <th width="10%">Employee</th>
+                                 <th width="10%">Status</th>
+                            </tr>';
+                  if(@mysqli_num_rows($result) > 0)
+                  {
+                       while($row = mysqli_fetch_array($result))
+                       {
                         if($row["status"]==0){
                           $status = 'Pending';
                         }else{
                            $status = 'Completed';
                         }
-                            $output .= '  
-                                 <tr>  
-                                      <td>'. $row["task_id"].'</td>  
-                                      <td>'. $row["subject"].'</td>  
-                                      <td>'. $row["description"].'</td>  
-                                      <td>'.$row["assigned"].'</td>  
-                                      <td>'.$row["due"].'</td>  
-                                      <td>'.$row["employee_name"].'</td>  
-                                      <td>'.$status.'</td>  
-                                 </tr>  
-                            ';  
-                       }  
-                  }  
-                  else  
-                  {  
-                       $output .= '  
-                            <tr>  
-                                 <td colspan="7">No Task Report Found</td>  
-                            </tr>  
-                       ';  
-                  }  
+                            $output .= '
+                                 <tr>
+                                      <td>'. $row["task_id"].'</td>
+                                      <td>'. $row["subject"].'</td>
+                                      <td>'. $row["description"].'</td>
+                                      <td>'.$row["assigned"].'</td>
+                                      <td>'.$row["due"].'</td>
+                                      <td>'.$row["employee_name"].'</td>
+                                      <td>'.$status.'</td>
+                                 </tr>
+                            ';
+                       }
+                  }
+                  else
+                  {
+                       $output .= '
+                            <tr>
+                                 <td colspan="7">No Task Report Found</td>
+                            </tr>
+                       ';
+                  }
                   $output .= '</table>
-                  </div>';  
-                  echo $output;  
-              
-            }   
-      }  
+                  </div>';
+                  echo $output;
+            }
+      }
 
-   }  
- ?>  
+   }
+ ?>

@@ -1,60 +1,50 @@
-<?php include 'includes/header.php';?>  
-    <div class="container-fluid"> 
-                <div class="row">
-                <br />
-						<?php //include 'includes/sidemenu.php';?> 
-              			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	          				<h1 class="page-header">Products</h1>
-						
-			          			<div class="row placeholders">
-				          	<div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Customers</h3>
-                      
+<?php include 'includes/header.php';?>
+    <section class="content">
+				 <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Products</h3>
+
+            </div>
+                  <div class="box-body">
+                    <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+          Add Product
+        </button>
+							            <table id="product_data" class="table table-bordered table-striped">
+								                <thead>
+                                    <tr>
+                                       <th width="14%">Product ID</th>
+                                       <th width="14%">Product Name</th>
+                                       <th width="14%">Description</th>
+
+                                       <th width="14%">Quantity</th>
+                                       <th width="14%">Command</th>
+                                  </tr>
+                                </thead>
+
+								                <tbody >
+                                       <?php
+
+                                             $query ="SELECT * FROM products";
+                                             $result = mysqli_query($object->connect, $query);
+                                              while($row = mysqli_fetch_object($result))
+                                                  {
+                                                       echo '
+                                                       <tr>
+
+                                                            <td>'.$row->product_id.'</td>
+                                                            <td>'.$row->product_name.'</td>
+                                                            <td>'.$row->description.'</td>
+                                                            <td>'.$row->quantity.'</td>
+                                                            <td><button type="button" name="update" id="'.$row->product_id.'" class="btn btn-success btn-xs updateProduct">Update</button></td>
+                                                       </tr>
+                                                       ';
+                                                  }
+                                        ?>
+                                </tbody>
+								          </table>
+                        </div>
                   </div>
-                        <div class="panel-body">
-                          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-                Add Product
-              </button> 
-      							            <table id="product_data" class="table table-bordered table-striped">  
-      								                <thead>
-                                          <tr>  
-                                             <th width="14%">Product ID</th>  
-                                             <th width="14%">Product Name</th> 
-                                             <th width="14%">Description</th>
-
-                                             <th width="14%">Quantity</th>  
-                                             <th width="14%">Command</th>  
-                                        </tr>
-                                      </thead>
-                                      
-      								                <tbody >
-                                             <?php 
-
-                                                   $query ="SELECT * FROM products";  
-                                                   $result = mysqli_query($object->connect, $query);
-                                                    while($row = mysqli_fetch_object($result))  
-                                                        {  
-                                                             echo '  
-                                                             <tr>  
-                                                                  
-                                                                  <td>'.$row->product_id.'</td>  
-                                                                  <td>'.$row->product_name.'</td>  
-                                                                  <td>'.$row->description.'</td>  
-                                                                  <td>'.$row->quantity.'</td> 
-                                                                  <td><button type="button" name="update" id="'.$row->product_id.'" class="btn btn-success btn-xs updateProduct">Update</button></td>  
-                                                             </tr>  
-                                                             ';  
-                                                        }  
-                                              ?>        
-                                      </tbody>
-      								          </table> 
-                              </div>
-                        </div>       
-			          		</div>
-           </div>
-     </div>  
-</div>
+       </section>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -65,7 +55,7 @@
       <div class="modal-body">
        			<form class="form-horizontal" id="employeeform" method="Post" class="collapse">
       <div class="modal-body">
-        
+
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label text-left">Product ID</label>
           <div class="col-sm-9">
@@ -83,7 +73,7 @@
           <div class="col-sm-9">
           <textarea name="description" class="form-control" id="description" required="true" cols="20" rows="10" placeholder="Description"></textarea>
           </div>
-        </div>  
+        </div>
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label text-left">Quantity</label>
           <div class="col-sm-9">
@@ -92,7 +82,7 @@
         </div>
         <input type="hidden" name="action" id="action" value="addProduct" />
         <input type="hidden" name="product_id" id="product_id" />
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -102,7 +92,7 @@
       </div>
     </div>
   </div>
-</div>  
-<?php 
+</div>
+<?php
 include 'includes/footer.php';
 ?>

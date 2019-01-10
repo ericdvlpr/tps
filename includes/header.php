@@ -1,22 +1,38 @@
- <?php  
+<!-- Developed by: ERIC PAUL JAUCIAN -->
+ <?php
 
- include 'core/database.php';  
- $object = new Database();  
- ?> 
- <html>  
-      <head>  
-   		<title>Transaction Processing System</title> 
-	     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />  
-	      <link rel="stylesheet" href="css/style.css"> -->
+ include 'core/database.php';
+ $object = new Database();
+ ?>
+ <html>
+      <head>
+   		<title>Transaction Processing System</title>
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+      <!-- jvectormap -->
+      <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
+      <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+      <!-- daterange picker -->
+      <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+      <!-- bootstrap datepicker -->
+      <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+      <!-- Theme style -->
+      <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+      <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+      <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-           <link rel="stylesheet" href="css/bootstrap.min.css" />  
-           <!-- <link rel="stylesheet" href="css/jquery.bootgrid.css" /> -->
-           <link rel="stylesheet" href="css/jquery.dataTables.min.css" /> 
-           <link rel="stylesheet" href="css/bootstrap-select.min.css" /> 
-           <link rel="stylesheet" href="css/jquery-ui.css" /> 
-            <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />  --> 
+      </head>
+      </head>
 
-      </head>  
-      </head> 
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
         <?php include 'includes/nav.php'; ?>
- <body>  
+        <?php include 'includes/sidemenu.php'; ?>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Content Header (Page header) -->

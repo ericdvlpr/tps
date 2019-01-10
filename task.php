@@ -1,24 +1,18 @@
-<?php include 'includes/header.php';?>  
-    <div class="container-fluid"> 
-                <div class="row">
-
-						<br>
-						<br>
-						<br>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          	<div class="panel panel-default">
-						  <div class="panel-heading">
-						    <h3 class="panel-title">Task</h3>
+<?php include 'includes/header.php';?>
+    <section class="content">
+          	<div class="box">
+						  <div class="box-header with-border">
+						    <h3 class="box-title">Task</h3>
 						  </div>
-						  <div class="panel-body">
+						  <div class="box-body">
                 <?php if($_SESSION["access"]==1){
                   ?>
 						  <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
 							  Add Task
-							</button>	
+							</button>
               <?php }?>
 						    	<table id="task_data" class="table table-striped table-bordered">
-						    		
+
                     <?php if($_SESSION["access"]==1){
                       ?>
                       <thead>
@@ -34,31 +28,31 @@
                       </tr>
                     </thead>
 						    		<tbody >
-						    			<?php 
-                       $query ="SELECT * FROM task t JOIN employees e USING (employee_id)";  
+						    			<?php
+                       $query ="SELECT * FROM task t JOIN employees e USING (employee_id)";
                                              $result = mysqli_query($object->connect, $query);
-                                              while($row = mysqli_fetch_object($result))  
-                                                  {  
+                                              while($row = mysqli_fetch_object($result))
+                                                  {
                                                      if($row->status==0){
                                                       $status = 'Pending';
                                                     }else{
                                                       $status = 'Completed';
                                                     }
 
-                                                       echo '  
-                                                       <tr>  
-                                                            <td>'.$row->task_id.'</td>  
-                                                            <td>'.$row->subject.'</td>  
-                                                            <td>'.$row->description.'</td>  
-                                                            <td>'.$row->assigned.'</td>  
-                                                            <td>'.$row->due.'</td>  
-						    			   <td>'.$row->employee_name.'</td> 
-                         <td>'.$status.'</td>  
-                                              <td><button type="button" name="update" id="'.$row->task_id.'" class="btn btn-success btn-xs updateTask">Update</button></td>  
-                                                       </tr>  
-                                                       ';  
-                                                  }  
-                                        ?>       
+                                                       echo '
+                                                       <tr>
+                                                            <td>'.$row->task_id.'</td>
+                                                            <td>'.$row->subject.'</td>
+                                                            <td>'.$row->description.'</td>
+                                                            <td>'.$row->assigned.'</td>
+                                                            <td>'.$row->due.'</td>
+						    			   <td>'.$row->employee_name.'</td>
+                         <td>'.$status.'</td>
+                                              <td><button type="button" name="update" id="'.$row->task_id.'" class="btn btn-success btn-xs updateTask">Update</button></td>
+                                                       </tr>
+                                                       ';
+                                                  }
+                                        ?>
 						    		</tbody>
                     <?php }else{ ?>
                     <thead>
@@ -72,37 +66,35 @@
                         <td>Command</td>
                       </tr>
                     </thead>
-                    <?php 
-                       $query ="SELECT * FROM task t JOIN employees e USING (employee_id) WHERE employee_id='".$_SESSION['assign']."'";  
+                    <?php
+                       $query ="SELECT * FROM task t JOIN employees e USING (employee_id) WHERE employee_id='".$_SESSION['assign']."'";
                            $result = mysqli_query($object->connect, $query);
-                                              while($row = mysqli_fetch_object($result))  
-                                                  {  
+                                              while($row = mysqli_fetch_object($result))
+                                                  {
                                                     if($row->status==0){
                                                       $status = 'Pending';
                                                     }else{
                                                       $status = 'Completed';
                                                     }
-                                                       echo '  
-                                                       <tr>  
-                                                            <td>'.$row->task_id.'</td>  
-                                                            <td>'.$row->subject.'</td>  
-                                                            <td>'.$row->description.'</td>  
-                                                            <td>'.$row->assigned.'</td>  
-                                                            <td>'.$row->due.'</td>  
-                                                            <td>'.$status.'</td>  
-                                              <td><button type="button" name="update" id="'.$row->task_id.'" class="btn btn-success btn-xs updateTask">Update</button></td>  
-                                                       </tr>  
-                                                       ';  
-                                                  }  
-                                        ?>       
+                                                       echo '
+                                                       <tr>
+                                                            <td>'.$row->task_id.'</td>
+                                                            <td>'.$row->subject.'</td>
+                                                            <td>'.$row->description.'</td>
+                                                            <td>'.$row->assigned.'</td>
+                                                            <td>'.$row->due.'</td>
+                                                            <td>'.$status.'</td>
+                                              <td><button type="button" name="update" id="'.$row->task_id.'" class="btn btn-success btn-xs updateTask">Update</button></td>
+                                                       </tr>
+                                                       ';
+                                                  }
+                                        ?>
                     </tbody>
                     <?php } ?>
 						    	</table>
 						  </div>
 						</div>
-           </div>
-     </div>  
-</div>
+</section>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -113,8 +105,8 @@
       <div class="modal-body">
        			<form class="form-horizontal" id="taskform" method="Post" class="collapse">
       <div class="modal-body">
-        
-        
+
+
         <?php if($_SESSION["access"]==1){
                       ?>
         <div class="form-group">
@@ -153,18 +145,18 @@
 	           <select class="selectpicker" name="employees" id="employees" data-live-search="true">
 	              <option value="">Please Select</option>
 	                  <?php
-	                      $query ="SELECT * FROM employees";  
+	                      $query ="SELECT * FROM employees";
 	                       $result = mysqli_query($object->connect, $query);
-	                        while($row = mysqli_fetch_object($result))  
-	                            {  
-	                              echo '<option value="'.$row->employee_id.'">'.$row->employee_name.'</option>   
-	                                
-	                                 ';  
-	                            }  
+	                        while($row = mysqli_fetch_object($result))
+	                            {
+	                              echo '<option value="'.$row->employee_id.'">'.$row->employee_name.'</option>
+
+	                                 ';
+	                            }
 	                  ?>
 
 	               <!--  <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option> -->
-	               
+
 	              </select>
           </div>
         </div>
@@ -204,7 +196,7 @@
           <div class="col-sm-9">
              <select class="form-control" name="status" id="status"  data-live-search="true">
                 <option value="0">Pending</option>
-                <option value="1">Completed</option> 
+                <option value="1">Completed</option>
                 </select>
           </div>
         </div>
@@ -212,7 +204,7 @@
 
         <input type="hidden" name="action" id="action" value="addTask" />
         <input type="hidden" name="task_id" id="task_id" />
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -222,7 +214,7 @@
       </div>
     </div>
   </div>
-</div>   
-<?php 
+</div>
+<?php
 include 'includes/footer.php';
 ?>
