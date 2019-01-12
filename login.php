@@ -1,48 +1,39 @@
-<?php 
-include "includes/head.php";
-
-
-if(isset($_POST['login'])){
-	$field = array(
-		'username' => $_POST['username'],
-		'password' => md5($_POST['password'])
-		);
-			if($object->can_login("users", $field)){
-				$post_data = $object->can_login("users", $field);
-				foreach($post_data as $post){
-				
-				$_SESSION["username"] = $post["username"];
-				$_SESSION["id"] = $post['id'];;
-				$_SESSION["access"] = $post['access'];;
-				$_SESSION["assign"] = $post['assign'];;
-				header("location:index.php");
-				}
-			}else{
-				$message = 'INVALID USERNAME AND PASSWORD';
-			}
-
-}
-
-?>
-<div class="row ">
-<form method="POST">
-	<div class="col-md-4 col-md-offset-4 well login">
-		<h1 class="page-header text-center">LOGIN</h1>
-		<?php if(isset($message)){
-						echo '<label class="text-danger text-center"><h3>'.$message.'</h3></label>';
-					} ?>
-		<div class="form-group">
-			<input type="text" name="username" class="form-control" placeholder="Enter Username" autocomplete="false" required="true"a autocomplete="off" />
-		</div>
-		<div class="form-group">
-			<input type="password" name="password" class="form-control" placeholder="Enter Password" required="true"  />
-		</div>
-		<input type="submit" name="login" class="btn btn-primary btn-block" value="Login" />
-	</div>
-</form>
-	
-
-</div>
-<?php 
-include "includes/footer.php";
-?>
+<?php
+include "includes/head.php";
+
+?>
+<div class="login-box">
+  <div class="login-logo">
+    <b>Transaction Processing System</b>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <form action="core/action.php" method="post">
+			<?php if(isset($_GET['msg'])){ ?>
+				<div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                <?php echo $_GET['msg']; ?>
+              </div>
+			<?php } ?>
+      <div class="form-group has-feedback">
+        <input type="text" name="username" class="form-control" placeholder="Email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" name="password" class="form-control" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+        <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+<?php
+// include "includes/footer.php";
+?>
