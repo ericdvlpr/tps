@@ -1,19 +1,24 @@
 <?php include 'includes/header.php';?>
     <section class="content">
           	<div class="box">
-						  <div class="box-header with-border">
-						    <h3 class="box-title">Task</h3>
+						  <div class="box-header with-border">                <?php if($_SESSION["access"]==1 || $_SESSION["access"]==0){
+
+                  ?>
+
+                <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+
+                Add Task
+
+                </button>
+
+                <?php }?>
+						    <h3 class="box-title">Task</h3>                <br />
 						  </div>
 						  <div class="box-body">
-                <?php if($_SESSION["access"]==1){
-                  ?>
-						  <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-							  Add Task
-							</button>
-              <?php }?>
+
 						    	<table id="task_data" class="table table-striped table-bordered">
 
-                    <?php if($_SESSION["access"]==1){
+                    <?php if($_SESSION["access"]==1 || $_SESSION["access"]==0){
                       ?>
                       <thead>
                       <tr>
@@ -100,14 +105,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Assign Task</h4>
+        <h4 class="modal-title" id="myModalLabel">Task</h4>
       </div>
       <div class="modal-body">
        			<form class="form-horizontal" id="taskform" method="Post" class="collapse">
       <div class="modal-body">
 
 
-        <?php if($_SESSION["access"]==1){
+        <?php if($_SESSION["access"]==1 || $_SESSION["access"]==0 ){
                       ?>
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label text-left">Task ID</label>
@@ -136,13 +141,13 @@
         <div class="form-group">
           <label for="inputPassword3" class="col-sm-3 control-label text-left">Due Date</label>
           <div class="col-sm-9">
-            <input type="date" class="form-control"  name="due_date" id="due_date" />
+            <input type="date" class="form-control"  name="due_date" id="due_date" />            <input type="hidden" class="form-control"  name="status" id="status" value="pending" />
           </div>
         </div>
         <div class="form-group">
           <label for="inputPassword3" class="col-sm-3 control-label text-left">Employees:</label>
           <div class="col-sm-9">
-	           <select class="selectpicker" name="employees" id="employees" data-live-search="true">
+	           <select class="form-control" name="employees" id="employees" >
 	              <option value="">Please Select</option>
 	                  <?php
 	                      $query ="SELECT * FROM employees";

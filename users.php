@@ -14,9 +14,8 @@
     <div class="box-body">
       <table id="employee_data" class="table table-bordered table-striped">
                 <thead>
-                    <tr>
-                       <th width="14%">Username</th>
-                       <th width="14%">Access</th>
+                    <tr>                       <th width="14%">Username</th>
+                       <th width="14%">Access</th>                       <th width="14%">Account</th>
                        <th width="14%">Command</th>
                   </tr>
                 </thead>
@@ -24,7 +23,7 @@
                 <tbody  >
                        <?php
 
-                             $query ="SELECT * FROM users WHERE access !=0";
+                             $query ="SELECT *, u.id as id FROM users u JOIN employees e ON u.assign = e.employee_id WHERE access !=0";
                              $result = mysqli_query($object->connect, $query);
                               while($row = mysqli_fetch_object($result))
                                   {
@@ -44,10 +43,9 @@
                                           break;
                                       }
                                        echo '
-                                       <tr>
-                                            <td>'.$row->username.'</td>
-                                            <td>'.$access.'</td>
-                                            <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateUser">Update</button></td>
+                                       <tr>                                            <td>'.$row->username.'</td>                                            <td>'.$access.'</td>																						<td>'.$row->employee_name.'</td>
+                                            <td><button type="button" name="update" id="'.$row->id.'" class="btn btn-success btn-xs updateUser">Update</button></td>
+
                                        </tr>
                                        ';
                                   }
@@ -62,7 +60,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Users</h4>
+        <h4 class="modal-title" id="myModalLabel">Users</h4>
       </div>
       <div class="modal-body">
           <form class="form-horizontal" id="userform" method="Post" class="collapse">
@@ -80,7 +78,7 @@
                           <select class="form-control" name="assign" id="assign" required>
                           <option value="">Please Select</option>
                           <?php
-                               $query ="SELECT * FROM employees WHERE user_acct=0";
+                               $query ="SELECT * FROM employees";
                                  $result = mysqli_query($object->connect, $query);
                                   while($row = mysqli_fetch_object($result))
                                       {

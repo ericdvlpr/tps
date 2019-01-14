@@ -1,14 +1,16 @@
 <?php include 'includes/header.php';?>
     <section class="content">
 				 <div class="box">
-            <div class="box-header with-border">
+            <div class="box-header with-border">              <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+
+              Add Product
+
+              </button>
               <h3 class="box-title">Products</h3>
 
             </div>
                   <div class="box-body">
-                    <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-          Add Product
-        </button>
+
 							            <table id="product_data" class="table table-bordered table-striped">
 								                <thead>
                                     <tr>
@@ -50,7 +52,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Order</h4>
+        <h4 class="modal-title" id="myModalLabel">Product</h4>
       </div>
       <div class="modal-body">
        			<form class="form-horizontal" id="employeeform" method="Post" class="collapse">

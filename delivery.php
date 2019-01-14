@@ -1,20 +1,16 @@
- <?php include 'includes/header.php';?>  
-    <div class="container-fluid"> 
-                <div class="row">
-<br />
-                <br />
-                <br />
-              			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          				<div class="panel panel-default">
+ <?php include 'includes/header.php';?> <section class="content">
+   <div class="row">
+     <div class="col-xs-12">
+          				<div class="box">
 
-						  <div class="panel-heading">
+						  <div class="box-header with-border">
 						    	<button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
 							  Make Delivery
 							</button>
-						    <h3 class="panel-title" align="left">Delivery</h3>
+						    <h3 class="box-title" align="left">Delivery</h3>
                 <br />
 						  </div>
-						  <div class="panel-body">
+						  <div class="box-body">
 						    	<table id="delivery_data" class="table table-striped table-bordered">
 						    		<thead>
 						    			<tr>
@@ -30,12 +26,10 @@
 						    			</tr>
 						    		</thead>
 						    		<tbody>
-						    				<?php 
-
-                                             $query ="SELECT * FROM deliveries JOIN employees e USING (employee_id)";  
+						    				<?php                             $query ="SELECT * FROM deliveries LEFT JOIN employees e USING (employee_id)";
                                              $result = mysqli_query($object->connect, $query);
-                                              while($row = mysqli_fetch_object($result))  
-                                                  {  
+                                              while($row = mysqli_fetch_object($result))
+                                                  {
 
                                                   	if($row->status == 0) {
                                                   		$status = 'Pending';
@@ -45,39 +39,37 @@
                                                       $status = 'Deliveried';
                                                     }
 
-                                                       echo '  
-                                                       <tr>  
-                                                            <td>'.$row->delivery_id.'</td>  
-                                                            <td>'.$row->order_id.'</td>  
-                                                            <td>'.$row->customer_name.'</td>  
-                                                            <td>'.$row->address.'</td>  
-                                                            <td>'.$row->employee_name.'</td>  
-                                                            <td>'.$row->date_delivered.'</td>  
-                                                            <td>'.$row->dateofdelivery.'</td>  
-                                                            <td>'.$status.'</td>  
-                                                            <td><button type="button" name="update" id="'.$row->delivery_id.'" class="btn btn-success btn-xs updateDelivery">Update</button></td>  
-                                                       </tr>  
-                                                       ';  
-                                                  }  
-                                        ?>       
+                                                       echo '
+                                                       <tr>
+                                                            <td>'.$row->delivery_id.'</td>
+                                                            <td>'.$row->order_id.'</td>
+                                                            <td>'.$row->customer_name.'</td>
+                                                            <td>'.$row->address.'</td>
+                                                            <td>'.$row->employee_name.'</td>
+                                                            <td>'.$row->date_delivered.'</td>
+                                                            <td>'.$row->dateofdelivery.'</td>
+                                                            <td>'.$status.'</td>
+                                                            <td><button type="button" name="update" id="'.$row->delivery_id.'" class="btn btn-success btn-xs updateDelivery">Update</button></td>
+                                                       </tr>
+                                                       ';
+                                                  }
+                                        ?>
 						    		</tbody>
 						    	</table>
 						  </div>
 						</div>
-           </div>
-     </div>  
-</div>
+           </div>     </div></section>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" id="makeDelivery" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Make Delivery</h4>
+        <h4 class="modal-title" id="myModalLabel">Delivery</h4>
       </div>
       <div class="modal-body">
        			<form class="form-horizontal" id="deliveryform" method="Post" class="collapse">
       <div class="modal-body">
-        
+
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label text-left">Delivery ID</label>
           <div class="col-sm-9">
@@ -87,17 +79,17 @@
         <div class="form-group">
           <label for="inputPassword3" class="col-sm-3 control-label text-left">Order ID</label>
           <div class="col-sm-9">
-          		 <select class="selectpicker" readonly="true" name="orderID" id="orderID" data-live-search="true">
+          		 <select class="form-control select2" readonly="true" name="orderID" id="orderID">
               <option value="">Please Select</option>
                   <?php
-                      $query ="SELECT * FROM orders";  
+                      $query ="SELECT * FROM orders";
                        $result = mysqli_query($object->connect, $query);
-                        while($row = mysqli_fetch_object($result))  
-                            {  
-                              echo '<option value="'.$row->order_id.'">'.$row->order_id.'</option>   
-                                
-                                 ';  
-                            }  
+                        while($row = mysqli_fetch_object($result))
+                            {
+                              echo '<option value="'.$row->order_id.'">'.$row->order_id.'</option>
+
+                                 ';
+                            }
                   ?>
               </select>
           </div>
@@ -122,14 +114,14 @@
               <option value="">Please Select</option>
               <option value="1">Out For Delivery</option>
               <option value="2">Deliveried</option>
-                 
+
               </select>
           </div>
         </div>
           <?php } ?>
         <input type="hidden" name="action" id="action" value="addDelivery" />
         <input type="hidden" name="delivery_id" id="delivery_id" />
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -139,10 +131,10 @@
       </div>
     </div>
   </div>
-</div>  
- <?php 
+</div>
+ <?php
 include 'includes/footer.php'
 ?>
- <script>  
+ <script>
 
- </script>  
+ </script>

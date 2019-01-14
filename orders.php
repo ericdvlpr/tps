@@ -48,7 +48,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Add Order</h4>
+              <h4 class="modal-title" id="myModalLabel">Order</h4>
             </div>
             <div class="modal-body">
              			<form class="form-horizontal" id="orderform" method="Post" class="collapse">
@@ -63,7 +63,7 @@
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-3 control-label text-left">Product ID</label>
                 <div class="col-sm-9">
-                    <select class="selectpicker" name="product" id="product" data-live-search="true">
+                    <select class="form-control" name="product" id="product" data-live-search="true">
                     <option value="">Please Select</option>
                         <?php
                             $query ="SELECT * FROM products";
@@ -81,7 +81,7 @@
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-3 control-label text-left">Customer</label>
                 <div class="col-sm-9">
-                    <select class="selectpicker" name="customer" id="customer" data-live-search="true">
+                    <select class="form-control" name="customer" id="customer" data-live-search="true">
                         <option value="">Please Select</option>
                         <?php
                             $query ="SELECT * FROM customer";
