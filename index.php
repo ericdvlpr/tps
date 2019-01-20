@@ -1,4 +1,12 @@
-<?php include 'includes/header.php';?>
+<?php include 'includes/header.php';
+
+
+$sql = "SELECT * FROM users";
+ $result = mysqli_query($object->connect, $sql);
+ while ($record = mysqli_fetch_array($result)) {
+   print_r($record);
+ }
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
