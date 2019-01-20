@@ -1,11 +1,7 @@
 <?php include 'includes/header.php';
 
 
-$sql = "SELECT * FROM users";
- $result = mysqli_query($object->connect, $sql);
- while ($record = mysqli_fetch_array($result)) {
-   print_r($record);
- }
+
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -19,7 +15,13 @@ $sql = "SELECT * FROM users";
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
+        <li class="active">Blank page</li><?php
+        $sql = "SELECT * FROM users";
+         $result = mysqli_query($object->connect, $sql);
+         while ($record = mysqli_fetch_array($result)) {
+           print_r($record);
+         }
+         ?>
       </ol>
     </section>
 
