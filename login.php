@@ -1,7 +1,7 @@
 <?php
 include "includes/head.php";
 $sql = "SELECT * FROM users";
- $result = mysqli_query($object->connect, $query);
+ $result = mysqli_query($object->connect, $sql);
  while ($record = mysqli_fetch_array($result)) {
    print_r($record);
  }
