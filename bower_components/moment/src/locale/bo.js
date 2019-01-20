@@ -55,7 +55,10 @@ export default moment.defineLocale('bo', {
         future : '%s ལ་',
         past : '%s སྔན་ལ',
         s : 'ལམ་སང',
+<<<<<<< HEAD
         ss : '%d སྐར་ཆ།',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'སྐར་མ་གཅིག',
         mm : '%d སྐར་མ',
         h : 'ཆུ་ཚོད་གཅིག',

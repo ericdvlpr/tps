@@ -1,10 +1,13 @@
 import absFloor from '../utils/abs-floor';
 var abs = Math.abs;
 
+<<<<<<< HEAD
 function sign(x) {
     return ((x > 0) - (x < 0)) || +x;
 }
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 export function toISOString() {
     // for ISO strings we do not use the normal bubbling rules:
     //  * milliseconds bubble up until they become hours
@@ -39,7 +42,11 @@ export function toISOString() {
     var D = days;
     var h = hours;
     var m = minutes;
+<<<<<<< HEAD
     var s = seconds ? seconds.toFixed(3).replace(/\.?0+$/, '') : '';
+=======
+    var s = seconds;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     var total = this.asSeconds();
 
     if (!total) {
@@ -48,6 +55,7 @@ export function toISOString() {
         return 'P0D';
     }
 
+<<<<<<< HEAD
     var totalSign = total < 0 ? '-' : '';
     var ymSign = sign(this._months) !== sign(total) ? '-' : '';
     var daysSign = sign(this._days) !== sign(total) ? '-' : '';
@@ -61,4 +69,15 @@ export function toISOString() {
         (h ? hmsSign + h + 'H' : '') +
         (m ? hmsSign + m + 'M' : '') +
         (s ? hmsSign + s + 'S' : '');
+=======
+    return (total < 0 ? '-' : '') +
+        'P' +
+        (Y ? Y + 'Y' : '') +
+        (M ? M + 'M' : '') +
+        (D ? D + 'D' : '') +
+        ((h || m || s) ? 'T' : '') +
+        (h ? h + 'H' : '') +
+        (m ? m + 'M' : '') +
+        (s ? s + 'S' : '');
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 }

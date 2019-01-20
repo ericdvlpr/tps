@@ -55,7 +55,10 @@ export default moment.defineLocale('ms-my', {
         future : 'dalam %s',
         past : '%s yang lepas',
         s : 'beberapa saat',
+<<<<<<< HEAD
         ss : '%d saat',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'seminit',
         mm : '%d minit',
         h : 'sejam',

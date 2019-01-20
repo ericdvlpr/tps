@@ -44,7 +44,10 @@ export default moment.defineLocale('tzl', {
         future : 'osprei %s',
         past : 'ja%s',
         s : processRelativeTime,
+<<<<<<< HEAD
         ss : processRelativeTime,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : processRelativeTime,
         mm : processRelativeTime,
         h : processRelativeTime,
@@ -67,7 +70,10 @@ export default moment.defineLocale('tzl', {
 function processRelativeTime(number, withoutSuffix, key, isFuture) {
     var format = {
         's': ['viensas secunds', '\'iensas secunds'],
+<<<<<<< HEAD
         'ss': [number + ' secunds', '' + number + ' secunds'],
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         'm': ['\'n míut', '\'iens míut'],
         'mm': [number + ' míuts', '' + number + ' míuts'],
         'h': ['\'n þora', '\'iensa þora'],

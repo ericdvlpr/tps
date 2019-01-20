@@ -53,7 +53,10 @@ export default moment.defineLocale('kk', {
         future : '%s ішінде',
         past : '%s бұрын',
         s : 'бірнеше секунд',
+<<<<<<< HEAD
         ss : '%d секунд',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'бір минут',
         mm : '%d минут',
         h : 'бір сағат',

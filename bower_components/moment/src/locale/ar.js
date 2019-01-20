@@ -47,6 +47,7 @@ var symbolMap = {
         return str.replace(/%d/i, number);
     };
 }, months = [
+<<<<<<< HEAD
     'يناير',
     'فبراير',
     'مارس',
@@ -59,6 +60,20 @@ var symbolMap = {
     'أكتوبر',
     'نوفمبر',
     'ديسمبر'
+=======
+    'كانون الثاني يناير',
+    'شباط فبراير',
+    'آذار مارس',
+    'نيسان أبريل',
+    'أيار مايو',
+    'حزيران يونيو',
+    'تموز يوليو',
+    'آب أغسطس',
+    'أيلول سبتمبر',
+    'تشرين الأول أكتوبر',
+    'تشرين الثاني نوفمبر',
+    'كانون الأول ديسمبر'
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 ];
 
 export default moment.defineLocale('ar', {
@@ -99,7 +114,10 @@ export default moment.defineLocale('ar', {
         future : 'بعد %s',
         past : 'منذ %s',
         s : pluralize('s'),
+<<<<<<< HEAD
         ss : pluralize('s'),
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : pluralize('m'),
         mm : pluralize('m'),
         h : pluralize('h'),
@@ -112,7 +130,11 @@ export default moment.defineLocale('ar', {
         yy : pluralize('y')
     },
     preparse: function (string) {
+<<<<<<< HEAD
         return string.replace(/[١٢٣٤٥٦٧٨٩٠]/g, function (match) {
+=======
+        return string.replace(/\u200f/g, '').replace(/[١٢٣٤٥٦٧٨٩٠]/g, function (match) {
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
             return numberMap[match];
         }).replace(/،/g, ',');
     },
@@ -126,3 +148,7 @@ export default moment.defineLocale('ar', {
         doy : 12  // The week that contains Jan 1st is the first week of the year.
     }
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b

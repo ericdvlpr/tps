@@ -11,8 +11,11 @@ function translate(number, withoutSuffix, key, isFuture) {
     switch (key) {
         case 's':
             return (isFuture || withoutSuffix) ? 'néhány másodperc' : 'néhány másodperce';
+<<<<<<< HEAD
         case 'ss':
             return num + (isFuture || withoutSuffix) ? ' másodperc' : ' másodperce';
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         case 'm':
             return 'egy' + (isFuture || withoutSuffix ? ' perc' : ' perce');
         case 'mm':
@@ -81,7 +84,10 @@ export default moment.defineLocale('hu', {
         future : '%s múlva',
         past : '%s',
         s : translate,
+<<<<<<< HEAD
         ss : translate,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : translate,
         mm : translate,
         h : translate,

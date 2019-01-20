@@ -25,7 +25,11 @@ export function Duration (duration) {
     // day when working around DST, we need to store them separately
     this._days = +days +
         weeks * 7;
+<<<<<<< HEAD
     // It is impossible to translate months into days without knowing
+=======
+    // It is impossible translate months into days without knowing
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     // which months you are are talking about, so we have to store
     // it separately.
     this._months = +months +

@@ -1,6 +1,7 @@
 Changelog
 =========
 
+<<<<<<< HEAD
 ### 2.22.2 [See full changelog](https://gist.github.com/marwahaha/4d992c13c2dbc0f59d4d8acae1dc6d3a)
 
 * Release May 31, 2018
@@ -110,6 +111,8 @@ Make react native and webpack both work
 
 Bugfixes, new locales, locale fixes etc...
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 ### 2.18.1
 
 * Release Mar 22, 2017

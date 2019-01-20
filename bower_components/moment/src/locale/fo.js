@@ -30,7 +30,10 @@ export default moment.defineLocale('fo', {
         future : 'um %s',
         past : '%s síðani',
         s : 'fá sekund',
+<<<<<<< HEAD
         ss : '%d sekundir',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ein minutt',
         mm : '%d minuttir',
         h : 'ein tími',

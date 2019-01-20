@@ -95,7 +95,10 @@ export default moment.defineLocale('ne', {
         future : '%sमा',
         past : '%s अगाडि',
         s : 'केही क्षण',
+<<<<<<< HEAD
         ss : '%d सेकेण्ड',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'एक मिनेट',
         mm : '%d मिनेट',
         h : 'एक घण्टा',

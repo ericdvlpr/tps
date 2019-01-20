@@ -31,7 +31,10 @@ export default moment.defineLocale('sw', {
         future : '%s baadaye',
         past : 'tokea %s',
         s : 'hivi punde',
+<<<<<<< HEAD
         ss : 'sekunde %d',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'dakika moja',
         mm : 'dakika %d',
         h : 'saa limoja',

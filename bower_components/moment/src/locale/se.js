@@ -31,7 +31,10 @@ export default moment.defineLocale('se', {
         future : '%s geažes',
         past : 'maŋit %s',
         s : 'moadde sekunddat',
+<<<<<<< HEAD
         ss: '%d sekunddat',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'okta minuhta',
         mm : '%d minuhtat',
         h : 'okta diimmu',

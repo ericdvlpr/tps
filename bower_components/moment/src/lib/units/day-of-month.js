@@ -15,7 +15,11 @@ addFormatToken('D', ['DD', 2], 'Do', 'date');
 
 addUnitAlias('date', 'D');
 
+<<<<<<< HEAD
 // PRIORITY
+=======
+// PRIOROITY
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 addUnitPriority('date', 9);
 
 // PARSING
@@ -31,7 +35,11 @@ addRegexToken('Do', function (isStrict, locale) {
 
 addParseToken(['D', 'DD'], DATE);
 addParseToken('Do', function (input, array) {
+<<<<<<< HEAD
     array[DATE] = toInt(input.match(match1to2)[0]);
+=======
+    array[DATE] = toInt(input.match(match1to2)[0], 10);
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 });
 
 // MOMENTS

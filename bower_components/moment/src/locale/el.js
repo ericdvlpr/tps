@@ -11,7 +11,11 @@ export default moment.defineLocale('el', {
     months : function (momentToFormat, format) {
         if (!momentToFormat) {
             return this._monthsNominativeEl;
+<<<<<<< HEAD
         } else if (typeof format === 'string' && /D/.test(format.substring(0, format.indexOf('MMMM')))) { // if there is a day number before 'MMMM'
+=======
+        } else if (/D/.test(format.substring(0, format.indexOf('MMMM')))) { // if there is a day number before 'MMMM'
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
             return this._monthsGenitiveEl[momentToFormat.month()];
         } else {
             return this._monthsNominativeEl[momentToFormat.month()];
@@ -67,7 +71,10 @@ export default moment.defineLocale('el', {
         future : 'σε %s',
         past : '%s πριν',
         s : 'λίγα δευτερόλεπτα',
+<<<<<<< HEAD
         ss : '%d δευτερόλεπτα',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ένα λεπτό',
         mm : '%d λεπτά',
         h : 'μία ώρα',

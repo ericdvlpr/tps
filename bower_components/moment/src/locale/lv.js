@@ -6,7 +6,10 @@
 import moment from '../moment';
 
 var units = {
+<<<<<<< HEAD
     'ss': 'sekundes_sekundēm_sekunde_sekundes'.split('_'),
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     'm': 'minūtes_minūtēm_minūte_minūtes'.split('_'),
     'mm': 'minūtes_minūtēm_minūte_minūtes'.split('_'),
     'h': 'stundas_stundām_stunda_stundas'.split('_'),
@@ -68,7 +71,10 @@ export default moment.defineLocale('lv', {
         future : 'pēc %s',
         past : 'pirms %s',
         s : relativeSeconds,
+<<<<<<< HEAD
         ss : relativeTimeWithPlural,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : relativeTimeWithSingular,
         mm : relativeTimeWithPlural,
         h : relativeTimeWithSingular,

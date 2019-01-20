@@ -42,7 +42,10 @@ export default moment.defineLocale('bg', {
         future : 'след %s',
         past : 'преди %s',
         s : 'няколко секунди',
+<<<<<<< HEAD
         ss : '%d секунди',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'минута',
         mm : '%d минути',
         h : 'час',

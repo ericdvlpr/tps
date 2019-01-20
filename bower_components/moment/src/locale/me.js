@@ -6,7 +6,10 @@ import moment from '../moment';
 
 var translator = {
     words: { //Different grammatical cases
+<<<<<<< HEAD
         ss: ['sekund', 'sekunda', 'sekundi'],
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m: ['jedan minut', 'jednog minuta'],
         mm: ['minut', 'minuta', 'minuta'],
         h: ['jedan sat', 'jednog sata'],
@@ -82,7 +85,10 @@ export default moment.defineLocale('me', {
         future : 'za %s',
         past   : 'prije %s',
         s      : 'nekoliko sekundi',
+<<<<<<< HEAD
         ss     : translator.translate,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m      : translator.translate,
         mm     : translator.translate,
         h      : translator.translate,

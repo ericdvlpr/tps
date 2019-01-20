@@ -36,14 +36,24 @@ export function addSubtract (mom, duration, isAdding, updateOffset) {
 
     updateOffset = updateOffset == null ? true : updateOffset;
 
+<<<<<<< HEAD
     if (months) {
         setMonth(mom, get(mom, 'Month') + months * isAdding);
+=======
+    if (milliseconds) {
+        mom._d.setTime(mom._d.valueOf() + milliseconds * isAdding);
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     }
     if (days) {
         set(mom, 'Date', get(mom, 'Date') + days * isAdding);
     }
+<<<<<<< HEAD
     if (milliseconds) {
         mom._d.setTime(mom._d.valueOf() + milliseconds * isAdding);
+=======
+    if (months) {
+        setMonth(mom, get(mom, 'Month') + months * isAdding);
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     }
     if (updateOffset) {
         hooks.updateOffset(mom, days || months);

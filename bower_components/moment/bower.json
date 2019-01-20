@@ -20,7 +20,11 @@
     "package.js",
     "package.json",
     "ISSUE_TEMPLATE.md",
+<<<<<<< HEAD
     "typing-tests",
     "min/tests.js"
+=======
+    "typing-tests"
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
   ]
 }

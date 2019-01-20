@@ -64,7 +64,10 @@ export default moment.defineLocale('sd', {
         future : '%s پوء',
         past : '%s اڳ',
         s : 'چند سيڪنڊ',
+<<<<<<< HEAD
         ss : '%d سيڪنڊ',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'هڪ منٽ',
         mm : '%d منٽ',
         h : 'هڪ ڪلاڪ',

@@ -31,7 +31,10 @@ export default moment.defineLocale('ml', {
         future : '%s കഴിഞ്ഞ്',
         past : '%s മുൻപ്',
         s : 'അൽപ നിമിഷങ്ങൾ',
+<<<<<<< HEAD
         ss : '%d സെക്കൻഡ്',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ഒരു മിനിറ്റ്',
         mm : '%d മിനിറ്റ്',
         h : 'ഒരു മണിക്കൂർ',

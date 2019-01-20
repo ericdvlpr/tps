@@ -33,8 +33,11 @@ function translatePast(output) {
 function translate(number, withoutSuffix, string, isFuture) {
     var numberNoun = numberAsNoun(number);
     switch (string) {
+<<<<<<< HEAD
         case 'ss':
             return numberNoun + ' lup';
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         case 'mm':
             return numberNoun + ' tup';
         case 'hh':
@@ -92,7 +95,10 @@ export default moment.defineLocale('tlh', {
         future : translateFuture,
         past : translatePast,
         s : 'puS lup',
+<<<<<<< HEAD
         ss : translate,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'wa’ tup',
         mm : translate,
         h : 'wa’ rep',

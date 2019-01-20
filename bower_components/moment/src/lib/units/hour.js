@@ -138,7 +138,11 @@ export function localeMeridiem (hours, minutes, isLower) {
 // MOMENTS
 
 // Setting the hour should keep the time, because the user explicitly
+<<<<<<< HEAD
 // specified which hour they want. So trying to maintain the same hour (in
+=======
+// specified which hour he wants. So trying to maintain the same hour (in
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 // a new timezone) makes sense. Adding/subtracting hours does not follow
 // this rule.
 export var getSetHour = makeGetSet('Hours', true);

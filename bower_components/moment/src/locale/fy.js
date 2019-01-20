@@ -43,7 +43,10 @@ export default moment.defineLocale('fy', {
         future : 'oer %s',
         past : '%s lyn',
         s : 'in pear sekonden',
+<<<<<<< HEAD
         ss : '%d sekonden',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ien minút',
         mm : '%d minuten',
         h : 'ien oere',

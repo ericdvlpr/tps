@@ -32,7 +32,10 @@ export default moment.defineLocale('ss', {
         future : 'nga %s',
         past : 'wenteka nga %s',
         s : 'emizuzwana lomcane',
+<<<<<<< HEAD
         ss : '%d mzuzwana',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'umzuzu',
         mm : '%d emizuzu',
         h : 'lihora',

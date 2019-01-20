@@ -7,7 +7,11 @@ import moment from '../moment';
 
 export default moment.defineLocale('id', {
     months : 'Januari_Februari_Maret_April_Mei_Juni_Juli_Agustus_September_Oktober_November_Desember'.split('_'),
+<<<<<<< HEAD
     monthsShort : 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Agt_Sep_Okt_Nov_Des'.split('_'),
+=======
+    monthsShort : 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Ags_Sep_Okt_Nov_Des'.split('_'),
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     weekdays : 'Minggu_Senin_Selasa_Rabu_Kamis_Jumat_Sabtu'.split('_'),
     weekdaysShort : 'Min_Sen_Sel_Rab_Kam_Jum_Sab'.split('_'),
     weekdaysMin : 'Mg_Sn_Sl_Rb_Km_Jm_Sb'.split('_'),
@@ -55,7 +59,10 @@ export default moment.defineLocale('id', {
         future : 'dalam %s',
         past : '%s yang lalu',
         s : 'beberapa detik',
+<<<<<<< HEAD
         ss : '%d detik',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'semenit',
         mm : '%d menit',
         h : 'sejam',
@@ -72,3 +79,7 @@ export default moment.defineLocale('id', {
         doy : 7  // The week that contains Jan 1st is the first week of the year.
     }
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b

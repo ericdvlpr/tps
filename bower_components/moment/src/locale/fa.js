@@ -66,7 +66,10 @@ export default moment.defineLocale('fa', {
         future : 'در %s',
         past : '%s پیش',
         s : 'چند ثانیه',
+<<<<<<< HEAD
         ss : 'ثانیه d%',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'یک دقیقه',
         mm : '%d دقیقه',
         h : 'یک ساعت',

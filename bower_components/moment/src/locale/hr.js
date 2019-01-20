@@ -7,6 +7,7 @@ import moment from '../moment';
 function translate(number, withoutSuffix, key) {
     var result = number + ' ';
     switch (key) {
+<<<<<<< HEAD
         case 'ss':
             if (number === 1) {
                 result += 'sekunda';
@@ -16,6 +17,8 @@ function translate(number, withoutSuffix, key) {
                 result += 'sekundi';
             }
             return result;
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         case 'm':
             return withoutSuffix ? 'jedna minuta' : 'jedne minute';
         case 'mm':
@@ -124,7 +127,10 @@ export default moment.defineLocale('hr', {
         future : 'za %s',
         past   : 'prije %s',
         s      : 'par sekundi',
+<<<<<<< HEAD
         ss     : translate,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m      : translate,
         mm     : translate,
         h      : translate,

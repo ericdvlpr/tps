@@ -47,7 +47,10 @@ export default moment.defineLocale('gl', {
         },
         past : 'hai %s',
         s : 'uns segundos',
+<<<<<<< HEAD
         ss : '%d segundos',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'un minuto',
         mm : '%d minutos',
         h : 'unha hora',

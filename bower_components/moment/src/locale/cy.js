@@ -33,7 +33,10 @@ export default moment.defineLocale('cy', {
         future: 'mewn %s',
         past: '%s yn ôl',
         s: 'ychydig eiliadau',
+<<<<<<< HEAD
         ss: '%d eiliad',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m: 'munud',
         mm: '%d munud',
         h: 'awr',

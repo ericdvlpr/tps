@@ -30,7 +30,10 @@ export default moment.defineLocale('uz', {
         future : 'Якин %s ичида',
         past : 'Бир неча %s олдин',
         s : 'фурсат',
+<<<<<<< HEAD
         ss : '%d фурсат',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'бир дакика',
         mm : '%d дакика',
         h : 'бир соат',

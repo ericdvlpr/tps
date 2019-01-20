@@ -34,7 +34,10 @@ export default moment.defineLocale('mi', {
         future: 'i roto i %s',
         past: '%s i mua',
         s: 'te hēkona ruarua',
+<<<<<<< HEAD
         ss: '%d hēkona',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m: 'he meneti',
         mm: '%d meneti',
         h: 'te haora',

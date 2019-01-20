@@ -5,6 +5,7 @@ session_start();
  class Database
  {
       //crud class
+<<<<<<< HEAD
       // public $connect;
       // private $host = "localhost";
       // private $username = 'root';
@@ -18,6 +19,13 @@ session_start();
       private $port ='5432';
 
 
+=======
+      public $connect;
+      private $host = "localhost";
+      private $username = 'root';
+      private $password = '12345789';
+      private  $database = 'db_gfctps';
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
       function __construct()
       {
            $this->database_connect();

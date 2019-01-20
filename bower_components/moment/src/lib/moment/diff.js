@@ -21,6 +21,7 @@ export function diff (input, units, asFloat) {
 
     units = normalizeUnits(units);
 
+<<<<<<< HEAD
     switch (units) {
         case 'year': output = monthDiff(this, that) / 12; break;
         case 'month': output = monthDiff(this, that); break;
@@ -33,6 +34,24 @@ export function diff (input, units, asFloat) {
         default: output = this - that;
     }
 
+=======
+    if (units === 'year' || units === 'month' || units === 'quarter') {
+        output = monthDiff(this, that);
+        if (units === 'quarter') {
+            output = output / 3;
+        } else if (units === 'year') {
+            output = output / 12;
+        }
+    } else {
+        delta = this - that;
+        output = units === 'second' ? delta / 1e3 : // 1000
+            units === 'minute' ? delta / 6e4 : // 1000 * 60
+            units === 'hour' ? delta / 36e5 : // 1000 * 60 * 60
+            units === 'day' ? (delta - zoneDelta) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
+            units === 'week' ? (delta - zoneDelta) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
+            delta;
+    }
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     return asFloat ? output : absFloor(output);
 }
 

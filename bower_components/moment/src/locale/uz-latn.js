@@ -30,7 +30,10 @@ export default moment.defineLocale('uz-latn', {
         future : 'Yaqin %s ichida',
         past : 'Bir necha %s oldin',
         s : 'soniya',
+<<<<<<< HEAD
         ss : '%d soniya',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'bir daqiqa',
         mm : '%d daqiqa',
         h : 'bir soat',

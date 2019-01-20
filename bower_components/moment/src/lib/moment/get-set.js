@@ -2,8 +2,12 @@ import { normalizeUnits, normalizeObjectUnits } from '../units/aliases';
 import { getPrioritizedUnits } from '../units/priorities';
 import { hooks } from '../utils/hooks';
 import isFunction from '../utils/is-function';
+<<<<<<< HEAD
 import { daysInMonth } from '../units/month';
 import { isLeapYear } from '../units/year';
+=======
+
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
 export function makeGetSet (unit, keepTime) {
     return function (value) {
@@ -23,6 +27,7 @@ export function get (mom, unit) {
 }
 
 export function set (mom, unit, value) {
+<<<<<<< HEAD
     if (mom.isValid() && !isNaN(value)) {
         if (unit === 'FullYear' && isLeapYear(mom.year()) && mom.month() === 1 && mom.date() === 29) {
             mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value, mom.month(), daysInMonth(value, mom.month()));
@@ -30,6 +35,10 @@ export function set (mom, unit, value) {
         else {
             mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
         }
+=======
+    if (mom.isValid()) {
+        mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     }
 }
 

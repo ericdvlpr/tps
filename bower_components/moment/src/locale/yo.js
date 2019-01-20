@@ -30,7 +30,10 @@ export default moment.defineLocale('yo', {
         future : 'ní %s',
         past : '%s kọjá',
         s : 'ìsẹjú aayá die',
+<<<<<<< HEAD
         ss :'aayá %d',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ìsẹjú kan',
         mm : 'ìsẹjú %d',
         h : 'wákati kan',

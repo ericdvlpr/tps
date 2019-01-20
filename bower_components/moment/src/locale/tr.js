@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 //! moment.js locale configuration
 //! locale : Turkish [tr]
 //! authors : Erhan Gundogan : https://github.com/erhangundogan,
@@ -44,16 +47,25 @@ export default moment.defineLocale('tr', {
     calendar : {
         sameDay : '[bugün saat] LT',
         nextDay : '[yarın saat] LT',
+<<<<<<< HEAD
         nextWeek : '[gelecek] dddd [saat] LT',
         lastDay : '[dün] LT',
         lastWeek : '[geçen] dddd [saat] LT',
+=======
+        nextWeek : '[haftaya] dddd [saat] LT',
+        lastDay : '[dün] LT',
+        lastWeek : '[geçen hafta] dddd [saat] LT',
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         sameElse : 'L'
     },
     relativeTime : {
         future : '%s sonra',
         past : '%s önce',
         s : 'birkaç saniye',
+<<<<<<< HEAD
         ss : '%d saniye',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'bir dakika',
         mm : '%d dakika',
         h : 'bir saat',
@@ -65,6 +77,7 @@ export default moment.defineLocale('tr', {
         y : 'bir yıl',
         yy : '%d yıl'
     },
+<<<<<<< HEAD
     ordinal: function (number, period) {
         switch (period) {
             case 'd':
@@ -81,6 +94,17 @@ export default moment.defineLocale('tr', {
                     c = number >= 100 ? 100 : null;
                 return number + (suffixes[a] || suffixes[b] || suffixes[c]);
         }
+=======
+    dayOfMonthOrdinalParse: /\d{1,2}'(inci|nci|üncü|ncı|uncu|ıncı)/,
+    ordinal : function (number) {
+        if (number === 0) {  // special case for zero
+            return number + '\'ıncı';
+        }
+        var a = number % 10,
+            b = number % 100 - a,
+            c = number >= 100 ? 100 : null;
+        return number + (suffixes[a] || suffixes[b] || suffixes[c]);
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     },
     week : {
         dow : 1, // Monday is the first day of the week.

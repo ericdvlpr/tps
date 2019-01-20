@@ -41,7 +41,10 @@ export default moment.defineLocale('af', {
         future : 'oor %s',
         past : '%s gelede',
         s : '\'n paar sekondes',
+<<<<<<< HEAD
         ss : '%d sekondes',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : '\'n minuut',
         mm : '%d minute',
         h : '\'n uur',

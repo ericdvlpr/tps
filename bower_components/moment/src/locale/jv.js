@@ -55,7 +55,10 @@ export default moment.defineLocale('jv', {
         future : 'wonten ing %s',
         past : '%s ingkang kepengker',
         s : 'sawetawis detik',
+<<<<<<< HEAD
         ss : '%d detik',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'setunggal menit',
         mm : '%d menit',
         h : 'setunggal jam',

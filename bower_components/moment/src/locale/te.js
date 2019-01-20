@@ -31,7 +31,10 @@ export default moment.defineLocale('te', {
         future : '%s లో',
         past : '%s క్రితం',
         s : 'కొన్ని క్షణాలు',
+<<<<<<< HEAD
         ss : '%d సెకన్లు',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ఒక నిమిషం',
         mm : '%d నిమిషాలు',
         h : 'ఒక గంట',

@@ -23,7 +23,11 @@ function processRelativeTime(number, withoutSuffix, key, isFuture) {
 
 export default moment.defineLocale('de-at', {
     months : 'Jänner_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember'.split('_'),
+<<<<<<< HEAD
     monthsShort : 'Jän._Feb._März_Apr._Mai_Juni_Juli_Aug._Sep._Okt._Nov._Dez.'.split('_'),
+=======
+    monthsShort : 'Jän._Febr._Mrz._Apr._Mai_Jun._Jul._Aug._Sept._Okt._Nov._Dez.'.split('_'),
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     monthsParseExact : true,
     weekdays : 'Sonntag_Montag_Dienstag_Mittwoch_Donnerstag_Freitag_Samstag'.split('_'),
     weekdaysShort : 'So._Mo._Di._Mi._Do._Fr._Sa.'.split('_'),
@@ -49,7 +53,10 @@ export default moment.defineLocale('de-at', {
         future : 'in %s',
         past : 'vor %s',
         s : 'ein paar Sekunden',
+<<<<<<< HEAD
         ss : '%d Sekunden',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : processRelativeTime,
         mm : '%d Minuten',
         h : processRelativeTime,

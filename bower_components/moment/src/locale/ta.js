@@ -54,7 +54,10 @@ export default moment.defineLocale('ta', {
         future : '%s இல்',
         past : '%s முன்',
         s : 'ஒரு சில விநாடிகள்',
+<<<<<<< HEAD
         ss : '%d விநாடிகள்',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ஒரு நிமிடம்',
         mm : '%d நிமிடங்கள்',
         h : 'ஒரு மணி நேரம்',

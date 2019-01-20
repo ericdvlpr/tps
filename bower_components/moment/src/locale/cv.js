@@ -33,7 +33,10 @@ export default moment.defineLocale('cv', {
         },
         past : '%s каялла',
         s : 'пӗр-ик ҫеккунт',
+<<<<<<< HEAD
         ss : '%d ҫеккунт',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'пӗр минут',
         mm : '%d минут',
         h : 'пӗр сехет',

@@ -1,12 +1,20 @@
 //! moment.js
+<<<<<<< HEAD
 //! version : 2.22.2
+=======
+//! version : 2.18.1
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
 
 import { hooks as moment, setHookCallback } from './lib/utils/hooks';
 
+<<<<<<< HEAD
 moment.version = '2.22.2';
+=======
+moment.version = '2.18.1';
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
 import {
     min,
@@ -40,8 +48,13 @@ import {
 
 import {
     isDuration,
+<<<<<<< HEAD
     createDuration              as duration,
     getSetRelativeTimeRounding  as relativeTimeRounding,
+=======
+    createDuration as duration,
+    getSetRelativeTimeRounding as relativeTimeRounding,
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     getSetRelativeTimeThreshold as relativeTimeThreshold
 } from './lib/duration/duration';
 
@@ -74,11 +87,16 @@ moment.updateLocale          = updateLocale;
 moment.locales               = locales;
 moment.weekdaysShort         = weekdaysShort;
 moment.normalizeUnits        = normalizeUnits;
+<<<<<<< HEAD
 moment.relativeTimeRounding  = relativeTimeRounding;
+=======
+moment.relativeTimeRounding = relativeTimeRounding;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 moment.relativeTimeThreshold = relativeTimeThreshold;
 moment.calendarFormat        = getCalendarFormat;
 moment.prototype             = fn;
 
+<<<<<<< HEAD
 // currently HTML5 input type only supports 24-hour formats
 moment.HTML5_FMT = {
     DATETIME_LOCAL: 'YYYY-MM-DDTHH:mm',             // <input type="datetime-local" />
@@ -92,4 +110,6 @@ moment.HTML5_FMT = {
     MONTH: 'YYYY-MM'                                // <input type="month" />
 };
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 export default moment;

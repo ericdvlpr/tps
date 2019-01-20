@@ -86,7 +86,10 @@ export default moment.defineLocale('ar-ly', {
         future : 'بعد %s',
         past : 'منذ %s',
         s : pluralize('s'),
+<<<<<<< HEAD
         ss : pluralize('s'),
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : pluralize('m'),
         mm : pluralize('m'),
         h : pluralize('h'),
@@ -99,7 +102,11 @@ export default moment.defineLocale('ar-ly', {
         yy : pluralize('y')
     },
     preparse: function (string) {
+<<<<<<< HEAD
         return string.replace(/،/g, ',');
+=======
+        return string.replace(/\u200f/g, '').replace(/،/g, ',');
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     },
     postformat: function (string) {
         return string.replace(/\d/g, function (match) {

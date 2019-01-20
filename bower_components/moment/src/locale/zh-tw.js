@@ -14,6 +14,7 @@ export default moment.defineLocale('zh-tw', {
     longDateFormat : {
         LT : 'HH:mm',
         LTS : 'HH:mm:ss',
+<<<<<<< HEAD
         L : 'YYYY/MM/DD',
         LL : 'YYYY年M月D日',
         LLL : 'YYYY年M月D日 HH:mm',
@@ -22,6 +23,16 @@ export default moment.defineLocale('zh-tw', {
         ll : 'YYYY年M月D日',
         lll : 'YYYY年M月D日 HH:mm',
         llll : 'YYYY年M月D日dddd HH:mm'
+=======
+        L : 'YYYY年MMMD日',
+        LL : 'YYYY年MMMD日',
+        LLL : 'YYYY年MMMD日 HH:mm',
+        LLLL : 'YYYY年MMMD日dddd HH:mm',
+        l : 'YYYY年MMMD日',
+        ll : 'YYYY年MMMD日',
+        lll : 'YYYY年MMMD日 HH:mm',
+        llll : 'YYYY年MMMD日dddd HH:mm'
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     },
     meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
     meridiemHour : function (hour, meridiem) {
@@ -53,11 +64,19 @@ export default moment.defineLocale('zh-tw', {
         }
     },
     calendar : {
+<<<<<<< HEAD
         sameDay : '[今天] LT',
         nextDay : '[明天] LT',
         nextWeek : '[下]dddd LT',
         lastDay : '[昨天] LT',
         lastWeek : '[上]dddd LT',
+=======
+        sameDay : '[今天]LT',
+        nextDay : '[明天]LT',
+        nextWeek : '[下]ddddLT',
+        lastDay : '[昨天]LT',
+        lastWeek : '[上]ddddLT',
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         sameElse : 'L'
     },
     dayOfMonthOrdinalParse: /\d{1,2}(日|月|週)/,
@@ -80,7 +99,10 @@ export default moment.defineLocale('zh-tw', {
         future : '%s內',
         past : '%s前',
         s : '幾秒',
+<<<<<<< HEAD
         ss : '%d 秒',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : '1 分鐘',
         mm : '%d 分鐘',
         h : '1 小時',

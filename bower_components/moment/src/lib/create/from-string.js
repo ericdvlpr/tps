@@ -1,4 +1,5 @@
 import { configFromStringAndFormat } from './from-string-and-format';
+<<<<<<< HEAD
 import { createUTCDate } from './date-from-array';
 import { configFromArray } from './from-array';
 import { hooks } from '../utils/hooks';
@@ -6,6 +7,11 @@ import { deprecate } from '../utils/deprecate';
 import getParsingFlags from './parsing-flags';
 import {defaultLocaleMonthsShort} from '../units/month';
 import {defaultLocaleWeekdaysShort} from '../units/day-of-week';
+=======
+import { hooks } from '../utils/hooks';
+import { deprecate } from '../utils/deprecate';
+import getParsingFlags from './parsing-flags';
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
 // iso 8601 regex
 // 0000-00-00 0000-W00 or 0000-W00-0 + T + 00 or 00:00 or 00:00:00 or 00:00:00.000 + +00:00 or +0000 or +00)
@@ -98,6 +104,7 @@ export function configFromISO(config) {
 }
 
 // RFC 2822 regex: For details see https://tools.ietf.org/html/rfc2822#section-3.3
+<<<<<<< HEAD
 var rfc2822 = /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|([+-]\d{4}))$/;
 
 function extractFromRFC2822Strings(yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr) {
@@ -186,6 +193,72 @@ export function configFromRFC2822(config) {
         config._d = createUTCDate.apply(null, config._a);
         config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
 
+=======
+var basicRfcRegex = /^((?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d?\d\s(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(?:\d\d)?\d\d\s)(\d\d:\d\d)(\:\d\d)?(\s(?:UT|GMT|[ECMP][SD]T|[A-IK-Za-ik-z]|[+-]\d{4}))$/;
+
+// date and time from ref 2822 format
+export function configFromRFC2822(config) {
+    var string, match, dayFormat,
+        dateFormat, timeFormat, tzFormat;
+    var timezones = {
+        ' GMT': ' +0000',
+        ' EDT': ' -0400',
+        ' EST': ' -0500',
+        ' CDT': ' -0500',
+        ' CST': ' -0600',
+        ' MDT': ' -0600',
+        ' MST': ' -0700',
+        ' PDT': ' -0700',
+        ' PST': ' -0800'
+    };
+    var military = 'YXWVUTSRQPONZABCDEFGHIKLM';
+    var timezone, timezoneIndex;
+
+    string = config._i
+        .replace(/\([^\)]*\)|[\n\t]/g, ' ') // Remove comments and folding whitespace
+        .replace(/(\s\s+)/g, ' ') // Replace multiple-spaces with a single space
+        .replace(/^\s|\s$/g, ''); // Remove leading and trailing spaces
+    match = basicRfcRegex.exec(string);
+
+    if (match) {
+        dayFormat = match[1] ? 'ddd' + ((match[1].length === 5) ? ', ' : ' ') : '';
+        dateFormat = 'D MMM ' + ((match[2].length > 10) ? 'YYYY ' : 'YY ');
+        timeFormat = 'HH:mm' + (match[4] ? ':ss' : '');
+
+        // TODO: Replace the vanilla JS Date object with an indepentent day-of-week check.
+        if (match[1]) { // day of week given
+            var momentDate = new Date(match[2]);
+            var momentDay = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][momentDate.getDay()];
+
+            if (match[1].substr(0,3) !== momentDay) {
+                getParsingFlags(config).weekdayMismatch = true;
+                config._isValid = false;
+                return;
+            }
+        }
+
+        switch (match[5].length) {
+            case 2: // military
+                if (timezoneIndex === 0) {
+                    timezone = ' +0000';
+                } else {
+                    timezoneIndex = military.indexOf(match[5][1].toUpperCase()) - 12;
+                    timezone = ((timezoneIndex < 0) ? ' -' : ' +') +
+                        (('' + timezoneIndex).replace(/^-?/, '0')).match(/..$/)[0] + '00';
+                }
+                break;
+            case 4: // Zone
+                timezone = timezones[match[5]];
+                break;
+            default: // UT or +/-9999
+                timezone = timezones[' GMT'];
+        }
+        match[5] = timezone;
+        config._i = match.splice(1).join('');
+        tzFormat = ' ZZ';
+        config._f = dayFormat + dateFormat + timeFormat + tzFormat;
+        configFromStringAndFormat(config);
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         getParsingFlags(config).rfc2822 = true;
     } else {
         config._isValid = false;

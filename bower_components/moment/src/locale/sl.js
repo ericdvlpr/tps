@@ -9,6 +9,7 @@ function processRelativeTime(number, withoutSuffix, key, isFuture) {
     switch (key) {
         case 's':
             return withoutSuffix || isFuture ? 'nekaj sekund' : 'nekaj sekundami';
+<<<<<<< HEAD
         case 'ss':
             if (number === 1) {
                 result += withoutSuffix ? 'sekundo' : 'sekundi';
@@ -20,6 +21,8 @@ function processRelativeTime(number, withoutSuffix, key, isFuture) {
                 result += withoutSuffix || isFuture ? 'sekund' : 'sekund';
             }
             return result;
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         case 'm':
             return withoutSuffix ? 'ena minuta' : 'eno minuto';
         case 'mm':
@@ -143,7 +146,10 @@ export default moment.defineLocale('sl', {
         future : 'čez %s',
         past   : 'pred %s',
         s      : processRelativeTime,
+<<<<<<< HEAD
         ss     : processRelativeTime,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m      : processRelativeTime,
         mm     : processRelativeTime,
         h      : processRelativeTime,

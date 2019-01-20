@@ -7,11 +7,18 @@ import moment from '../moment';
 function processRelativeTime(number, withoutSuffix, key, isFuture) {
     var format = {
         's': ['thodde secondanim', 'thodde second'],
+<<<<<<< HEAD
         'ss': [number + ' secondanim', number + ' second'],
         'm': ['eka mintan', 'ek minute'],
         'mm': [number + ' mintanim', number + ' mintam'],
         'h': ['eka horan', 'ek hor'],
         'hh': [number + ' horanim', number + ' horam'],
+=======
+        'm': ['eka mintan', 'ek minute'],
+        'mm': [number + ' mintanim', number + ' mintam'],
+        'h': ['eka horan', 'ek hor'],
+        'hh': [number + ' horanim', number + ' hor'],
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         'd': ['eka disan', 'ek dis'],
         'dd': [number + ' disanim', number + ' dis'],
         'M': ['eka mhoinean', 'ek mhoino'],
@@ -51,7 +58,10 @@ export default moment.defineLocale('gom-latn', {
         future : '%s',
         past : '%s adim',
         s : processRelativeTime,
+<<<<<<< HEAD
         ss : processRelativeTime,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : processRelativeTime,
         mm : processRelativeTime,
         h : processRelativeTime,

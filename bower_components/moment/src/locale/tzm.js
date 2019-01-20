@@ -30,7 +30,10 @@ export default moment.defineLocale('tzm', {
         future : 'ⴷⴰⴷⵅ ⵙ ⵢⴰⵏ %s',
         past : 'ⵢⴰⵏ %s',
         s : 'ⵉⵎⵉⴽ',
+<<<<<<< HEAD
         ss : '%d ⵉⵎⵉⴽ',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ⵎⵉⵏⵓⴺ',
         mm : '%d ⵎⵉⵏⵓⴺ',
         h : 'ⵙⴰⵄⴰ',

@@ -40,7 +40,10 @@ export default moment.defineLocale('sq', {
         future : 'në %s',
         past : '%s më parë',
         s : 'disa sekonda',
+<<<<<<< HEAD
         ss : '%d sekonda',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'një minutë',
         mm : '%d minuta',
         h : 'një orë',

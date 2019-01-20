@@ -34,7 +34,11 @@ export default moment.defineLocale('nl-be', {
 
     weekdays : 'zondag_maandag_dinsdag_woensdag_donderdag_vrijdag_zaterdag'.split('_'),
     weekdaysShort : 'zo._ma._di._wo._do._vr._za.'.split('_'),
+<<<<<<< HEAD
     weekdaysMin : 'zo_ma_di_wo_do_vr_za'.split('_'),
+=======
+    weekdaysMin : 'Zo_Ma_Di_Wo_Do_Vr_Za'.split('_'),
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     weekdaysParseExact : true,
     longDateFormat : {
         LT : 'HH:mm',
@@ -56,7 +60,10 @@ export default moment.defineLocale('nl-be', {
         future : 'over %s',
         past : '%s geleden',
         s : 'een paar seconden',
+<<<<<<< HEAD
         ss : '%d seconden',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'één minuut',
         mm : '%d minuten',
         h : 'één uur',

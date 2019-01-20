@@ -14,6 +14,10 @@
 		clear: "Vymazat",
 		monthsTitle: "Měsíc",
 		weekStart: 1,
+<<<<<<< HEAD
 		format: "dd.mm.yyyy"
+=======
+		format: "dd.m.yyyy"
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 	};
 }(jQuery));

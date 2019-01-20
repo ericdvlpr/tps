@@ -46,7 +46,11 @@ body {
   position: relative;
 }
 .layout-boxed {
+<<<<<<< HEAD
   background-color: #f9fafc;
+=======
+  background: url('../img/boxed-bg.jpg') repeat fixed;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 }
 /*
  * Content Wrapper - contains the main content
@@ -692,7 +696,11 @@ a:focus {
   padding-top: 50px;
   z-index: 1010;
 }
+<<<<<<< HEAD
 @media (max-width: 767px) {
+=======
+@media (max-width: 768px) {
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
   .control-sidebar {
     padding-top: 100px;
   }

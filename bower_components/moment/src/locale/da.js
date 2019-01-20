@@ -13,7 +13,11 @@ export default moment.defineLocale('da', {
     longDateFormat : {
         LT : 'HH:mm',
         LTS : 'HH:mm:ss',
+<<<<<<< HEAD
         L : 'DD.MM.YYYY',
+=======
+        L : 'DD/MM/YYYY',
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         LL : 'D. MMMM YYYY',
         LLL : 'D. MMMM YYYY HH:mm',
         LLLL : 'dddd [d.] D. MMMM YYYY [kl.] HH:mm'
@@ -30,7 +34,10 @@ export default moment.defineLocale('da', {
         future : 'om %s',
         past : '%s siden',
         s : 'få sekunder',
+<<<<<<< HEAD
         ss : '%d sekunder',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'et minut',
         mm : '%d minutter',
         h : 'en time',

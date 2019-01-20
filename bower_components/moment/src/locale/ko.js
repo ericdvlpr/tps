@@ -14,11 +14,19 @@ export default moment.defineLocale('ko', {
     longDateFormat : {
         LT : 'A h:mm',
         LTS : 'A h:mm:ss',
+<<<<<<< HEAD
         L : 'YYYY.MM.DD.',
         LL : 'YYYY년 MMMM D일',
         LLL : 'YYYY년 MMMM D일 A h:mm',
         LLLL : 'YYYY년 MMMM D일 dddd A h:mm',
         l : 'YYYY.MM.DD.',
+=======
+        L : 'YYYY.MM.DD',
+        LL : 'YYYY년 MMMM D일',
+        LLL : 'YYYY년 MMMM D일 A h:mm',
+        LLLL : 'YYYY년 MMMM D일 dddd A h:mm',
+        l : 'YYYY.MM.DD',
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         ll : 'YYYY년 MMMM D일',
         lll : 'YYYY년 MMMM D일 A h:mm',
         llll : 'YYYY년 MMMM D일 dddd A h:mm'
@@ -47,6 +55,7 @@ export default moment.defineLocale('ko', {
         y : '일 년',
         yy : '%d년'
     },
+<<<<<<< HEAD
     dayOfMonthOrdinalParse : /\d{1,2}(일|월|주)/,
     ordinal : function (number, period) {
         switch (period) {
@@ -63,6 +72,10 @@ export default moment.defineLocale('ko', {
                 return number;
         }
     },
+=======
+    dayOfMonthOrdinalParse : /\d{1,2}일/,
+    ordinal : '%d일',
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     meridiemParse : /오전|오후/,
     isPM : function (token) {
         return token === '오후';

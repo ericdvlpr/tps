@@ -56,7 +56,11 @@ export function daysInYear(year) {
     return isLeapYear(year) ? 366 : 365;
 }
 
+<<<<<<< HEAD
 export function isLeapYear(year) {
+=======
+function isLeapYear(year) {
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 

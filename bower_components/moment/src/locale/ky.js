@@ -54,7 +54,10 @@ export default moment.defineLocale('ky', {
         future : '%s ичинде',
         past : '%s мурун',
         s : 'бирнече секунд',
+<<<<<<< HEAD
         ss : '%d секунд',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'бир мүнөт',
         mm : '%d мүнөт',
         h : 'бир саат',

@@ -61,7 +61,11 @@ input[type="text"] {
     border: 0;
 }
 .navbar-inverse {
+<<<<<<< HEAD
     background: #ccc;
+=======
+    background: #222;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 }
 .navbar .container {
     padding: 0 20px;
@@ -124,4 +128,8 @@ input[type="text"] {
         float: none;
         position: relative;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b

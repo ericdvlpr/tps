@@ -17,7 +17,11 @@ export default moment.defineLocale('it', {
         L : 'DD/MM/YYYY',
         LL : 'D MMMM YYYY',
         LLL : 'D MMMM YYYY HH:mm',
+<<<<<<< HEAD
         LLLL : 'dddd D MMMM YYYY HH:mm'
+=======
+        LLLL : 'dddd, D MMMM YYYY HH:mm'
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     },
     calendar : {
         sameDay: '[Oggi alle] LT',
@@ -40,7 +44,10 @@ export default moment.defineLocale('it', {
         },
         past : '%s fa',
         s : 'alcuni secondi',
+<<<<<<< HEAD
         ss : '%d secondi',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'un minuto',
         mm : '%d minuti',
         h : 'un\'ora',

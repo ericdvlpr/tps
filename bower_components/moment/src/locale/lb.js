@@ -107,7 +107,10 @@ export default moment.defineLocale('lb', {
         future : processFutureTime,
         past : processPastTime,
         s : 'e puer Sekonnen',
+<<<<<<< HEAD
         ss : '%d Sekonnen',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : processRelativeTime,
         mm : '%d Minutten',
         h : processRelativeTime,

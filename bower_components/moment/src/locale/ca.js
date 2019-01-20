@@ -14,17 +14,29 @@ export default moment.defineLocale('ca', {
     monthsParseExact : true,
     weekdays : 'diumenge_dilluns_dimarts_dimecres_dijous_divendres_dissabte'.split('_'),
     weekdaysShort : 'dg._dl._dt._dc._dj._dv._ds.'.split('_'),
+<<<<<<< HEAD
     weekdaysMin : 'dg_dl_dt_dc_dj_dv_ds'.split('_'),
+=======
+    weekdaysMin : 'Dg_Dl_Dt_Dc_Dj_Dv_Ds'.split('_'),
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     weekdaysParseExact : true,
     longDateFormat : {
         LT : 'H:mm',
         LTS : 'H:mm:ss',
         L : 'DD/MM/YYYY',
+<<<<<<< HEAD
         LL : 'D MMMM [de] YYYY',
         ll : 'D MMM YYYY',
         LLL : 'D MMMM [de] YYYY [a les] H:mm',
         lll : 'D MMM YYYY, H:mm',
         LLLL : 'dddd D MMMM [de] YYYY [a les] H:mm',
+=======
+        LL : '[el] D MMMM [de] YYYY',
+        ll : 'D MMM YYYY',
+        LLL : '[el] D MMMM [de] YYYY [a les] H:mm',
+        lll : 'D MMM YYYY, H:mm',
+        LLLL : '[el] dddd D MMMM [de] YYYY [a les] H:mm',
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         llll : 'ddd D MMM YYYY, H:mm'
     },
     calendar : {
@@ -49,7 +61,10 @@ export default moment.defineLocale('ca', {
         future : 'd\'aquí %s',
         past : 'fa %s',
         s : 'uns segons',
+<<<<<<< HEAD
         ss : '%d segons',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'un minut',
         mm : '%d minuts',
         h : 'una hora',

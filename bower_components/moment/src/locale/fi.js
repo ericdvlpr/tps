@@ -14,8 +14,11 @@ function translate(number, withoutSuffix, key, isFuture) {
     switch (key) {
         case 's':
             return isFuture ? 'muutaman sekunnin' : 'muutama sekunti';
+<<<<<<< HEAD
         case 'ss':
             return isFuture ? 'sekunnin' : 'sekuntia';
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         case 'm':
             return isFuture ? 'minuutin' : 'minuutti';
         case 'mm':
@@ -79,7 +82,10 @@ export default moment.defineLocale('fi', {
         future : '%s päästä',
         past : '%s sitten',
         s : translate,
+<<<<<<< HEAD
         ss : translate,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : translate,
         mm : translate,
         h : translate,

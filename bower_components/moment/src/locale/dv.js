@@ -65,7 +65,10 @@ export default moment.defineLocale('dv', {
         future : 'ތެރޭގައި %s',
         past : 'ކުރިން %s',
         s : 'ސިކުންތުކޮޅެއް',
+<<<<<<< HEAD
         ss : 'd% ސިކުންތު',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'މިނިޓެއް',
         mm : 'މިނިޓު %d',
         h : 'ގަޑިއިރެއް',

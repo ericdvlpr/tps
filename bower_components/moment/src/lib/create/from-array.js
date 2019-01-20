@@ -21,7 +21,11 @@ function currentDateArray(config) {
 // note: all values past the year are optional and will default to the lowest possible value.
 // [year, month, day , hour, minute, second, millisecond]
 export function configFromArray (config) {
+<<<<<<< HEAD
     var i, date, input = [], currentDate, expectedWeekday, yearToUse;
+=======
+    var i, date, input = [], currentDate, yearToUse;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
     if (config._d) {
         return;
@@ -71,8 +75,11 @@ export function configFromArray (config) {
     }
 
     config._d = (config._useUTC ? createUTCDate : createDate).apply(null, input);
+<<<<<<< HEAD
     expectedWeekday = config._useUTC ? config._d.getUTCDay() : config._d.getDay();
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     // Apply timezone offset from input. The actual utcOffset can be changed
     // with parseZone.
     if (config._tzm != null) {
@@ -82,11 +89,14 @@ export function configFromArray (config) {
     if (config._nextDay) {
         config._a[HOUR] = 24;
     }
+<<<<<<< HEAD
 
     // check for mismatching day of week
     if (config._w && typeof config._w.d !== 'undefined' && config._w.d !== expectedWeekday) {
         getParsingFlags(config).weekdayMismatch = true;
     }
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 }
 
 function dayOfYearFromWeekInfo(config) {

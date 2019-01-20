@@ -10,6 +10,7 @@ import { MONTH } from './constants';
 import toInt from '../utils/to-int';
 import isArray from '../utils/is-array';
 import isNumber from '../utils/is-number';
+<<<<<<< HEAD
 import mod from '../utils/mod';
 import indexOf from '../utils/index-of';
 import { createUTC } from '../create/utc';
@@ -23,6 +24,14 @@ export function daysInMonth(year, month) {
     var modMonth = mod(month, 12);
     year += (month - modMonth) / 12;
     return modMonth === 1 ? (isLeapYear(year) ? 29 : 28) : (31 - modMonth % 7 % 2);
+=======
+import indexOf from '../utils/index-of';
+import { createUTC } from '../create/utc';
+import getParsingFlags from '../create/parsing-flags';
+
+export function daysInMonth(year, month) {
+    return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 }
 
 // FORMATTING

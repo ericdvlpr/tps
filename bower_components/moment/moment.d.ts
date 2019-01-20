@@ -2,7 +2,11 @@ declare function moment(inp?: moment.MomentInput, format?: moment.MomentFormatSp
 declare function moment(inp?: moment.MomentInput, format?: moment.MomentFormatSpecification, language?: string, strict?: boolean): moment.Moment;
 
 declare namespace moment {
+<<<<<<< HEAD
   type RelativeTimeKey = 's' | 'ss' | 'm' | 'mm' | 'h' | 'hh' | 'd' | 'dd' | 'M' | 'MM' | 'y' | 'yy';
+=======
+  type RelativeTimeKey = 's' | 'm' | 'mm' | 'h' | 'hh' | 'd' | 'dd' | 'M' | 'MM' | 'y' | 'yy';
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
   type CalendarKey = 'sameDay' | 'nextDay' | 'lastDay' | 'nextWeek' | 'lastWeek' | 'sameElse' | string;
   type LongDateFormatKey = 'LTS' | 'LT' | 'L' | 'LL' | 'LLL' | 'LLLL' | 'lts' | 'lt' | 'l' | 'll' | 'lll' | 'llll';
 
@@ -82,7 +86,10 @@ declare namespace moment {
     future: RelativeTimeFuturePastVal;
     past: RelativeTimeFuturePastVal;
     s: RelativeTimeSpecVal;
+<<<<<<< HEAD
     ss: RelativeTimeSpecVal;
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     m: RelativeTimeSpecVal;
     mm: RelativeTimeSpecVal;
     h: RelativeTimeSpecVal;
@@ -155,8 +162,11 @@ declare namespace moment {
   }
 
   interface Duration {
+<<<<<<< HEAD
     clone(): Duration;
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     humanize(withSuffix?: boolean): string;
 
     abs(): Duration;
@@ -216,7 +226,10 @@ declare namespace moment {
     future: any;
     past: any;
     s: any;
+<<<<<<< HEAD
     ss: any;
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     m: any;
     mm: any;
     h: any;
@@ -410,7 +423,11 @@ declare namespace moment {
     strict?: boolean;
   }
 
+<<<<<<< HEAD
   interface Moment extends Object {
+=======
+  interface Moment extends Object{
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     format(format?: string): string;
 
     startOf(unitOfTime: unitOfTime.StartOf): Moment;
@@ -542,7 +559,11 @@ declare namespace moment {
 
     toArray(): number[];
     toDate(): Date;
+<<<<<<< HEAD
     toISOString(keepOffset?: boolean): string;
+=======
+    toISOString(): string;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     inspect(): string;
     toJSON(): string;
     unix(): number;
@@ -684,10 +705,15 @@ declare namespace moment {
   export function weekdaysMin(localeSorted: boolean, format: string): string[];
   export function weekdaysMin(localeSorted: boolean, format: string, index: number): string;
 
+<<<<<<< HEAD
   export function min(moments: Moment[]): Moment;
   export function min(...moments: Moment[]): Moment;
   export function max(moments: Moment[]): Moment;
   export function max(...moments: Moment[]): Moment;
+=======
+  export function min(...moments: MomentInput[]): Moment;
+  export function max(...moments: MomentInput[]): Moment;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
   /**
    * Returns unix time in milliseconds. Overwrite for profit.
@@ -706,12 +732,16 @@ declare namespace moment {
   export function relativeTimeRounding(): (num: number) => number;
   export function calendarFormat(m: Moment, now: Moment): string;
 
+<<<<<<< HEAD
   export function parseTwoDigitYear(input: string): number;
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
   /**
    * Constant used to enable explicit ISO_8601 format parsing.
    */
   export var ISO_8601: MomentBuiltinFormat;
+<<<<<<< HEAD
   export var RFC_2822: MomentBuiltinFormat;
 
   export var defaultFormat: string;
@@ -729,6 +759,11 @@ declare namespace moment {
     MONTH: string
   };
 
+=======
+
+  export var defaultFormat: string;
+  export var defaultFormatUtc: string;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 }
 
 export = moment;

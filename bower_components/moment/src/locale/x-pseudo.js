@@ -31,7 +31,10 @@ export default moment.defineLocale('x-pseudo', {
         future : 'í~ñ %s',
         past : '%s á~gó',
         s : 'á ~féw ~sécó~ñds',
+<<<<<<< HEAD
         ss : '%d s~écóñ~ds',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'á ~míñ~úté',
         mm : '%d m~íñú~tés',
         h : 'á~ñ hó~úr',

@@ -32,7 +32,10 @@ export default moment.defineLocale('sv', {
         future : 'om %s',
         past : 'för %s sedan',
         s : 'några sekunder',
+<<<<<<< HEAD
         ss : '%d sekunder',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'en minut',
         mm : '%d minuter',
         h : 'en timme',

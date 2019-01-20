@@ -37,7 +37,10 @@ export default moment.defineLocale('hy-am', {
         future : '%s հետո',
         past : '%s առաջ',
         s : 'մի քանի վայրկյան',
+<<<<<<< HEAD
         ss : '%d վայրկյան',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'րոպե',
         mm : '%d րոպե',
         h : 'ժամ',

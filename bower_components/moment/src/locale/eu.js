@@ -36,7 +36,10 @@ export default moment.defineLocale('eu', {
         future : '%s barru',
         past : 'duela %s',
         s : 'segundo batzuk',
+<<<<<<< HEAD
         ss : '%d segundo',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'minutu bat',
         mm : '%d minutu',
         h : 'ordu bat',

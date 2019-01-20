@@ -43,7 +43,10 @@ export default moment.defineLocale('eo', {
         future : 'post %s',
         past : 'antaŭ %s',
         s : 'sekundoj',
+<<<<<<< HEAD
         ss : '%d sekundoj',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'minuto',
         mm : '%d minutoj',
         h : 'horo',

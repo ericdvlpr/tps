@@ -43,7 +43,10 @@ export default moment.defineLocale('gd', {
         future : 'ann an %s',
         past : 'bho chionn %s',
         s : 'beagan diogan',
+<<<<<<< HEAD
         ss : '%d diogan',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'mionaid',
         mm : '%d mionaidean',
         h : 'uair',

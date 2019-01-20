@@ -57,7 +57,10 @@ export default moment.defineLocale('my', {
         future: 'လာမည့် %s မှာ',
         past: 'လွန်ခဲ့သော %s က',
         s: 'စက္ကန်.အနည်းငယ်',
+<<<<<<< HEAD
         ss : '%d စက္ကန့်',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m: 'တစ်မိနစ်',
         mm: '%d မိနစ်',
         h: 'တစ်နာရီ',

@@ -42,7 +42,10 @@ export default moment.defineLocale('lo', {
         future : 'ອີກ %s',
         past : '%sຜ່ານມາ',
         s : 'ບໍ່ເທົ່າໃດວິນາທີ',
+<<<<<<< HEAD
         ss : '%d ວິນາທີ' ,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : '1 ນາທີ',
         mm : '%d ນາທີ',
         h : '1 ຊົ່ວໂມງ',

@@ -8,7 +8,10 @@ import moment from '../moment';
 function processRelativeTime(number, withoutSuffix, key, isFuture) {
     var format = {
         's' : ['mõne sekundi', 'mõni sekund', 'paar sekundit'],
+<<<<<<< HEAD
         'ss': [number + 'sekundi', number + 'sekundit'],
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         'm' : ['ühe minuti', 'üks minut'],
         'mm': [number + ' minuti', number + ' minutit'],
         'h' : ['ühe tunni', 'tund aega', 'üks tund'],
@@ -51,7 +54,10 @@ export default moment.defineLocale('et', {
         future : '%s pärast',
         past   : '%s tagasi',
         s      : processRelativeTime,
+<<<<<<< HEAD
         ss     : processRelativeTime,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m      : processRelativeTime,
         mm     : processRelativeTime,
         h      : processRelativeTime,

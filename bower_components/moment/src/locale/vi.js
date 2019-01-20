@@ -47,7 +47,10 @@ export default moment.defineLocale('vi', {
         future : '%s tới',
         past : '%s trước',
         s : 'vài giây',
+<<<<<<< HEAD
         ss : '%d giây' ,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'một phút',
         mm : '%d phút',
         h : 'một giờ',

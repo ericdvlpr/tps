@@ -12,8 +12,11 @@ function plural(n) {
 function translate(number, withoutSuffix, key) {
     var result = number + ' ';
     switch (key) {
+<<<<<<< HEAD
         case 'ss':
             return result + (plural(number) ? 'sekundy' : 'sekund');
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         case 'm':
             return withoutSuffix ? 'minuta' : 'minutę';
         case 'mm':
@@ -59,6 +62,7 @@ export default moment.defineLocale('pl', {
     calendar : {
         sameDay: '[Dziś o] LT',
         nextDay: '[Jutro o] LT',
+<<<<<<< HEAD
         nextWeek: function () {
             switch (this.day()) {
                 case 0:
@@ -77,6 +81,9 @@ export default moment.defineLocale('pl', {
                     return '[W] dddd [o] LT';
             }
         },
+=======
+        nextWeek: '[W] dddd [o] LT',
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         lastDay: '[Wczoraj o] LT',
         lastWeek: function () {
             switch (this.day()) {
@@ -96,7 +103,10 @@ export default moment.defineLocale('pl', {
         future : 'za %s',
         past : '%s temu',
         s : 'kilka sekund',
+<<<<<<< HEAD
         ss : translate,
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : translate,
         mm : translate,
         h : translate,

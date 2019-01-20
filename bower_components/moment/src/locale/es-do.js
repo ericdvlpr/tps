@@ -6,9 +6,12 @@ import moment from '../moment';
 var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split('_'),
     monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_');
 
+<<<<<<< HEAD
 var monthsParse = [/^ene/i, /^feb/i, /^mar/i, /^abr/i, /^may/i, /^jun/i, /^jul/i, /^ago/i, /^sep/i, /^oct/i, /^nov/i, /^dic/i];
 var monthsRegex = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i;
 
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 export default moment.defineLocale('es-do', {
     months : 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split('_'),
     monthsShort : function (m, format) {
@@ -20,6 +23,7 @@ export default moment.defineLocale('es-do', {
             return monthsShortDot[m.month()];
         }
     },
+<<<<<<< HEAD
     monthsRegex: monthsRegex,
     monthsShortRegex: monthsRegex,
     monthsStrictRegex: /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,
@@ -27,6 +31,9 @@ export default moment.defineLocale('es-do', {
     monthsParse: monthsParse,
     longMonthsParse: monthsParse,
     shortMonthsParse: monthsParse,
+=======
+    monthsParseExact : true,
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     weekdays : 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
     weekdaysShort : 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
     weekdaysMin : 'do_lu_ma_mi_ju_vi_sá'.split('_'),
@@ -61,7 +68,10 @@ export default moment.defineLocale('es-do', {
         future : 'en %s',
         past : 'hace %s',
         s : 'unos segundos',
+<<<<<<< HEAD
         ss : '%d segundos',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'un minuto',
         mm : '%d minutos',
         h : 'una hora',

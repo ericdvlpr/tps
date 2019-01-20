@@ -30,7 +30,10 @@ export default moment.defineLocale('nn', {
         future : 'om %s',
         past : '%s sidan',
         s : 'nokre sekund',
+<<<<<<< HEAD
         ss : '%d sekund',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'eit minutt',
         mm : '%d minutt',
         h : 'ein time',

@@ -30,7 +30,10 @@ export default moment.defineLocale('tl-ph', {
         future : 'sa loob ng %s',
         past : '%s ang nakalipas',
         s : 'ilang segundo',
+<<<<<<< HEAD
         ss : '%d segundo',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'isang minuto',
         mm : '%d minuto',
         h : 'isang oras',

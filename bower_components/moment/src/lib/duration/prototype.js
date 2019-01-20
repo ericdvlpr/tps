@@ -6,7 +6,10 @@ import { abs } from './abs';
 import { add, subtract } from './add-subtract';
 import { as, asMilliseconds, asSeconds, asMinutes, asHours, asDays, asWeeks, asMonths, asYears, valueOf } from './as';
 import { bubble } from './bubble';
+<<<<<<< HEAD
 import { clone } from './clone';
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 import { get, milliseconds, seconds, minutes, hours, days, months, years, weeks } from './get';
 import { humanize } from './humanize';
 import { toISOString } from './iso-string';
@@ -28,7 +31,10 @@ proto.asMonths       = asMonths;
 proto.asYears        = asYears;
 proto.valueOf        = valueOf;
 proto._bubble        = bubble;
+<<<<<<< HEAD
 proto.clone          = clone;
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 proto.get            = get;
 proto.milliseconds   = milliseconds;
 proto.seconds        = seconds;

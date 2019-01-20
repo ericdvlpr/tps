@@ -36,7 +36,10 @@ export default moment.defineLocale('he', {
         future : 'בעוד %s',
         past : 'לפני %s',
         s : 'מספר שניות',
+<<<<<<< HEAD
         ss : '%d שניות',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'דקה',
         mm : '%d דקות',
         h : 'שעה',

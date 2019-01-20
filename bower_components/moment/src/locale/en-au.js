@@ -30,7 +30,10 @@ export default moment.defineLocale('en-au', {
         future : 'in %s',
         past : '%s ago',
         s : 'a few seconds',
+<<<<<<< HEAD
         ss : '%d seconds',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'a minute',
         mm : '%d minutes',
         h : 'an hour',

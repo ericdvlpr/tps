@@ -31,7 +31,10 @@ export default moment.defineLocale('ar-tn', {
         future: 'في %s',
         past: 'منذ %s',
         s: 'ثوان',
+<<<<<<< HEAD
         ss : '%d ثانية',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m: 'دقيقة',
         mm: '%d دقائق',
         h: 'ساعة',

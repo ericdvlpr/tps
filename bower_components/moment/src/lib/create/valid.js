@@ -14,7 +14,10 @@ export function isValid(m) {
             !flags.empty &&
             !flags.invalidMonth &&
             !flags.invalidWeekday &&
+<<<<<<< HEAD
             !flags.weekdayMismatch &&
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
             !flags.nullInput &&
             !flags.invalidFormat &&
             !flags.userInvalidated &&

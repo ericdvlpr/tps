@@ -1,17 +1,29 @@
 /**
+<<<<<<< HEAD
 * @version: 2.1.27
 * @author: Dan Grossman http://www.dangrossman.info/
 * @copyright: Copyright (c) 2012-2017 Dan Grossman. All rights reserved.
 * @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
 * @website: http://www.daterangepicker.com/
+=======
+* @version: 2.1.25
+* @author: Dan Grossman http://www.dangrossman.info/
+* @copyright: Copyright (c) 2012-2017 Dan Grossman. All rights reserved.
+* @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
+* @website: https://www.daterangepicker.com/
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 */
 // Follow the UMD template https://github.com/umdjs/umd/blob/master/templates/returnExportsGlobal.js
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Make globaly available as well
         define(['moment', 'jquery'], function (moment, jquery) {
+<<<<<<< HEAD
             if (!jquery.fn) jquery.fn = {}; // webpack server rendering
             return factory(moment, jquery);
+=======
+            return (root.daterangepicker = factory(moment, jquery));
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         });
     } else if (typeof module === 'object' && module.exports) {
         // Node / Browserify
@@ -21,8 +33,12 @@
             jQuery = require('jquery');
             if (!jQuery.fn) jQuery.fn = {};
         }
+<<<<<<< HEAD
         var moment = (typeof window != 'undefined' && typeof window.moment != 'undefined') ? window.moment : require('moment');
         module.exports = factory(moment, jQuery);
+=======
+        module.exports = factory(require('moment'), jQuery);
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
     } else {
         // Browser globals
         root.daterangepicker = factory(root.moment, root.jQuery);
@@ -424,8 +440,12 @@
             .on('click.daterangepicker', '.daterangepicker_input input', $.proxy(this.showCalendars, this))
             .on('focus.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsFocused, this))
             .on('blur.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsBlurred, this))
+<<<<<<< HEAD
             .on('change.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsChanged, this))
             .on('keydown.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsKeydown, this));
+=======
+            .on('change.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsChanged, this));
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
         this.container.find('.ranges')
             .on('click.daterangepicker', 'button.applyBtn', $.proxy(this.clickApply, this))
@@ -439,11 +459,18 @@
                 'click.daterangepicker': $.proxy(this.show, this),
                 'focus.daterangepicker': $.proxy(this.show, this),
                 'keyup.daterangepicker': $.proxy(this.elementChanged, this),
+<<<<<<< HEAD
                 'keydown.daterangepicker': $.proxy(this.keydown, this) //IE 11 compatibility
             });
         } else {
             this.element.on('click.daterangepicker', $.proxy(this.toggle, this));
             this.element.on('keydown.daterangepicker', $.proxy(this.toggle, this));
+=======
+                'keydown.daterangepicker': $.proxy(this.keydown, this)
+            });
+        } else {
+            this.element.on('click.daterangepicker', $.proxy(this.toggle, this));
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         }
 
         //
@@ -503,7 +530,11 @@
                 this.endDate = moment(endDate);
 
             if (!this.timePicker)
+<<<<<<< HEAD
                 this.endDate = this.endDate.add(1,'d').startOf('day').subtract(1,'second');
+=======
+                this.endDate = this.endDate.endOf('day');
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
             if (this.timePicker && this.timePickerIncrement)
                 this.endDate.minute(Math.round(this.endDate.minute() / this.timePickerIncrement) * this.timePickerIncrement);
@@ -1374,10 +1405,15 @@
             var customRange = true;
             var i = 0;
             for (var range in this.ranges) {
+<<<<<<< HEAD
               if (this.timePicker) {
                     var format = this.timePickerSeconds ? "YYYY-MM-DD hh:mm:ss" : "YYYY-MM-DD hh:mm";
                     //ignore times when comparing dates if time picker seconds is not enabled
                     if (this.startDate.format(format) == this.ranges[range][0].format(format) && this.endDate.format(format) == this.ranges[range][1].format(format)) {
+=======
+                if (this.timePicker) {
+                    if (this.startDate.isSame(this.ranges[range][0]) && this.endDate.isSame(this.ranges[range][1])) {
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
                         customRange = false;
                         this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')').addClass('active').html();
                         break;
@@ -1566,6 +1602,7 @@
 
         },
 
+<<<<<<< HEAD
         formInputsKeydown: function(e) {
             // This function ensures that if the 'enter' key was pressed in the input, then the calendars
             // are updated with the startDate and endDate.
@@ -1582,6 +1619,12 @@
         elementChanged: function() {
             if (!this.element.is('input')) return;
             if (!this.element.val().length) return;
+=======
+        elementChanged: function() {
+            if (!this.element.is('input')) return;
+            if (!this.element.val().length) return;
+            if (this.element.val().length < this.locale.format.length) return;
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
 
             var dateString = this.element.val().split(this.locale.separator),
                 start = null,
@@ -1609,6 +1652,7 @@
             if ((e.keyCode === 9) || (e.keyCode === 13)) {
                 this.hide();
             }
+<<<<<<< HEAD
 
             //hide on esc and prevent propagation
             if (e.keyCode === 27) {
@@ -1617,6 +1661,8 @@
 
                 this.hide();
             }
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         },
 
         updateElement: function() {
@@ -1638,12 +1684,19 @@
     };
 
     $.fn.daterangepicker = function(options, callback) {
+<<<<<<< HEAD
         var implementOptions = $.extend(true, {}, $.fn.daterangepicker.defaultOptions, options);
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         this.each(function() {
             var el = $(this);
             if (el.data('daterangepicker'))
                 el.data('daterangepicker').remove();
+<<<<<<< HEAD
             el.data('daterangepicker', new DateRangePicker(el, implementOptions, callback));
+=======
+            el.data('daterangepicker', new DateRangePicker(el, options, callback));
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         });
         return this;
     };

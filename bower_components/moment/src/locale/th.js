@@ -43,7 +43,10 @@ export default moment.defineLocale('th', {
         future : 'อีก %s',
         past : '%sที่แล้ว',
         s : 'ไม่กี่วินาที',
+<<<<<<< HEAD
         ss : '%d วินาที',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : '1 นาที',
         mm : '%d นาที',
         h : '1 ชั่วโมง',

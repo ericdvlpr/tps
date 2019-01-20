@@ -75,7 +75,10 @@ export default moment.defineLocale('br', {
         future : 'a-benn %s',
         past : '%s \'zo',
         s : 'un nebeud segondennoù',
+<<<<<<< HEAD
         ss : '%d eilenn',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'ur vunutenn',
         mm : relativeTimeWithMutation,
         h : 'un eur',

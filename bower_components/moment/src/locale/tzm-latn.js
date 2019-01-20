@@ -30,7 +30,10 @@ export default moment.defineLocale('tzm-latn', {
         future : 'dadkh s yan %s',
         past : 'yan %s',
         s : 'imik',
+<<<<<<< HEAD
         ss : '%d imik',
+=======
+>>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
         m : 'minuḍ',
         mm : '%d minuḍ',
         h : 'saɛa',
