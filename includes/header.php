@@ -3,9 +3,9 @@
 
  include 'core/database.php';
  $object = new Database();
- // if(!isset($_SESSION["access"])){
- //   header('location:../login.php');
- // }
+ if(!isset($_SESSION["access"])){
+   header('location:../login.php');
+ }
  ?>
  <html>
       <head>
