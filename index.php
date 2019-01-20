@@ -15,7 +15,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li><?php
+        <li class="active">Blank pagesssss</li><?php
         $sql = "SELECT * FROM users";
          $result = mysqli_query($object->connect, $sql);
          while ($record = mysqli_fetch_array($result)) {
