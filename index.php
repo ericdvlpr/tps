@@ -16,10 +16,7 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank pagesssss</li><?php
-        $sql = "SELECT * FROM users";
-         $result = mysqli_query($object->connect, $sql);
-         while ($record = mysqli_fetch_array($result)) {
-           print_r($record);
+        echo 'this';
          }
          ?>
       </ol>
