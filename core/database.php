@@ -5,27 +5,20 @@ session_start();
  class Database
  {
       //crud class
-<<<<<<< HEAD
+
       // public $connect;
-      // private $host = "localhost";
-      // private $username = 'root';
-      // private $password = '12345789';
-      // private  $database = 'db_gfctps';
-      public $connect;
-      private $host = 'ec2-54-235-68-3.compute-1.amazonaws.com';
-      private $username = 'hrdubrbacxybuh';
-      private $password = 'a557a8e1a030d6a58e78ed63038a7f06527c436dbfb08c71037d51d6155fce92';
-      private  $database = 'd2mt5b4kbp0ulu';
-      private $port ='5432';
+      // private $host = 'ec2-54-235-68-3.compute-1.amazonaws.com';
+      // private $username = 'hrdubrbacxybuh';
+      // private $password = 'a557a8e1a030d6a58e78ed63038a7f06527c436dbfb08c71037d51d6155fce92';
+      // private  $database = 'd2mt5b4kbp0ulu';
+      // private $port ='5432';
 
-
-=======
       public $connect;
       private $host = "localhost";
       private $username = 'root';
       private $password = '12345789';
       private  $database = 'db_gfctps';
->>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
+
       function __construct()
       {
            $this->database_connect();
