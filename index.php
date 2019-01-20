@@ -16,7 +16,7 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank pagesssss</li><?php
-        echo 'this';
+        
          }
          ?>
       </ol>
