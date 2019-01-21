@@ -3,26 +3,25 @@
  include 'database.php';
  $object = new Database();
  if(isset($_POST['login'])){
-   header("location:../index.php");
- 	// $field = array(
- 	// 	'username' => $_POST['username'],
- 	// 	'password' => md5($_POST['password'])
- 	// 	);
- 	// 		if($object->can_login("users", $field)){
- 	// 			$post_data = $object->can_login("users", $field);
- 	// 			foreach($post_data as $post){
-  //
- 	// 			$_SESSION["username"] = $post["username"];
- 	// 			$_SESSION["id"] = $post['id'];;
- 	// 			$_SESSION["access"] = $post['access'];;
- 	// 			$_SESSION["assign"] = $post['assign'];;
- 	// 			header("location:../index.php");
- 	// 			}
- 	// 		}else{
-  //       $message = 'INVALID USERNAME AND PASSWORD';
-  //       header("location:../login.php?msg=".$message."");
-  //
- 	// 		}
+ 	$field = array(
+ 		'username' => $_POST['username'],
+ 		'password' => md5($_POST['password'])
+ 		);
+ 			if($object->can_login("users", $field)){
+ 				$post_data = $object->can_login("users", $field);
+ 				foreach($post_data as $post){
+
+ 				$_SESSION["username"] = $post["username"];
+ 				$_SESSION["id"] = $post['id'];;
+ 				$_SESSION["access"] = $post['access'];;
+ 				$_SESSION["assign"] = $post['assign'];;
+ 				header("location:../index.php");
+ 				}
+ 			}else{
+        $message = 'INVALID USERNAME AND PASSWORD';
+        header("location:../login.php?msg=".$message."");
+
+ 			}
 
  }
 if(isset($_POST["action"])) {
