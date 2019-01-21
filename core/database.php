@@ -44,12 +44,6 @@ session_start();
                    $array[] = $record;
               }
               return $array;
-          if(mysqli_num_rows($result) ){
-            return true;
-
-          }else{
-            $this->error .= "<p>Wrong data</p>";
-          }
 
         }
       public function get_employee_data($query) {
