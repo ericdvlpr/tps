@@ -209,10 +209,8 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
               $output["username"] = $row["username"];
               $output["password"] = $row["password"];
               $output["access"] = $row["access"];
-<<<<<<< HEAD
-=======
               $output["assign"] = $row["assign"];
->>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
+
 
             }
             echo json_encode($output);
@@ -352,17 +350,11 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
             // }else
             if($_POST['type']=='delivery') {
                 $dates = explode('-',$_POST["daterange"]);
-<<<<<<< HEAD
-                $startDate = $dates[0];
-                $endDate = $dates[1];
-                 $output='';
-                echo $query = " SELECT * FROM deliveries JOIN employees USING (employee_id) WHERE date_delivered BETWEEN '".$startDate."' AND '".$endDate."'";
-=======
+
                  $startDate = date('Y-m-d',strtotime($dates[0]));
                  $endDate = date('Y-m-d',strtotime($dates[1]));
                  $output='';
                  $query = " SELECT * FROM deliveries JOIN employees USING (employee_id) WHERE date_delivered BETWEEN '".$startDate."' AND '".$endDate."'";
->>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
                   $result = mysqli_query($object->connect, $query);
                   $output .= '
                         <div class="btn-group">
@@ -416,17 +408,10 @@ $query="INSERT INTO orders(order_id,customer_id,product_id,address,contact_numbe
 
             }elseif($_POST['type']=='task') {
               $dates = explode('-',$_POST["daterange"]);
-<<<<<<< HEAD
-              $startDate = $dates[0];
-              $endDate = $dates[1];
-                  $output='';
-                  $query = " SELECT * FROM task JOIN employees USING (employee_id) WHERE assigned BETWEEN '".$startDate."' AND '".$endDate."' OR due BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."' ";
-=======
               $startDate = date('Y-m-d',strtotime($dates[0]));
               $endDate = date('Y-m-d',strtotime($dates[1]));
                   $output='';
                   $query = " SELECT * FROM task JOIN employees USING (employee_id) WHERE assigned BETWEEN '".$startDate."' AND '".$endDate."' OR due BETWEEN '".$startDate."' AND '".$endDate."' ";
->>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
                   $result = mysqli_query($object->connect, $query);
                   $output .= '
                   <div class="btn-group">
