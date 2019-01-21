@@ -7,17 +7,18 @@
  		'username' => $_POST['username'],
  		'password' => md5($_POST['password'])
  		);
-    print_r($field);
- 			// if($object->can_login("users", $field)){
- 			// 	$post_data = $object->can_login("users", $field);
- 			// 	foreach($post_data as $post){
-      //
- 			// 	$_SESSION["username"] = $post["username"];
- 			// 	$_SESSION["id"] = $post['id'];;
- 			// 	$_SESSION["access"] = $post['access'];;
- 			// 	$_SESSION["assign"] = $post['assign'];;
- 			// 	header("location:../index.php");
- 			// 	}
+ 			if($object->can_login("users", $field)){
+ 				$post_data = $object->can_login("users", $field);
+        print_r($post_data);
+ 				foreach($post_data as $post){
+
+ 				$_SESSION["username"] = $post["username"];
+ 				$_SESSION["id"] = $post['id'];;
+ 				$_SESSION["access"] = $post['access'];;
+ 				$_SESSION["assign"] = $post['assign'];;
+ 				//header("location:../index.php");
+ 				}
+      }
  			// }else{
       //   $message = 'INVALID USERNAME AND PASSWORD';
       //   header("location:../login.php?msg=".$message."");
