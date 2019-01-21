@@ -1,7 +1,12 @@
 
 <?php
 include "includes/head.php";
-
+$query = "SELECT * FROM users";
+$result = mysqli_query($object->connect, $query);
+   while ($record = mysqli_fetch_array($result)) {
+      $array[] = $record;
+ }
+ print_r($array);
 ?>
 <div class="login-box">
   <div class="login-logo">
