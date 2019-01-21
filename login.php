@@ -1,7 +1,6 @@
 
 <?php
 include "includes/head.php";
-echo 'FUCK! ';
 ?>
 <div class="login-box">
   <div class="login-logo">
