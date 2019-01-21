@@ -2,7 +2,7 @@
 <?php
 include "includes/head.php";
 $query = "SELECT * FROM users";
-$result = $this->execute_query($query);
+$result = mysqli_query($object->connect,$query);
 $row = mysqli_fetch_object($result);
 echo $row->username;
 ?>
