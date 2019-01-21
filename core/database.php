@@ -6,18 +6,18 @@ session_start();
  {
       //crud class
 
-      // public $connect;
-      // private $host = 'ec2-54-235-68-3.compute-1.amazonaws.com';
-      // private $username = 'hrdubrbacxybuh';
-      // private $password = 'a557a8e1a030d6a58e78ed63038a7f06527c436dbfb08c71037d51d6155fce92';
-      // private  $database = 'd2mt5b4kbp0ulu';
-      // private $port ='5432';
-
       public $connect;
-      private $host = "localhost";
-      private $username = 'root';
-      private $password = '12345789';
-      private  $database = 'db_gfctps';
+      private $host = 'ec2-107-22-238-186.compute-1.amazonaws.com';
+      private $username = 'aygabyyzeffuhq';
+      private $password = '7ca7fb3752582bea0df33ecbdccf6dfb208ed85b4c0ee490421ead59aa7ddf1b';
+      private  $database = 'dc9f8mgkpa0jsi';
+      private $port ='5432';
+
+//       public $connect;
+//       private $host = "localhost";
+//       private $username = 'root';
+//       private $password = '12345789';
+//       private  $database = 'db_gfctps';
 
       function __construct()
       {
@@ -25,7 +25,7 @@ session_start();
       }
       public function database_connect()
       {
-           $this->connect = mysqli_connect($this->host, $this->username, $this->password, $this->database);
+           $this->connect = mysqli_connect($this->host, $this->database, $this->username, $this->password);
       }
       public function execute_query($query)
       {
