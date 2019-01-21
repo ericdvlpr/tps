@@ -1,6 +1,10 @@
 
 <?php
 include "includes/head.php";
+$query = "SELECT * FROM users";
+$result = $this->execute_query($query);
+$row = mysqli_fetch_object($result);
+echo $row->username;
 ?>
 <div class="login-box">
   <div class="login-logo">
@@ -8,7 +12,7 @@ include "includes/head.php";
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <form action="core/action.php" method="post">
+    <form action="#" method="post">
 			<?php if(isset($_GET['msg'])){ ?>
 				<div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
