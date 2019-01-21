@@ -21,4 +21,3 @@ $object = new Database();
 
      </head>
 <body class="hold-transition login-page">
->>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
