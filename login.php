@@ -1,8 +1,9 @@
 
 <?php
 include "includes/head.php";
+
 $sql = "SELECT * FROM users";
-$result = mysqli_query($object->$connect, $sql);
+$result = mysqli_query($object->connect, $sql);
 echo mysqli_num_rows($result);
 ?>
 <div class="login-box">
