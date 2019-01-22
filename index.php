@@ -19,8 +19,16 @@
              <!-- small box -->
              <div class="small-box bg-aqua">
                <div class="inner">
-                <h3> <?php $count=mysqli_query($object->connect,"SELECT * FROM products ");
-                 echo $count->num_rows;?></h3>
+                <h3> <?php
+                $host = 'ec2-107-22-238-186.compute-1.amazonaws.com';
+                $username = 'aygabyyzeffuhq';
+                $password = '7ca7fb3752582bea0df33ecbdccf6dfb208ed85b4c0ee490421ead59aa7ddf1b';
+                $database = 'dc9f8mgkpa0jsi';
+                $port ='5432';
+                $connect = mysqli_connect($host, $database, $username, $password);
+                $sql = "SELECT * FROM users";
+                $result = mysqli_query($connect, $sql);
+                echo mysqli_num_rows($result);?></h3>
                  <p>Products</p>
                </div>
                <div class="icon"><p></p>

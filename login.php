@@ -1,15 +1,7 @@
 
 <?php
 include "includes/head.php";
-$host = 'ec2-107-22-238-186.compute-1.amazonaws.com';
-$username = 'aygabyyzeffuhq';
-$password = '7ca7fb3752582bea0df33ecbdccf6dfb208ed85b4c0ee490421ead59aa7ddf1b';
-$database = 'dc9f8mgkpa0jsi';
-$port ='5432';
-$connect = mysqli_connect($this->host, $this->database, $this->username, $this->password);
-$sql = "SELECT * FROM users";
-$result = mysqli_query($connect, $sql);
-echo mysqli_num_rows($result);
+
 ?>
 <div class="login-box">
   <div class="login-logo">
