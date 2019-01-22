@@ -26,7 +26,7 @@
                 $database = 'dc9f8mgkpa0jsi';
                 $port ='5432';
                 $connect = mysqli_connect($host, $database, $username, $password);
-                $sql = "SELECT * FROM users";
+                echo $sql = "SELECT * FROM users";
                 $result = mysqli_query($connect, $sql);
                 echo mysqli_num_rows($result);?></h3>
                  <p>Products</p>
