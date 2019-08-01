@@ -1,29 +1,55 @@
 <?php
  //action.php
  include 'database.php';
- $object = new Database();
  if(isset($_POST['login'])){
- 	$field = array(
- 		'username' => $_POST['username'],
- 		'password' => md5($_POST['password'])
- 		);
-    $post_data = $object->can_login("users", $field);
- 			if($object->can_login("users", $field)){
- 				$post_data = $object->can_login("users", $field);
-        print_r($object->can_login("users", $field));
- 				foreach($post_data as $post){
+  if(empty($_POST["username"]) || empty($_POST["password"]))  
+  {  
+       $message = '<label>All fields are required</label>';  
+  }  
+  else  
+  {  
+    $query = "
+    SELECT * FROM users 
+     WHERE username = :username
+    ";
+    $statement = $connect->prepare($query);
+       $statement->execute(  
+          array( 
+          "username" => $_POST['username']
+          )  
+      );
+       echo $count = $statement->rowCount();  
+       if($count > 0)  
+       {  
+          $result = $statement->fetchAll();
+          foreach($result as $row){
+            if(password_verify($_POST['password'],$row['password'])){
+              // TODO: change to status when deployed
+              if($row['access'] == 1)
+                  {
+                  $_SESSION['access'] = $row['access'];
+                  $_SESSION['id'] = $row['id'];
+                  // $_SESSION['uid'] = $row['uid'];
+                  $_SESSION['username'] = $row['username'];
+                  // $_SESSION['name'] = $row['name'];
+                  header("location:../index.php");
+                  }
+                  else
+                  {
+                  $message = "<label>Account Inactive</label>";
+                  }
+            }else{
+              $message = "<label>Invalid Password</label>";
+            }
 
- 				$_SESSION["username"] = $post["username"];
- 				$_SESSION["usr_id"] = $post['usr_id'];;
- 				$_SESSION["access"] = $post['access'];;
- 				$_SESSION["assign"] = $post['assign'];;
- 				//header("location:../index.php");
- 				}
- 			}else{
-        $message = 'INVALID USERNAME AND PASSWORD';
-        header("location:../login.php?msg=".$message."");
-
- 			}
+          }
+          
+       }  
+       else  
+       {  
+            $message = '<label>Wrong Data</label>';  
+       }  
+  }  
 
  }
 if(isset($_POST["action"])) {

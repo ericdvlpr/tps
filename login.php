@@ -1,7 +1,7 @@
 
 <?php
 include "includes/head.php";
-
+// echo password_hash('123456',PASSWORD_DEFAULT);
 ?>
 <div class="login-box">
   <div class="login-logo">

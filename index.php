@@ -1,6 +1,7 @@
-<?php include 'includes/header.php';?>
-
-  <!-- Content Wrapper. Contains page content -->    <section class="content-header">
+<?php include 'includes/header.php';?>
+
+  <!-- Content Wrapper. Contains page content -->
+    <section class="content-header">
      <h1>
        Dashboard
        <small>Version 2.0</small>
@@ -19,16 +20,7 @@
              <!-- small box -->
              <div class="small-box bg-aqua">
                <div class="inner">
-                <h3> <?php
-                $host = 'ec2-107-22-238-186.compute-1.amazonaws.com';
-                $username = 'aygabyyzeffuhq';
-                $password = '7ca7fb3752582bea0df33ecbdccf6dfb208ed85b4c0ee490421ead59aa7ddf1b';
-                $database = 'dc9f8mgkpa0jsi';
-                $port ='5432';
-                $connect = mysqli_connect($host, $database, $username, $password);
-                echo $sql = "SELECT * FROM users";
-                $result = mysqli_query($connect, $sql);
-                echo mysqli_num_rows($result);?></h3>
+                <h3></h3>
                  <p>Products</p>
                </div>
                <div class="icon"><p></p>
@@ -42,8 +34,7 @@
              <!-- small box -->
              <div class="small-box bg-green">
                <div class="inner">
-                 <h3> <?php $count=mysqli_query($object->connect,"SELECT * FROM orders ");
-                  echo $count->num_rows;?></h3>
+                 <h3> </h3>
                  <p>Orders</p>
                </div>
                <div class="icon">
@@ -58,8 +49,7 @@
              <!-- small box -->
              <div class="small-box bg-yellow">
                <div class="inner">
-                 <h3> <?php $count=mysqli_query($object->connect,"SELECT * FROM deliveries ");
-                  echo $count->num_rows;?></h3>
+                 <h3></h3>
                  <p>Delivery</p>
                </div>
                <div class="icon">
@@ -74,8 +64,7 @@
              <!-- small box -->
              <div class="small-box bg-red">
                <div class="inner">
-                 <h3> <?php $count=mysqli_query($object->connect,"SELECT * FROM task ");
-                  echo $count->num_rows;?></h3>
+                 <h3> </h3>
                  <p>Task</p>
                </div>
                <div class="icon"><p></p>
@@ -89,10 +78,15 @@
          <!-- /.row -->
    </section>
 
-
-
-
-<?php
-include 'includes/footer.php';
+
+
+
+
+
+
+<?php
+
+include 'includes/footer.php';
+
 ?>
 >>>>>>> 348c139e2bbd18748e499cc4d7f20e1f2b097a4b
