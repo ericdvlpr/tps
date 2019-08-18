@@ -1,5 +1,5 @@
 <?php
 // Developed by: ERIC PAUL JAUCIAN
-$connect = new PDO('mysql:host=localhost;dbname=db_gfctps', 'root', '');
+$connect = new PDO('mysql:host=localhost;dbname=tps_demo', 'root', '');
 session_start();
  ?>

@@ -17,12 +17,7 @@
        <li><a href="products.php"><i class="fa fa-cubes"></i>  <span>Products </span></a></li>
 
        <li><a href="orders.php"><i class="fa  fa-opencart"></i>  <span>Orders </span></a></li>
-
-       <li><a href="task.php"><i class="fa fa-tasks"></i>  <span>Task</a> </span></li>
-
        <li><a href="reports.php"><i class="fa fa-folder"></i>  <span>Reports</a> </span></li>
-       
-       <li><a href="task.php"><i class="fa fa-tasks"></i>  <span>Task</a> </span></li>
 
       </ul>
 

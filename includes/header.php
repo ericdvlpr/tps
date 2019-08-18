@@ -1,7 +1,8 @@
 <!-- Developed by: ERIC PAUL JAUCIAN -->
  <?php
 
- include 'core/database.php';
+include 'core/database.php';
+include 'core/fetch_product.php';
 //  $object = new Database();
  if(!isset($_SESSION["access"])){
    header('location:login.php');
@@ -15,9 +16,10 @@
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <!-- Ionicons -->
-      <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+      <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
       <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+      <link rel="stylesheet" href="dist/css/select2.min.css">
       <!-- Theme style -->
       <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
       <!-- AdminLTE Skins. Choose a skin from the css/skins
