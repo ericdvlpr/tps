@@ -1,52 +1,57 @@
-
 <?php
-// Developed by: ERIC PAUL JAUCIAN
-session_start();
+
  class Database
  {
-      //crud class
 
-      public $connect;
-      private $host = 'ec2-107-22-238-186.compute-1.amazonaws.com';
-      private $username = 'aygabyyzeffuhq';
-      private $password = '7ca7fb3752582bea0df33ecbdccf6dfb208ed85b4c0ee490421ead59aa7ddf1b';
-      private  $database = 'dc9f8mgkpa0jsi';
-      private $port ='5432';
-
-//       public $connect;
-//       private $host = "localhost";
-//       private $username = 'root';
-//       private $password = '12345789';
-//       private  $database = 'db_gfctps';
+      private $host = "localhost";
+      private $username = 'root';
+      private $password = '';
+      private  $database = 'tps';
 
       function __construct()
       {
            $this->database_connect();
       }
-      public function database_connect()
-      {
-           $this->connect = mysqli_connect($this->host, $this->database, $this->username, $this->password);
-      }
-      public function execute_query($query)
-      {
-           return mysqli_query($this->connect, $query);
-      }
-      public function can_login($table_name,$where_condition){
-          $condition = '';
-          $array=array();
-          foreach ($where_condition as $key => $value) {
-             $condition .= $key . " = '".$value."' AND ";
-          }
-           $condition = substr($condition, 0, -5);
-             $query = "SELECT * FROM ".$table_name." WHERE ". $condition;
-           $result = mysqli_query($this->connect, $query);
-                while ($record = mysqli_fetch_array($result)) {
-                   $array[] = $record;
-              }
-              return $array;
 
-        }
-      public function get_employee_data($query) {
+      protected function database_connect()
+      {
+          try {
+               $connect = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username, $this->password);
+               // set the PDO error mode to exception
+               $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+               // echo "Connected successfully";
+               return $connect;
+          } catch(PDOException $e) {
+               // echo "Connection failed: " . $e->getMessage();
+               return $e->getMessage();
+          }
+      }  
+
+     public function error_logs($errorType,$log){
+          $sql = "INSERT INTO logs(`type`,`msg`)VALUES(?,?)";
+          $stmt = $this->database_connect()->prepare($sql);
+          $stmt->execute([
+               $errorType,$log
+          ]);  
+     }
+
+     // public function can_login($table_name,$where_condition){
+     //      $condition = '';
+     //      $array=array();
+     //      foreach ($where_condition as $key => $value) {
+     //         $condition .= $key . " = '".$value."' AND ";
+     //      }
+     //       $condition = substr($condition, 0, -5);
+     //         $query = "SELECT * FROM ".$table_name." WHERE ". $condition;
+     //       $result = mysqli_query($this->connect, $query);
+     //            while ($record = mysqli_fetch_array($result)) {
+     //               $array[] = $record;
+     //          }
+     //          return $array;
+
+     // }
+
+     public function get_employee_data($query) {
            $output = '';
            $result = $this->execute_query($query);
            $output .= '

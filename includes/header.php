@@ -1,7 +1,7 @@
 <!-- Developed by: ERIC PAUL JAUCIAN -->
  <?php
 
- include 'core/database.php';
+ include 'app/database.php';
  $object = new Database();
  // if(!isset($_SESSION["access"])){
  //   header('location:../login.php');

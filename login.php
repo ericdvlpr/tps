@@ -9,7 +9,7 @@ include "includes/head.php";
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <form action="core/action.php" method="post">
+    <form method="post">
 			<?php if(isset($_GET['msg'])){ ?>
 				<div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
