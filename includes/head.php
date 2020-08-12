@@ -40,7 +40,7 @@ $accountController = new AccountController();
 
      <title>Transaction Processing System</title>
 
-     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
      <!-- Font Awesome -->
 
@@ -56,13 +56,13 @@ $accountController = new AccountController();
 
      <!-- Theme style -->
 
-     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+     <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
 
      <!-- AdminLTE Skins. Choose a skin from the css/skins
 
           folder instead of downloading all of them to reduce the load. -->
 
-     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
 
 
 

@@ -11,15 +11,19 @@ class Account extends Database
         ]);
         $count = $stmt->rowCount();
         $users = $stmt->fetchAll();
-        
+        $userInfo = array();
         if($count > 0)
         {
             foreach($users as $user){
                 if(password_verify($fields['password'],$user['password'])){
-                    $_SESSION['username'] = $row['username'];
-                    $_SESSION['id'] = $row['username'];
-                    $_SESSION['access'] = $row['access'];
-                    return true;
+                    session_start();
+                    $userInfo = [
+                        'id' => $user['id'],
+                        'username' => $user['username'],
+                        'access' => $user['access'],
+                        'active' => $user['active'],
+                    ];
+                    return $userInfo;
                 }else{
                     $this->error_logs('Login', "Invalid Password for:".$fields['username']);  
                 }
