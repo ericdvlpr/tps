@@ -21,12 +21,12 @@ class Account extends Database
                     $_SESSION['access'] = $row['access'];
                     return true;
                 }else{
-                    $this->error_logs('Login', 'Invalid Password');  
+                    $this->error_logs('Login', "Invalid Password for:".$fields['username']);  
                 }
              
             }  
         }else{
-             $this->error_logs('Login', 'Username doesn\'t exist');   
+             $this->error_logs('Login', "Username:(".$fields['username'].") doesn\'t exist");   
         }
     }
 
