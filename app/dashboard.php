@@ -1,24 +1,25 @@
 <?php
 
-include 'database.php';
+class Dashboard
+{
 
-class Dashboard extends Database{
+  public function __construct($db)
+  {
+    $this->database_connect = $db;
+  }
 
-  protected function productCount(){
-    
+  public function productCount()
+  {
     $sql = "SELECT * FROM products";
-    $stmt = $this->database_connect()->query($sql);
+    $stmt = $this->database_connect->query($sql);
     $count = $stmt->rowCount();
-    $products = $stmt->fetchAll();
-    return ([
-      'productCount' => $count,
-      'productArray' =>$products
-    ]);
+    return $count;
   }
-  protected function purchaseCount(){
-    
+  protected function purchaseCount()
+  {
+
     // $sql = "SELECT * FROM products";
-    // $stmt = $this->database_connect()->query($sql);
+    // $stmt = $this->database_connect->query($sql);
     // $count = $stmt->rowCount();
     // $products = $stmt->fetchAll();
     // return ([
@@ -26,10 +27,11 @@ class Dashboard extends Database{
     //   'productArray' =>$products
     // ]);
   }
-  protected function orderCount(){
-    
+  protected function orderCount()
+  {
+
     // $sql = "SELECT * FROM products";
-    // $stmt = $this->database_connect()->query($sql);
+    // $stmt = $this->database_connect->query($sql);
     // $count = $stmt->rowCount();
     // $products = $stmt->fetchAll();
     // return ([
@@ -37,10 +39,11 @@ class Dashboard extends Database{
     //   'productArray' =>$products
     // ]);
   }
-  protected function deliveryCount(){
-    
+  protected function deliveryCount()
+  {
+
     // $sql = "SELECT * FROM products";
-    // $stmt = $this->database_connect()->query($sql);
+    // $stmt = $this->database_connect->query($sql);
     // $count = $stmt->rowCount();
     // $products = $stmt->fetchAll();
     // return ([
@@ -48,10 +51,11 @@ class Dashboard extends Database{
     //   'productArray' =>$products
     // ]);
   }
-  protected function taskCount(){
-    
+  protected function taskCount()
+  {
+
     // $sql = "SELECT * FROM products";
-    // $stmt = $this->database_connect()->query($sql);
+    // $stmt = $this->database_connect->query($sql);
     // $count = $stmt->rowCount();
     // $products = $stmt->fetchAll();
     // return ([

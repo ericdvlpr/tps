@@ -1,42 +1,25 @@
 <?php
-
-
-
 // include 'core/database.php';
-include 'app/controller/accountcontroller.php';
-$accountController = new AccountController();
+include 'app/database.php';
+include 'app/loginController.php';
 
-     if(isset($_POST['login'])){
-          $fields= array(
+$db = new Database();
+$dbconnection = $db->database_connect();
+$login = new LoginController($dbconnection);
+if (isset($_POST['login'])) {
+     $fields = array(
           'username' => $_POST['username'],
           'password' => $_POST['password']
-          );
-          // echo password_hash('test', PASSWORD_BCRYPT); 
-         $accountController->can_login($fields);
-         
-     //                if($object->can_login("users", $field)){
-     //                     $post_data = $object->can_login("users", $field);
-     //        print_r($object->can_login("users", $field));
-     //                     foreach($post_data as $post){
-
-     //                     $_SESSION["username"] = $post["username"];
-     //                     $_SESSION["usr_id"] = $post['usr_id'];;
-     //                     $_SESSION["access"] = $post['access'];;
-     //                     $_SESSION["assign"] = $post['assign'];;
-     //                     //header("location:../index.php");
-     //                     }
-     //                }else{
-     //                     $message = 'INVALID USERNAME AND PASSWORD';
-     //                     header("location:../login.php?msg=".$message."");
-
-     //      }
-     }
+     );
+     // echo password_hash('test', PASSWORD_BCRYPT); 
+     $login->login_account($fields);
+}
 
 ?>
 
 <html>
 
-     <head>
+<head>
 
      <title>Transaction Processing System</title>
 
@@ -56,17 +39,16 @@ $accountController = new AccountController();
 
      <!-- Theme style -->
 
-     <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 
      <!-- AdminLTE Skins. Choose a skin from the css/skins
 
           folder instead of downloading all of them to reduce the load. -->
 
-     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
 
 
-     </head>
+</head>
 
 <body class="hold-transition login-page">
-
