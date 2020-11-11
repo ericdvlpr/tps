@@ -10,7 +10,7 @@ class Dashboard
 
   public function productCount()
   {
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT * FROM inventory";
     $stmt = $this->database_connect->query($sql);
     $count = $stmt->rowCount();
     return $count;

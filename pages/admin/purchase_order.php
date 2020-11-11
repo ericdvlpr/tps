@@ -159,9 +159,30 @@
                     <br />
                     <div class="form-group">
                         <label>Enter Product Details</label>
-                        <hr />
-                        <span id="span_product_details"></span>
-                        <hr />
+                        <table class='table table-stripped'>
+                            <thead>
+                                <td>
+                                    Item #
+                                </td>
+                                <td>
+                                    Description
+                                </td>
+                                <td>
+                                    Quantity
+                                </td>
+                                <td>
+                                    Unit Price
+                                </td>
+                                <td>
+                                    Total
+                                </td>
+                            </thead>
+                            <tbody>
+                                <hr />
+                                <span id="span_product_details"></span>
+                                <hr />
+                            </tbody>
+                        </table>
                     </div>
                     <div class="form-group">
                         <label>Select Payment Status</label>

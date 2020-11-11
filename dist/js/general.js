@@ -2,9 +2,17 @@ $(document).ready(function () {
   $('input[type=text]').attr("autocomplete", "off");
   $("#f_date").css("display", "none");
   $("#t_date").css("display", "none");
+ 
+  $('#addProd').click(function() {
+    $('#productModal').modal('show');
+    $('#product_form')[0].reset();
+    $('.modal-title').html("<i class='fa fa-plus'></i> Add Product");
+    $('#action').val('Add');
+    $('#btn_action').val('Add');
+    load_category()
+  });
 
-
-  $('#addPO').click(function(){
+  $('#addPO').click(function() {
     $('#orderModal').modal('show');
     $('#order_form')[0].reset();
     $('.modal-title').html("<i class='fa fa-plus'></i> Create Order");
@@ -12,78 +20,71 @@ $(document).ready(function () {
     $('#btn_action').val('Add');
     $('#span_product_details').html('');
     add_product_row();
-   });
-   function add_product_row(count = '')
-  {
-   var html = '';
-
-  html +="<table class='table table-stripped' >"
-  html +="<thead>"
-  html +="<td>"
-  html +="Item #"
-  html +="</td>"
-  html +="<td>"
-  html +="Description"
-  html +="</td>"
-  html +="<td>"
-  html +="Quantity"
-  html +="</td>"
-  html +="<td>"
-  html +="Unit Price"
-  html +="</td>"
-  html +="<td>"
-  html +="Total"
-  html +="</td>"
-  html +="</thead>"
-
-  html +="<tbody>"
-  html +="<td>"
+  });
   
-  html += "<select name='product_id[]' id='product_id"+count+"' class='form-control selectpicker' data-live-search='true' required>";
-  html += "";
-  html += "</select><input type='hidden' name='hidden_product_id[]' id='hidden_product_id'+count+'' />";
-  html +="</td>"
-  html +="<td>"
-  html += "<input type='text' name='desc[]' class='form-control' required />";
-  html +="</td>"
-  html +="<td>"
-  html += "<input type='text' name='quantity[]' class='form-control' required />";
-  html +="</td>"
-  html +="<td>"
-  html += "<input type='text' name='unitprice[]' class='form-control' required />";
-  html +="</td>"
-  html +="<td>"
-  html += "<input type='text' name='total[]' class='form-control' required />";
-  html +="</td>"
- 
+  function load_category(){
+    var action = 'category'
+      $.ajax({
+        url: "../../app/controller/categorycontroller.php",
+        method: "POST",
+        data: {
+          action: action
+        },
+        success: function(data) {
+          $('#category').append(data);
+        }
+      });
+  }
 
-  html +="<td>"
-   if(count == '')
-   {
-    html += '<button type="button" name="add_more" id="add_more" class="btn btn-success btn-xs">+</button>';
-   }
-   else
-   {
-    html += '<button type="button" name="remove" id="'+count+'" class="btn btn-danger btn-xs remove">-</button>';
-   }
-   html +="</td>"
-   html +="</tbody>"
-   html +="</table>"
-  //  html += '</div>';
-  //  html += '</div></div><br /></span>';
-   $('#span_product_details').append(html);
+  function add_product_row(count = '') {
 
-  //  $('.selectpicker').selectpicker();
+
+    var html = '';
+
+    html += "<tr>"
+    html += "<td>"
+
+    html += "<select name='product_id[]' id='product_id" + count + "' class='form-control selectpicker' data-live-search='true' required>";
+    html += '';
+    html += "</select><input type='hidden' name='hidden_product_id[]' id='hidden_product_id'+count+'' />";
+    html += "</td>"
+    html += "<td>"
+    html += "<input type='text' name='desc[]' class='form-control' required />";
+    html += "</td>"
+    html += "<td>"
+    html += "<input type='text' name='quantity[]' class='form-control' required />";
+    html += "</td>"
+    html += "<td>"
+    html += "<input type='text' name='unitprice[]' class='form-control' required />";
+    html += "</td>"
+    html += "<td>"
+    html += "<input type='text' name='total[]' class='form-control' required />";
+    html += "</td>"
+
+
+    html += "<td>"
+    if (count == '') {
+      html += '<button type="button" name="add_more" id="add_more" class="btn btn-success btn-xs">+</button>';
+    } else {
+      html += '<button type="button" name="remove" id="' + count + '" class="btn btn-danger btn-xs remove">-</button>';
+    }
+    html += "</td>"
+    html += "</tr>"
+    //  html += '</div>';
+    //  html += '</div></div><br /></span>';
+    $('#span_product_details').append(html);
+
+    //  $('.selectpicker').selectpicker();
   }
   var count = 0;
 
-  $(document).on('click', '#add_more', function(){
-   count = count + 1;
-   add_product_row(count);
+  $(document).on('click', '#add_more', function() {
+    count = count + 1;
+    add_product_row(count);
   });
-  $(document).on('click', '.remove', function(){
-   var row_no = $(this).attr("id");
-   $('#row'+row_no).remove();
+  $(document).on('click', '.remove', function() {
+    var row_no = $(this).attr("id");
+    $('tr' + row_no).remove();
   });
   ///Date picker
     // $('#daterange').daterangepicker();
@@ -124,6 +125,7 @@ $(document).ready(function () {
 
     }
   });
+
   $('#reportForm').on('submit', function(event) {
     event.preventDefault();
 

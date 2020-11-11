@@ -1,15 +1,16 @@
 <?php
 
-class Inventory
+class Category
 {
     private $database_connect;
     public function __construct($db)
     {
         $this->database_connect = $db;
     }
-    public function display_inventory()
+
+    public function display_category()
     {
-        $sql = "SELECT inv.serial_no,  inv.name as productname, inv.description, inv.quantity,ct.name as category FROM inventory inv LEFT JOIN category ct ON inv.category_id = ct.id ";
+        $sql = "SELECT * FROM category";
         $stmt = $this->database_connect->query($sql);
         $stmt->execute();
         return  $stmt;

@@ -27,8 +27,11 @@ class Purchase
         $result = $statement->fetchAll();
         $output = array();
         foreach ($result as $row) {
-            $output .= '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
+            $output = [
+                "row_id" => $row["id"],
+                "row_name" => $row["name"]
+            ];
         }
-        return json_encode($output);
+        return $result;
     }
 }
