@@ -13,11 +13,23 @@
         <li class="dropdown notifications-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
             <i class="fa fa-bell-o"></i>
-            <span class="label label-warning"><?php echo count($notification->stock_notification()); ?></span>
+            <span class="label label-warning"><?php
+                                              if (empty($notification->stock_notification())) {
+                                                echo '0';
+                                              } else {
+                                                echo count($notification->stock_notification());
+                                              }
+                                              ?></span>
           </a>
           <ul class="dropdown-menu">
 
-            <li class="header"> <?php echo ' You have ' . count($notification->stock_notification()) . ' notification'; ?></li>
+            <li class="header"> <?php
+                                if (empty($notification->stock_notification())) {
+                                  echo ' You have 0 notification';
+                                } else {
+                                  echo ' You have ' . count($notification->stock_notification()) . ' notification';
+                                }
+                                ?></li>
             <li>
               <!-- inner menu: contains the actual data -->
               <ul class="menu">

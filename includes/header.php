@@ -1,18 +1,16 @@
 <!-- Developed by: ERIC PAUL JAUCIAN -->
 <?php
-include '../../app/database.php';
-include '../../app/dashboard.php';
-include '../../app/inventory.php';
+// include '../../app/database.php';
+// include '../../app/dashboard.php';
+// include '../../app/inventory.php';
 include '../../app/notification.php';
-include '../../app/purchase.php';
-$db = new Database();
-$dbconnection = $db->database_connect();
-$dashboard = new Dashboard($dbconnection);
-$inventory = new Inventory($dbconnection);
-$notification = new Notification($dbconnection);
-$purchase = new Purchase($dbconnection);
-$productstmt = $inventory->display_inventory();
-
+// include '../../app/purchase.php';
+// $db = new Database();
+// $dbconnection = $db->database_connect();
+// $dashboard = new Dashboard($dbconnection);
+// $inventory = new Inventory($dbconnection);
+$notification = new Notification();
+// $purchase = new Purchase($dbconnection);
 // $purchasestmt = $purchase->display_purchase();
 // if(!isset($_SESSION["access"])){
 //   header('location:../login.php');

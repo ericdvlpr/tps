@@ -1,6 +1,9 @@
 <?php require '../../includes/header.php'; ?>
 <section class="content">
-
+    <div class="alert alert-success alert-dismissible " id="alert-msg" role="alert" style="display: none;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 id="msg"></h3>
+    </div>
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">
@@ -11,32 +14,19 @@
             </button>
         </div>
         <div class="box-body">
-            <table id="employee_data" class="table table-bordered table-striped">
+            <table id="inventory_data" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th width="14%">#</th>
+                        <th width="14%">Serial No</th>
                         <th width="14%">Product Name</th>
                         <th width="14%">Description</th>
                         <th width="14%">Quantity</th>
                         <th width="14%">Category</th>
+                        <th width="14%">Command</th>
 
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    foreach ($productstmt->fetchAll(PDO::FETCH_CLASS) as $products) {
-                        echo "<tr>
-                                <td width='14%'>" . $products->serial_no . "</td>
-                                <td width='14%'>" . $products->productname . "</td>
-                                <td width='14%'>" . $products->description . "</td>
-                                <td width='14%'>" . $products->quantity . "</td>
-                                <td width='14%'>" . $products->category . "</td>
 
-
-                            </tr>";
-                    }
-                    ?>
-                </tbody>
             </table>
         </div>
     </div>
@@ -56,38 +46,39 @@
                             <label for="inputEmail3" class="col-sm-3 text-left control-label">Product Name</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Product Name">
+                                <input type="text" class="form-control" name="product_name" id="product_name" placeholder="Product Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-3 text-left control-label">Description</label>
 
                             <div class="col-sm-9">
-                                <textarea name="desc" class="form-control" placeholder="Description" id="desc" cols="20" rows="5"></textarea>
+                                <textarea class="form-control" name="product_description" id="product_description" placeholder="Description" id="desc" cols="20" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-3 text-left control-label">Initial Quantity</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Initial Quantity">
+                                <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Initial Quantity">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-3 text-left control-label">Category</label>
 
                             <div class="col-sm-9">
-                                <select class="form-control" id="category" required>
+                                <select class="form-control" name="category" id="category" required>
 
                                 </select>
                             </div>
                         </div>
                     </div>
-
+                    <input type="hidden" name="action" id="action" value="add">
+                    <input type="hidden" name="id" id="id">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary" id="productbtn">Save</button>
                 </div>
             </form>
         </div>

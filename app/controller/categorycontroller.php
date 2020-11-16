@@ -1,13 +1,10 @@
 <?php
 include_once '../category.php';
-include '../../app/database.php';
-
-if (isset($_POST['action'])) {
+$category = new Category();
+if (isset($_POST['action']) == 'category') {
     $output = '';
-    $db = new Database();
-    $dbconnection = $db->database_connect();
-    $category = new Category($dbconnection);
-    $categorystmt = $category->display_category();
+    $sql = "SELECT * FROM category";
+    $categorystmt = $category->display_category($sql);
     $result = $categorystmt->fetchAll();
     $output .= "<option value=''>Please Select </option> ";
     foreach ($result as $row) {

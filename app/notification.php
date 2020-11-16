@@ -1,26 +1,23 @@
 <?php
-
-class Notification
+include  'database.php';
+class Notification extends Database
 {
-    private $database_connect;
+    // private $database_connect;
     public $notification = array();
-    public function __construct($db)
-    {
-        $this->database_connect = $db;
-    }
+    // public function __construct($db)
+    // {
+    //     $this->database_connect = $db;
+    // }
 
     public function stock_notification()
     {
-        $sql = "SELECT * FROM inventory";
-        $stmt = $this->database_connect->query($sql);
-        $stmt->execute();
-        foreach ($stmt->fetchAll(PDO::FETCH_CLASS) as $products) {
-            if ($products->quantity < 1) {
-                $notification = ([
-                    "inventory" => $products->name . " has low quantity"
-                ]);
-            }
-        }
-        return $notification;
+        // $sql = "SELECT * FROM inventory WHERE quantity = 0";
+        // $stmt = $this->database_connect()->query($sql);
+        // $stmt->execute();
+        // $inventoryCount = $stmt->rowCount();
+        // $notification = ([
+        //     "inventory" => $products->name . " has low" . $products->quantity
+        // ]);
+        // return $notification;
     }
 }

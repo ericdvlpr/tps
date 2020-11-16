@@ -159,7 +159,7 @@
                     <br />
                     <div class="form-group">
                         <label>Enter Product Details</label>
-                        <table class='table table-stripped'>
+                        <table class='table table-stripped' id="purchaseTable">
                             <thead>
                                 <td>
                                     Item #
@@ -178,8 +178,6 @@
                                 </td>
                             </thead>
                             <tbody>
-                                <hr />
-                                <span id="span_product_details"></span>
                                 <hr />
                             </tbody>
                         </table>
