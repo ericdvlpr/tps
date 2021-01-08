@@ -21,8 +21,7 @@ var inventoryTable = $('#inventory_data').DataTable({
    "data": {
       "action": 'load'
     }
-  },
-
+  }
 });
 
 
@@ -43,7 +42,7 @@ var inventoryTable = $('#inventory_data').DataTable({
   $('#addPO').on('click',function() {
     $('#orderModal').modal('show');
     $('#order_form')[0].reset();
-    $('.modal-title').html("<i class='fa fa-plus'></i> Create Order");
+    $('.modal-title').html("<i class='fa fa-plus'></i>Create Purchase Order");
     $('#action').val('Add');
     $('#btn_action').val('Add');
     $('#span_product_details').html('');

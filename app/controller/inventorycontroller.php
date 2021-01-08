@@ -94,7 +94,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'update') {
         echo 'Product Update';
     }
 }
-if (isset($_POST['action']) == 'loadlist') {
+if (isset($_POST['action']) && $_POST['action'] == 'loadlist') {
     $output = '';
     $sql = "SELECT id,name FROM inventory";
     $inventorystmt = $inventory->display_inventory($sql);

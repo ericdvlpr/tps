@@ -40,7 +40,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> PURCHASE ORDER</h4>
+                    <h4 class="modal-title"></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -73,6 +73,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h3>Vendor</h3>
+                            <br />
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-xs-4 control-label">Company Name</label>
                                 <div class="col-xs-8">
@@ -89,23 +90,12 @@
                                 <label for="inputEmail3" class="col-xs-4 control-label">Address</label>
                                 <div class="col-xs-8">
                                     <textarea name="address" class="form-control" id="address" cols="30" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-xs-4 control-label">Phone</label>
-                                <div class="col-xs-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Phone: (000) 000-0000">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-xs-4 control-label">Fax</label>
-                                <div class="col-xs-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Fax: (000) 000-0000">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <h3>Ship to</h3>
+                            <br />
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-xs-4 control-label">Company Name</label>
                                 <div class="col-xs-8">
@@ -122,18 +112,6 @@
                                 <label for="inputEmail3" class="col-xs-4 control-label">Address</label>
                                 <div class="col-xs-8">
                                     <textarea name="address" class="form-control" id="address" cols="30" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-xs-4 control-label">Phone</label>
-                                <div class="col-xs-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Phone: (000) 000-0000">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-xs-4 control-label">Fax</label>
-                                <div class="col-xs-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Fax: (000) 000-0000">
                                 </div>
                             </div>
                         </div>
